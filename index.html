@@ -4,154 +4,160 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Iliad of Homer</title>
-  <meta name="description" content="The Iliad as an illustrated, interactive journey: eight animated scenes drawn like Greek vase paintings, a map of Troy, character profiles, and cited excerpts.">
-  <meta name="theme-color" content="#160b10">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23160b10' stroke='%23c9a24a' stroke-width='3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23e3c77f'%3EΙ%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="The Iliad as an illustrated scroll story: ten chapters drawn like Greek vase paintings, from the golden apple to the fall of Troy, with character profiles, cited excerpts and infographics.">
+  <meta name="theme-color" content="#0b0806">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b0806' stroke='%23e3c07a' stroke-width='3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23e3c07a'%3EΙ%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/art.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-screen="intro">
-  <svg id="sharedDefs" width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
-
-  <!-- a parchment leaf that sweeps across between views -->
-  <div id="turn" aria-hidden="true"></div>
+<body class="locked">
+  <svg id="sharedDefs" width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldFig" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff2bf"/><stop offset=".45" stop-color="#e9bd55"/><stop offset="1" stop-color="#a66f1c"/>
+      </linearGradient>
+    </defs>
+  </svg>
 
   <!-- ============================================================ -->
-  <!-- The book: the only "book" moment. It opens, and you step in. -->
+  <!-- The invocation: the first thing you see                      -->
   <!-- ============================================================ -->
-  <main id="intro" class="screen">
-    <div class="intro-glow" aria-hidden="true"></div>
-    <div class="intro-book">
-      <div class="ib-page">
-        <div class="ib-inner">
-          <div id="proemFig" class="proem-fig" aria-hidden="true"></div>
-          <p class="proem-kicker">Book I · Line 1</p>
-          <blockquote class="proem">
-            <p>“Sing, O goddess, the anger of Achilles son of Peleus, that brought countless ills upon the Achaeans.”</p>
-            <cite><span class="cite-ref">Iliad 1.1–2</span> <span class="cite-src">tr. Samuel Butler, rev. Power &amp; Nagy</span></cite>
-          </blockquote>
-          <p class="proem-lead">Troy has been under siege for nine years. Step inside the story: eight scenes, each one yours to explore.</p>
-          <button id="enterTroy" class="btn-gold" type="button">Enter Troy <span aria-hidden="true">›</span></button>
-        </div>
+  <section id="invocation" class="invocation" aria-labelledby="invTitle">
+    <div class="inv-dust" aria-hidden="true"></div>
+    <div class="inv-inner">
+      <p class="inv-kicker">Homer · The Iliad · Book I, line 1</p>
+      <p class="inv-greek" lang="grc" id="invTitle">μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος</p>
+      <blockquote class="inv-english">
+        <p id="invLine">“Sing, O goddess, the anger of Achilles son of Peleus, that brought countless ills upon the Achaeans.”</p>
+        <cite><span class="cite-ref">Iliad 1.1–2</span> <span class="cite-src">tr. Samuel Butler, rev. Power &amp; Nagy</span></cite>
+      </blockquote>
+      <div class="inv-actions">
+        <button type="button" class="btn-gold" data-enter="sound"><span class="ico-snd" aria-hidden="true"></span>Enter with sound</button>
+        <button type="button" class="btn-ghost" data-enter="silent">Enter in silence</button>
       </div>
-      <button id="openBook" class="ib-cover" type="button" aria-label="Open the book">
-        <span class="cover-frame">
-          <span class="cover-band" aria-hidden="true"></span>
-          <span class="cover-kicker">Homer</span>
-          <span class="cover-title">The Iliad</span>
-          <span class="cover-greek" lang="grc">ΙΛΙΑΣ</span>
-          <svg class="cover-medal" viewBox="-60 -60 120 120" aria-hidden="true">
-            <circle r="56" class="cm-ring"/>
-            <circle r="46" class="cm-disc"/>
-            <path class="cm-helm" d="M-14 18 Q-20 -18 2 -22 Q22 -20 23 -2 L24 10 L16 10 L15 5 Q10 2 4 5 L4 18 L11 22 L11 32 Q-2 36 -10 30 Q-16 24 -14 18 Z"/>
-            <path class="cm-crest" d="M-28 -2 Q-22 -50 12 -44 Q32 -40 26 -18 Q16 -36 -2 -32 Q-18 -28 -28 -2 Z"/>
-          </svg>
-          <span class="cover-sub">The Wrath of Achilles</span>
-          <span class="cover-band" aria-hidden="true"></span>
-          <span class="cover-tap">Tap to open</span>
-        </span>
-      </button>
+      <p class="inv-meta">Ten illustrated chapters · about 20 minutes · scroll to read</p>
     </div>
-  </main>
+  </section>
 
   <!-- ============================================================ -->
-  <!-- The map of the Troad: where you choose a scene               -->
+  <!-- The top bar and the chapter rail                              -->
   <!-- ============================================================ -->
-  <main id="hub" class="screen" hidden>
-    <header class="hub-head">
-      <p class="hub-kicker">The Plain of Troy</p>
-      <h1 class="hub-title">The Iliad</h1>
-      <p class="hub-sub">Touch a medallion to enter a scene.</p>
-    </header>
-    <div class="map-wrap">
-      <svg id="map" viewBox="0 0 600 720" role="group" aria-label="Map of the Troad with the eight scenes"></svg>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="The Iliad, back to the top">
+      <span class="brand-mark" aria-hidden="true">Ι</span><span class="brand-name">The Iliad</span>
+    </a>
+    <p id="nowLabel" class="now-label" aria-live="polite"></p>
+    <div class="bar-tools">
+      <button type="button" class="icon-btn snd on" aria-pressed="true" aria-label="Sound effects"><span class="ico-snd" aria-hidden="true"></span></button>
+      <button type="button" class="icon-btn mus" aria-pressed="false" aria-label="Lyre music"><span class="ico-mus" aria-hidden="true"></span></button>
+      <button type="button" class="menu-btn" data-menu="chapters" aria-haspopup="dialog"><span class="burger" aria-hidden="true"></span><span class="menu-word">Menu</span></button>
     </div>
-    <footer class="hub-foot">
-      <button id="hubNext" class="btn-gold" type="button" data-episode="0">Begin the story</button>
-      <p id="hubCount" class="hub-count">0 of 8 scrolls read</p>
-      <nav class="hub-tools" aria-label="More">
-        <button type="button" class="tool" data-open="gallery">Heroes &amp; Gods</button>
-        <button type="button" class="tool" data-open="about">Sources</button>
-        <button type="button" class="tool snd on" aria-pressed="true" aria-label="Sound effects"><span class="ico-snd" aria-hidden="true"></span>Sound</button>
-        <button type="button" class="tool mus" aria-pressed="false" aria-label="Lyre music"><span class="ico-mus" aria-hidden="true"></span>Lyre</button>
-      </nav>
+    <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  </header>
+  <nav id="rail" class="rail" aria-label="Chapters"></nav>
+
+  <main id="story">
+    <!-- the title -->
+    <section id="top" class="hero">
+      <svg id="heroSvg" class="hero-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="hero-kicker">An illustrated telling of Homer’s epic</p>
+        <h1 class="hero-title">The Iliad</h1>
+        <p class="hero-greek" lang="grc">ΙΛΙΑΣ</p>
+        <p class="hero-dek">Nine years into the siege of Troy, one man’s anger sets gods and armies in motion. Scroll, and the story plays out in pictures drawn like the vases the Greeks painted.</p>
+        <ul class="hero-how">
+          <li><span class="how-ico scroll" aria-hidden="true"></span>Scroll to move each scene</li>
+          <li><span class="how-ico ring" aria-hidden="true"></span>Touch the glowing rings</li>
+          <li><span class="how-ico name" aria-hidden="true"></span>Tap a name or figure for a profile</li>
+        </ul>
+        <a class="scroll-cue" href="#ch-0"><span>Begin</span><i aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <div id="chapters"></div>
+
+    <!-- the infographics -->
+    <section id="numbers" class="numbers" aria-labelledby="numbersTitle">
+      <header class="num-head">
+        <p class="kicker">Infographics</p>
+        <h2 id="numbersTitle">The Iliad in numbers</h2>
+        <p class="num-dek">The poem behind the pictures: how long it is, who sailed, who fought for whom, and how few days it covers.</p>
+      </header>
+      <div id="bento" class="bento"></div>
+    </section>
+
+    <footer class="site-foot">
+      <div class="foot-inner">
+        <p class="foot-mark" aria-hidden="true">Ι</p>
+        <p class="foot-line">“Thus, then, did they celebrate the funeral of Hektor tamer of horses.”</p>
+        <p class="foot-cite">Iliad 24.804, the last line of the poem</p>
+        <div class="foot-actions">
+          <a class="btn-gold small" href="#ch-0">Start again</a>
+          <button type="button" class="btn-ghost small" data-menu="sources">Sources &amp; credits</button>
+        </div>
+        <p class="foot-legal">Quotations from Homer, <em>The Iliad</em>, translated by Samuel Butler, revised by Timothy Power and Gregory Nagy, Perseus Digital Library, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Illustrations drawn in code.</p>
+      </div>
     </footer>
   </main>
 
   <!-- ============================================================ -->
-  <!-- A scene: the stage fills the screen                          -->
+  <!-- The menu: chapters, cast, map, sources                        -->
   <!-- ============================================================ -->
-  <main id="scene" class="screen" hidden>
-    <div id="stage">
-      <svg id="sceneSvg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Scene illustration"></svg>
-      <div id="note" class="note" role="status" hidden></div>
+  <div id="menu" class="menu" hidden role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="menu-inner">
+      <header class="menu-head">
+        <div class="tabs" role="tablist">
+          <button type="button" role="tab" data-tab="chapters">Chapters</button>
+          <button type="button" role="tab" data-tab="cast">Heroes &amp; Gods</button>
+          <button type="button" role="tab" data-tab="map">Map</button>
+          <button type="button" role="tab" data-tab="sources">Sources</button>
+        </div>
+        <button type="button" class="close" data-close aria-label="Close menu">×</button>
+      </header>
+      <div class="menu-body">
+        <section class="tab-pane" data-pane="chapters">
+          <p id="readCount" class="read-count"></p>
+          <ol id="chapterList" class="chapter-list"></ol>
+        </section>
+        <section class="tab-pane" data-pane="cast" hidden>
+          <div id="galleryGrid" class="gallery"></div>
+        </section>
+        <section class="tab-pane" data-pane="map" hidden>
+          <div class="map-wrap">
+            <svg id="map" viewBox="0 0 600 720" role="group" aria-label="Map of the Troad with the eight books"></svg>
+            <div class="map-note">
+              <p class="kicker">The Troad</p>
+              <h3>The plain of Troy</h3>
+              <p>The Achaean ships lie along the shore of the Hellespont. The city of Ilion stands on its hill between the rivers Scamander and Simois, with Mount Ida behind. Touch a medallion to go to that book.</p>
+            </div>
+          </div>
+        </section>
+        <section class="tab-pane prose" data-pane="sources" hidden>
+          <h3>After the Iliad</h3>
+          <p>The Iliad ends with Hector’s funeral, not with the fall of Troy. The rest of the story was told in other poems, now mostly lost, which is where the prologue and the epilogue come from. The <em>Odyssey</em> follows Odysseus on his long voyage home.</p>
+          <h3>The text</h3>
+          <p>The chapters retell a condensed version of the story in plain modern English. Every quotation is taken word for word from Homer, <em>The Iliad</em>, translated by Samuel Butler (1898), revised by Timothy Power and Gregory Nagy, from the <a href="https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0012/tlg001/tlg0012.tlg001.perseus-eng4.xml" target="_blank" rel="noopener">Perseus Digital Library</a>, Tufts University, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Omissions are marked with an ellipsis, and each quotation gives its book and line numbers.</p>
+          <h3>The numbers</h3>
+          <p>Line counts and the ship count come from the <a href="https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0012/tlg001/tlg0012.tlg001.perseus-grc2.xml" target="_blank" rel="noopener">Greek text in the Perseus Digital Library</a>. The day count follows the usual reckoning of the poem’s timeline; the spans it shows are stated in the poem itself.</p>
+          <h3>The pictures</h3>
+          <p>All the illustrations are drawn in code, in the manner of Greek vase painting: black figures on clay for scenes by day, clay-red figures on black for scenes by night, and the gods in gold. Sounds are made in the browser.</p>
+        </section>
+      </div>
     </div>
-    <header class="scene-bar">
-      <button id="toMap" class="icon-btn" type="button" aria-label="Back to the map"><span aria-hidden="true">‹</span><em>Map</em></button>
-      <div class="scene-id">
-        <p id="sceneBook" class="scene-book">Book I</p>
-        <h1 id="sceneTitle" class="scene-title"></h1>
-      </div>
-      <div class="bar-tools">
-        <button type="button" class="icon-btn" data-open="gallery" aria-label="Heroes and gods"><span class="ico-people" aria-hidden="true"></span></button>
-        <button type="button" class="icon-btn snd on" aria-pressed="true" aria-label="Sound effects"><span class="ico-snd" aria-hidden="true"></span></button>
-        <button type="button" class="icon-btn mus" aria-pressed="false" aria-label="Lyre music"><span class="ico-mus" aria-hidden="true"></span></button>
-      </div>
-    </header>
-    <section id="panel" class="panel" aria-live="polite">
-      <div id="panelBody" class="panel-body">
-        <p id="narration" class="narration"></p>
-        <blockquote id="quote" class="quote" hidden></blockquote>
-        <p id="tapHint" class="tap-hint" hidden><span class="tap-dot" aria-hidden="true"></span><span id="tapLabel"></span></p>
-      </div>
-      <div class="panel-nav">
-        <button id="backBtn" class="nav-btn" type="button" aria-label="Previous moment">‹</button>
-        <div id="dots" class="dots" aria-hidden="true"></div>
-        <button id="nextBtn" class="nav-btn next" type="button"><span>Continue</span> ›</button>
-      </div>
-    </section>
-  </main>
+  </div>
 
-  <!-- ============================================================ -->
-  <!-- Overlays                                                     -->
-  <!-- ============================================================ -->
-  <div id="profile" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="profileName">
-    <div class="backdrop" data-close></div>
-    <div class="sheet">
+  <!-- a character profile slides in from the side -->
+  <aside id="drawer" class="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="profileName">
+    <div class="drawer-backdrop" data-close></div>
+    <div class="drawer-sheet">
       <button type="button" class="close" data-close aria-label="Close">×</button>
       <div id="profileBody"></div>
     </div>
-  </div>
-
-  <div id="gallery" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
-    <div class="backdrop" data-close></div>
-    <div class="sheet wide">
-      <button type="button" class="close" data-close aria-label="Close">×</button>
-      <p class="sheet-kicker">Dramatis personae</p>
-      <h2 id="galleryTitle" class="sheet-title">Heroes &amp; Gods</h2>
-      <div id="galleryGrid" class="gallery"></div>
-    </div>
-  </div>
-
-  <div id="about" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
-    <div class="backdrop" data-close></div>
-    <div class="sheet">
-      <button type="button" class="close" data-close aria-label="Close">×</button>
-      <p class="sheet-kicker">Afterword</p>
-      <h2 id="aboutTitle" class="sheet-title">After the Iliad</h2>
-      <div class="prose">
-        <p>The Iliad ends with Hector’s funeral, not with the fall of Troy. The rest of the story was told in other poems, now mostly lost. Achilles dies soon after, shot by Paris with the help of Apollo, just as Hector foretold. Troy falls to the trick of the wooden horse, devised by Odysseus, whose long voyage home is the subject of the <em>Odyssey</em>.</p>
-        <p>What the Iliad gives us is a few weeks in the tenth year of the war, and one man’s anger, from its first spark to its last ember in a tent at night, where two enemies weep together.</p>
-        <h3>The text</h3>
-        <p>The scenes retell a condensed version of the story in plain modern English. Every quotation is taken word for word from Homer, <em>The Iliad</em>, translated by Samuel Butler (1898), revised by Timothy Power and Gregory Nagy, from the <a href="https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0012/tlg001/tlg0012.tlg001.perseus-eng4.xml" target="_blank" rel="noopener">Perseus Digital Library</a>, Tufts University, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Omissions are marked with an ellipsis, and each quotation gives its book and line numbers.</p>
-        <h3>The pictures</h3>
-        <p>All the illustrations are drawn in code, in the manner of Greek vase painting: black figures on clay for scenes by day, clay-red figures on black for scenes by night. Sounds are made in the browser.</p>
-      </div>
-      <button type="button" class="btn-gold small" data-close>Back to the map</button>
-    </div>
-  </div>
+  </aside>
 
   <div id="popover" class="popover" hidden role="tooltip"></div>
 
@@ -159,6 +165,7 @@
   <script src="js/art.js"></script>
   <script src="js/scenes.js"></script>
   <script src="js/audio.js"></script>
+  <script src="js/numbers.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

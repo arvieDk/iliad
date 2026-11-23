@@ -84,7 +84,7 @@ ILIAD.art = (function () {
    */
   function figure(parent, spec, x = 0, y = 0, opts = {}) {
     const id = "f" + uid++;
-    const root = g({ class: "fig " + (spec.cls || ""), "data-fig": spec.name || "" }, parent);
+    const root = g({ class: "fig " + (spec.cls || "") + (spec.halo ? " god" : ""), "data-fig": spec.name || "" }, parent);
     if (spec.char) {
       root.setAttribute("data-char", spec.char);
       root.setAttribute("tabindex", "0");
@@ -98,7 +98,7 @@ ILIAD.art = (function () {
     const skinCls = spec.skin === "white" ? "skin-w" : "skin";
 
     // aura for gods, drawn behind everything
-    if (spec.halo) el("circle", { cx: 0, cy: -150, r: 95, class: "aura", fill: `url(#aura)` }, root);
+    if (spec.halo) el("circle", { cx: 0, cy: -140, r: 120, class: "aura", fill: `url(#aura)` }, root);
 
     const body = joint(root, 0, -95, "body");
     // far leg and far arm sit behind the torso
@@ -141,11 +141,15 @@ ILIAD.art = (function () {
       path("M-17 14 L-15 22 M-9 15 L-8 25 M-1 16 L-1 26 M7 15 L8 25 M14 14 L17 22", { class: "inc" }, torso);
       path("M-14 2 L-17 -60 Q-6 -70 6 -68 Q20 -64 20 -48 Q22 -30 15 -14 L14 2 Z", { class: "fill" }, torso);
       path("M-12 -4 Q0 0 13 -4 M-11 -18 Q2 -14 15 -18 M4 -60 Q14 -54 14 -42", { class: "inc" }, torso);
+      for (let i = 0; i < 5; i++) el("circle", { cx: -9 + i * 5.5, cy: -11, r: 1.3, class: "inc-dot" }, torso);
+      if (spec.cloak !== false) path("M-16 -62 Q-30 -40 -28 -6 Q-22 -2 -18 -8 Q-20 -36 -12 -58 Z", { class: "fill cloak" }, torso);
     } else if (k === "woman" || k === "robed") {
       // a long chiton to the ankles with a patterned hem; covers the legs
       const robe = g({ class: "robe" }, torso);
       path("M-16 -64 Q-2 -70 14 -64 Q22 -40 18 -10 Q30 40 34 92 L-30 92 Q-26 40 -18 -10 Q-22 -40 -16 -64 Z", { class: "fill" }, robe);
       path("M-28 80 L32 80 M-27 86 L33 86", { class: "inc" }, robe);
+      for (let i = 0; i < 9; i++) el("circle", { cx: -24 + i * 7, cy: 83, r: 1.5, class: "inc-dot" }, robe);
+      path("M-12 -60 Q0 -56 12 -60", { class: "inc" }, robe);
       path("M-20 0 Q-16 46 -14 78 M-6 0 Q-4 40 -2 78 M8 0 Q10 40 14 78", { class: "inc faint" }, robe);
       if (k === "woman") path("M-20 -10 Q0 -2 20 -10", { class: "inc" }, robe);
       if (spec.himation) path("M-17 -60 Q10 -40 20 -6 Q0 10 -18 0 Z", { class: "fill" }, robe), path("M-14 -54 Q6 -36 16 -8", { class: "inc" }, robe);
@@ -313,14 +317,14 @@ ILIAD.art = (function () {
   function defs(svg) {
     const d = el("defs", {}, svg);
     d.innerHTML = `
-      <radialGradient id="aura"><stop offset="0" stop-color="var(--aura)" stop-opacity=".75"/><stop offset="1" stop-color="var(--aura)" stop-opacity="0"/></radialGradient>
+      <radialGradient id="aura"><stop offset="0" class="st-aura" stop-opacity=".75"/><stop offset="1" class="st-aura" stop-opacity="0"/></radialGradient>
       <radialGradient id="glow"><stop offset="0" stop-color="#ffd37a" stop-opacity=".9"/><stop offset=".4" stop-color="#ff9a3c" stop-opacity=".45"/><stop offset="1" stop-color="#ff7a2a" stop-opacity="0"/></radialGradient>
-      <linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--sky-top)"/><stop offset="1" stop-color="var(--sky-bot)"/></linearGradient>
+      <linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1"><stop offset=".25" class="st-sky-top"/><stop offset=".75" class="st-sky-bot"/></linearGradient>
       <pattern id="meanderPat" width="40" height="20" patternUnits="userSpaceOnUse">
-        <path d="M0 18 H6 V2 H18 V14 H10 V6 H14 V10 M20 18 H26 V2 H38 V14 H30 V6 H34 V10 M18 14 V18 H40" fill="none" stroke="var(--band-line)" stroke-width="2.4"/>
+        <path class="pat-meander" d="M0 18 H6 V2 H18 V14 H10 V6 H14 V10 M20 18 H26 V2 H38 V14 H30 V6 H34 V10 M18 14 V18 H40" fill="none" stroke-width="2.4"/>
       </pattern>
       <pattern id="wavePat" width="60" height="30" patternUnits="userSpaceOnUse">
-        <path d="M0 22 Q8 22 12 14 Q16 6 24 8 Q30 10 28 16 Q26 20 22 18 Q30 26 44 22 Q52 20 60 22" fill="none" stroke="var(--wave)" stroke-width="2.6"/>
+        <path class="pat-wave" d="M0 22 Q8 22 12 14 Q16 6 24 8 Q30 10 28 16 Q26 20 22 18 Q30 26 44 22 Q52 20 60 22" fill="none" stroke-width="2.6"/>
       </pattern>
       <filter id="blur6"><feGaussianBlur stdDeviation="6"/></filter>
       <filter id="blur18" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
@@ -335,7 +339,7 @@ ILIAD.art = (function () {
 
   function sky(p, mode, w = 1600, h = 900) {
     const s = g({ class: "sky" }, p);
-    el("rect", { x: -400, y: -200, width: w + 800, height: h + 400, fill: "url(#skyDay)" }, s);
+    el("rect", { x: -600, y: -600, width: w + 1200, height: h + 1400, fill: "url(#skyDay)" }, s);
     if (mode === "night") {
       const st = g({ class: "stars" }, s);
       for (let i = 0; i < 90; i++) {
@@ -371,12 +375,12 @@ ILIAD.art = (function () {
   }
 
   function hills(p, y, amp, cls, seed = 1, w = 1600) {
-    let d = `M-400 ${y + 300} L-400 ${y}`;
-    for (let x = -400; x <= w + 400; x += 160) {
+    let d = `M-600 ${y + 300} L-600 ${y}`;
+    for (let x = -600; x <= w + 600; x += 160) {
       const yy = y - amp * (0.5 + 0.5 * Math.sin(x * 0.006 * seed + seed));
       d += ` Q${x + 80} ${yy - amp * 0.3} ${x + 160} ${yy}`;
     }
-    d += ` L${w + 400} ${y + 300} Z`;
+    d += ` L${w + 760} ${y + 300} Z`;
     return path(d, { class: cls }, p);
   }
 
@@ -389,17 +393,17 @@ ILIAD.art = (function () {
 
   function sea(p, y, h = 260, w = 1600) {
     const s = g({ class: "sea" }, p);
-    el("rect", { x: -400, y, width: w + 800, height: h, class: "sea-body" }, s);
+    el("rect", { x: -600, y, width: w + 1200, height: h, class: "sea-body" }, s);
     for (let i = 0; i < 4; i++) {
       const band = g({ class: "waves", style: { animationDuration: 14 + i * 5 + "s", animationDirection: i % 2 ? "reverse" : "normal" } }, s);
-      el("rect", { x: -460, y: y + 10 + i * (h / 4.4), width: w + 920, height: 30, fill: "url(#wavePat)", opacity: 0.5 + i * 0.12 }, band);
+      el("rect", { x: -660, y: y + 10 + i * (h / 4.4), width: w + 1320, height: 30, fill: "url(#wavePat)", opacity: 0.5 + i * 0.12 }, band);
     }
     return s;
   }
 
   function ground(p, y, cls = "ground", w = 1600) {
     const gr = g({ class: "ground-g" }, p);
-    path(`M-400 ${y + 6} Q${w * 0.25} ${y - 10} ${w * 0.5} ${y} T${w + 400} ${y} L${w + 400} ${y + 400} L-400 ${y + 400} Z`, { class: cls }, gr);
+    path(`M-600 ${y + 6} Q${w * 0.25} ${y - 10} ${w * 0.5} ${y} T${w + 600} ${y} L${w + 600} ${y + 1000} L-600 ${y + 1000} Z`, { class: cls }, gr);
     return gr;
   }
 
@@ -580,12 +584,40 @@ ILIAD.art = (function () {
   // the decorated band that frames a scene, like the frieze of a vase
   function frieze(p, y, w = 1600, h = 22) {
     const f = g({ class: "frieze" }, p);
-    el("rect", { x: -400, y, width: w + 800, height: h, class: "band" }, f);
-    el("rect", { x: -400, y: y + 2, width: w + 800, height: h - 4, fill: "url(#meanderPat)" }, f);
+    el("rect", { x: -600, y, width: w + 1200, height: h, class: "band" }, f);
+    el("rect", { x: -600, y: y + 2, width: w + 1200, height: h - 4, fill: "url(#meanderPat)" }, f);
+    return f;
+  }
+
+  // the wooden horse on its wheeled platform
+  function woodHorse(p, x, y, s = 1) {
+    const w = g({ class: "wood-horse", transform: `translate(${x} ${y}) scale(${s})` }, p);
+    path("M-120 -20 L130 -20 L120 0 L-110 0 Z", { class: "wood" }, w);
+    [-80, 0, 80].forEach((cx) => { el("circle", { cx, cy: 4, r: 16, class: "wheel" }, w); path(`M${cx - 16} 4 L${cx + 16} 4 M${cx} -12 L${cx} 20`, { class: "wheel-spoke" }, w); });
+    const h = g({ transform: "translate(0 -20) scale(1.9)" }, w);
+    path("M-70 -70 Q-40 -86 20 -80 Q40 -100 52 -128 Q58 -140 70 -136 L84 -118 Q90 -110 82 -106 L66 -112 Q60 -92 50 -70 Q46 -50 40 -40 L44 0 L36 0 L32 -36 Q0 -40 -40 -40 L-44 0 L-52 0 L-54 -44 Q-72 -46 -76 -60 Q-96 -54 -100 -30 Q-94 -60 -70 -70 Z", { class: "wood" }, h);
+    path("M-60 -62 L40 -66 M-56 -52 L40 -54 M-50 -44 L36 -44 M-20 -72 L-22 -40 M10 -76 L8 -40 M30 -86 L56 -126", { class: "wood-line" }, h);
+    path("M-30 -58 h20 v10 h-20 Z", { class: "wood-door" }, h);
+    el("circle", { cx: 70, cy: -124, r: 2.6, class: "wood-line-dot" }, h);
+    return w;
+  }
+
+  function apple(p, x, y, r = 9) {
+    const a = g({ class: "apple", transform: `translate(${x} ${y})` }, p);
+    el("circle", { r, class: "gold" }, a);
+    path(`M0 ${-r} q2 -6 7 -7 q-2 5 -7 7`, { class: "gold" }, a);
+    return a;
+  }
+
+  // a fleet of galleys in rows, for the sailing of the thousand ships
+  function fleet(p, x, y, rows = 3, cols = 7, s = 0.32) {
+    const f = g({ class: "fleet", transform: `translate(${x} ${y})` }, p);
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) ship(f, c * 150 + (r % 2) * 70, r * 46, s * (0.8 + r * 0.12), 1, { sail: true });
     return f;
   }
 
   return {
+    woodHorse, apple, fleet,
     el, g, path, joint, setJoint, figure, POSES, emblem,
     defs, sky, sun, moon, clouds, hills, mountain, sea, ground, ship, tent, walls,
     fire, pyre, column, figtree, scales, horse, wagon, anvil, arrows, sparks, dust, mist, hint, frieze

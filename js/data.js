@@ -8,7 +8,7 @@ window.ILIAD = window.ILIAD || {};
 /* ------------------------------------------------------------------ *
  * Dramatis personae
  * side: "achaean" | "trojan" | "olympian"
- * moments: chapter numbers link to chapter openers in the book
+ * moments: chapter numbers, 1 to 8, for the eight books told here
  * ------------------------------------------------------------------ */
 ILIAD.characters = {
   achilles: {
@@ -361,7 +361,8 @@ ILIAD.glossary = {
   euphorbos: ["Euphorbos", "A young Trojan spearman, the first mortal to wound Patroclus."],
   automedon: ["Automedon", "The charioteer of Achilles."],
   antilochus: ["Antilochus", "The son of Nestor, who brings Achilles the news of Patroclus' death."],
-  greaves: ["Greaves", "Bronze shin guards worn by Homeric warriors."]
+  greaves: ["Greaves", "Bronze shin guards worn by Homeric warriors."],
+  odyssey: ["The Odyssey", "Homer’s other epic: the ten-year voyage of Odysseus home to Ithaca after the fall of Troy."]
 };
 
 /* ------------------------------------------------------------------ *
