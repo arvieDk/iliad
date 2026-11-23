@@ -2,6 +2,7 @@
  * Sound, synthesized in the browser with the Web Audio API (no audio files):
  *  - a papery page-turn rustle
  *  - an optional ambient lyre that plucks slowly over a soft drone
+ *  - small effects for the scenes: arrows, bronze, thunder, the anvil, fire
  */
 
 window.ILIAD = window.ILIAD || {};
@@ -103,7 +104,7 @@ ILIAD.audio = (function () {
     return ROOT * Math.pow(2, oct + SCALE[deg] / 12);
   }
 
-  function pluck(f, when, vel) {
+  function pluck(f, when, vel, out) {
     const c = ctx;
     const g = c.createGain();
     const lp = c.createBiquadFilter();
@@ -127,10 +128,122 @@ ILIAD.audio = (function () {
     g.gain.exponentialRampToValueAtTime(0.16 * vel, when + 0.008);
     g.gain.exponentialRampToValueAtTime(0.0001, when + 4);
     lp.connect(g);
-    g.connect(musicBus);
-    const wet = c.createGain();
-    wet.gain.value = 0.55;
-    g.connect(wet).connect(reverb);
+    g.connect(out || musicBus);
+    if (musicOn) {
+      const wet = c.createGain();
+      wet.gain.value = 0.55;
+      g.connect(wet).connect(reverb);
+    }
+  }
+
+  /* ---------- scene effects ---------- */
+  function noise(t, dur, { type = "bandpass", f0 = 1000, f1 = f0, q = 1, peak = 0.3, attack = 0.01, rate = 1 } = {}) {
+    const c = ctx;
+    const src = c.createBufferSource();
+    src.buffer = noiseBuf;
+    src.loop = true;
+    src.playbackRate.value = rate;
+    const fl = c.createBiquadFilter();
+    fl.type = type;
+    fl.Q.value = q;
+    fl.frequency.setValueAtTime(f0, t);
+    fl.frequency.exponentialRampToValueAtTime(Math.max(20, f1), t + dur);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(peak, t + attack);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    src.connect(fl).connect(g).connect(master);
+    src.start(t, Math.random() * 0.5);
+    src.stop(t + dur + 0.05);
+  }
+  function tone(t, f, dur, { type = "sine", peak = 0.2, f1 = f, attack = 0.005 } = {}) {
+    const c = ctx;
+    const o = c.createOscillator();
+    o.type = type;
+    o.frequency.setValueAtTime(f, t);
+    if (f1 !== f) o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(peak, t + attack);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(master);
+    o.start(t);
+    o.stop(t + dur + 0.05);
+  }
+  // struck bronze: a few inharmonic partials that ring and fade
+  function bell(t, f, peak, dur) {
+    [[1, 1], [2.76, 0.5], [5.4, 0.25], [8.9, 0.12]].forEach(([m, a]) => tone(t, f * m, dur / (1 + m * 0.3), { peak: peak * a, attack: 0.002 }));
+  }
+
+  const SFX = {
+    flip: () => flip(),
+    tick(t) { tone(t, 1900, 0.06, { type: "triangle", peak: 0.05 }); },
+    chime(t) { [0, 4, 7].forEach((s, i) => bell(t + i * 0.09, 880 * Math.pow(2, s / 12), 0.05, 1.8)); },
+    clang(t) { bell(t, 420 + Math.random() * 60, 0.16, 1.1); noise(t, 0.12, { f0: 3800, q: 2, peak: 0.25 }); },
+    anvil(t) { bell(t, 760 + Math.random() * 40, 0.18, 1.4); noise(t, 0.08, { f0: 5000, q: 1.5, peak: 0.3 }); },
+    arrows(t) {
+      for (let i = 0; i < 7; i++) noise(t + i * 0.13 + Math.random() * 0.06, 0.32, { f0: 5200, f1: 1600, q: 4, peak: 0.12, attack: 0.08 });
+    },
+    thunder(t) {
+      noise(t, 2.6, { type: "lowpass", f0: 700, f1: 60, q: 0.7, peak: 0.7, attack: 0.04, rate: 0.5 });
+      noise(t + 0.25, 1.8, { type: "lowpass", f0: 300, f1: 50, q: 0.5, peak: 0.5, attack: 0.2, rate: 0.4 });
+      tone(t, 55, 2, { peak: 0.25, f1: 32 });
+    },
+    fire(t) {
+      noise(t, 1.8, { type: "lowpass", f0: 900, f1: 500, peak: 0.12, attack: 0.4 });
+      for (let i = 0; i < 9; i++) noise(t + Math.random() * 1.5, 0.03, { f0: 2500 + Math.random() * 2000, q: 3, peak: 0.12 });
+    },
+    lament(t) {
+      // a falling, wailing line of voices
+      [[440, 392], [392, 330], [349, 294]].forEach(([a, b], i) => {
+        const o = ctx.createOscillator();
+        o.type = "sawtooth";
+        const st = t + i * 0.7;
+        o.frequency.setValueAtTime(a, st);
+        o.frequency.exponentialRampToValueAtTime(b, st + 1.1);
+        const vib = ctx.createOscillator();
+        vib.frequency.value = 5.5;
+        const vg = ctx.createGain();
+        vg.gain.value = 6;
+        vib.connect(vg).connect(o.frequency);
+        const lp = ctx.createBiquadFilter();
+        lp.type = "lowpass";
+        lp.frequency.value = 1100;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, st);
+        g.gain.exponentialRampToValueAtTime(0.05, st + 0.3);
+        g.gain.exponentialRampToValueAtTime(0.0001, st + 1.4);
+        o.connect(lp).connect(g).connect(master);
+        o.start(st); vib.start(st);
+        o.stop(st + 1.5); vib.stop(st + 1.5);
+      });
+    },
+    hooves(t) {
+      for (let i = 0; i < 8; i++) {
+        const st = t + i * 0.32 + (i % 2) * 0.1;
+        noise(st, 0.07, { type: "lowpass", f0: 600, q: 1, peak: 0.25 });
+        tone(st, 120, 0.08, { peak: 0.08, f1: 70 });
+      }
+    }
+  };
+
+  function sfx(name) {
+    const c = ensure();
+    if (!c || !SFX[name]) return;
+    SFX[name](c.currentTime + 0.01);
+  }
+
+  // a short arpeggio on the lyre, for the reader to play
+  function lyre() {
+    const c = ensure();
+    if (!c) return;
+    const out = c.createGain();
+    out.gain.value = 1.4;
+    out.connect(master);
+    const start = Math.floor(Math.random() * 3);
+    const t = c.currentTime + 0.02;
+    [0, 2, 4, 7].forEach((s, i) => pluck(freq(7 + start + s), t + i * 0.14, 0.8, out));
+    setTimeout(() => out.disconnect(), 5000);
   }
 
   let step = 7;
@@ -208,6 +321,8 @@ ILIAD.audio = (function () {
   return {
     unlock: ensure,
     flip,
+    sfx,
+    lyre,
     setMusic(on) { return on ? startMusic() : (stopMusic(), false); },
     get musicOn() { return musicOn; }
   };
