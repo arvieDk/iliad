@@ -1,0 +1,349 @@
+/* The Iliad: an illustrated, interactive telling
+ * The art: Greek vase painting. Scenes by day are black-figure (black figures,
+ * incised lines, on orange clay); scenes by night are red-figure (clay
+ * figures on black). The gods are drawn in gold.
+ */
+
+:root {
+  /* scene palette: black-figure by default */
+  --sky-top: #e59c58;
+  --sky-bot: #f6d39d;
+  --fig: #1b120e;
+  --inc: #e4a46d;
+  --red: #8e2b1c;
+  --skin-w: #f4e8d2;
+  --emblem: #f4e8d2;
+  --far: #d48c52;
+  --ground: #bf6c38;
+  --sea: #cd7f48;
+  --wave: #1b120e;
+  --wall: #ecc896;
+  --wall-line: #a8693c;
+  --gate: #6b3a22;
+  --tent: #8f3f22;
+  --stone: #efd7a8;
+  --band: #1b120e;
+  --band-line: #db8f55;
+  --aura: #fff1b8;
+  --gold: #f2c45a;
+  --sun: #fff3c8;
+  --moon: #f6e2b8;
+  --cloud: rgba(255, 241, 214, .55);
+  --snow: #fff4dc;
+  --star: #f6cf95;
+  --crest: #8e2b1c;
+  --dust: rgba(110, 62, 32, .55);
+  --mist: #fff0fa;
+  --stage-bg: #e8a868;
+}
+
+/* red-figure: clay figures on a black ground */
+[data-mode="night"] {
+  --sky-top: #090505;
+  --sky-bot: #2c1610;
+  --fig: #d27a43;
+  --inc: #1a0d09;
+  --red: #a33a22;
+  --skin-w: #ecb683;
+  --emblem: #1a0d09;
+  --far: #1e0f0b;
+  --ground: #140a07;
+  --sea: #110908;
+  --wave: #d27a43;
+  --wall: #3b2219;
+  --wall-line: #1a0d09;
+  --gate: #140a07;
+  --tent: #2c1711;
+  --stone: #3b2219;
+  --band: #d27a43;
+  --band-line: #1a0d09;
+  --aura: #ffd79a;
+  --crest: #a33a22;
+  --stage-bg: #0c0606;
+  --dust: rgba(210, 122, 67, .4);
+}
+
+/* gradients and patterns take their colors from the scene's palette */
+.st-aura { stop-color: var(--aura); }
+.st-sky-top { stop-color: var(--sky-top); }
+.st-sky-bot { stop-color: var(--sky-bot); }
+.pat-meander { stroke: var(--band-line); }
+.pat-wave { stroke: var(--wave); }
+
+/* ================================================================ *
+ * SVG scene art
+ * ================================================================ */
+
+.fill { fill: var(--fig); }
+.skin-w { fill: var(--skin-w); }
+.inc { fill: none; stroke: var(--inc); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.inc.faint { opacity: .5; }
+.inc.red { stroke: var(--red); stroke-width: 2.4; }
+.eye { fill: var(--inc); }
+.skin-w ~ .eye { fill: var(--fig); }
+[data-mode="night"] .skin-w ~ .eye { fill: var(--inc); }
+.crest { fill: var(--crest); }
+.hero-gold .crest { fill: var(--gold); }
+.king .crest { fill: #5c1d4a; }
+.trojan .crest { fill: var(--fig); }
+.trojan .helmet .inc { stroke: var(--gold); }
+.shaft { fill: none; stroke: var(--fig); stroke-width: 4; stroke-linecap: round; }
+.gold { fill: var(--gold); }
+.gold-stroke { fill: none; stroke: var(--gold); stroke-width: 4; stroke-linecap: round; }
+.gold-stroke.wide { stroke-width: 7; }
+.inc-ring { fill: none; stroke: var(--inc); stroke-width: 2; }
+.emblem { fill: var(--emblem); }
+.emblem-line { fill: none; stroke: var(--emblem); stroke-width: 3; stroke-linecap: round; }
+.emblem-line.wide { stroke-width: 5; }
+.aegis { fill: var(--red); }
+.gorgon { fill: var(--gold); }
+.inc.snake { stroke: var(--fig); stroke-width: 2; }
+.blade { fill: none; stroke: var(--fig); stroke-width: 3; }
+.bowline { fill: none; stroke: var(--fig); stroke-width: 4; stroke-linecap: round; }
+.string { fill: none; stroke: var(--inc); stroke-width: 1; }
+.lyre-frame { fill: none; stroke: var(--fig); stroke-width: 4; stroke-linecap: round; }
+.limb { stroke: none; }
+.hit { fill: transparent; }
+.no-shield .shield { display: none; }
+.fig.seated .robe { transform-origin: 0 -10px; transform: scaleY(.6); }
+.sea-goddess .skin-w { fill: #e9f1ea; }
+[data-mode="night"] .sea-goddess .skin-w { fill: #f0c597; }
+
+.hull { fill: var(--fig); }
+.ship-eye { fill: var(--emblem); }
+.oar { stroke: var(--fig); stroke-width: 3; }
+.mast { fill: none; stroke: var(--fig); stroke-width: 5; stroke-linecap: round; }
+.sail { fill: var(--skin-w); }
+.tent-body { fill: var(--tent); }
+.tent-door { fill: var(--fig); }
+.tent .inc { stroke: var(--fig); opacity: .6; }
+.tent.lit .tent-door { fill: #ffb35c; filter: drop-shadow(0 0 18px #ff9a3c); }
+.wall { fill: var(--wall); }
+.walls .inc { stroke: var(--wall-line); }
+.window { fill: var(--fig); }
+.gate-arch { fill: var(--gate); }
+.door { fill: var(--wall-line); transition: transform 1.2s; }
+.walls.open .door-l { transform: scaleX(.15); }
+.walls.open .door-r { transform: scaleX(.15); }
+.distant .wall { fill: #e9b985; }
+.distant .inc { opacity: .4; }
+[data-mode="night"] .distant .wall { fill: #2a1812; }
+.parapet { fill: var(--wall); stroke: var(--wall-line); stroke-width: 2; }
+
+.sky .star { fill: var(--star); animation: twinkle 3.4s ease-in-out infinite; }
+@keyframes twinkle { 50% { opacity: .25; } }
+.sun .disc { fill: var(--sun); }
+.sun.pale { opacity: .55; }
+.moon .disc { fill: var(--moon); }
+.cloud { animation: drift 80s ease-in-out infinite alternate; }
+.cloud-shape { fill: var(--cloud); }
+@keyframes drift { from { transform: translateX(-120px); } to { transform: translateX(160px); } }
+.mountain > path:first-child { fill: var(--far); }
+.mountain .snow { fill: var(--snow); }
+path.far { fill: var(--far); }
+.ground { fill: var(--ground); }
+.sea-body { fill: var(--sea); }
+.waves { animation: waves 16s linear infinite; }
+@keyframes waves { to { transform: translateX(60px); } }
+.band { fill: var(--band); }
+
+.flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flicker .9s ease-in-out infinite alternate; }
+.flame.f1 { fill: #d9541c; }
+.flame.f2 { fill: #f29a35; animation-duration: .7s; animation-delay: -.3s; }
+.flame.f3 { fill: #ffe08a; animation-duration: .5s; }
+@keyframes flicker { 0% { transform: scale(1, 1) skewX(0); } 50% { transform: scale(.94, 1.1) skewX(3deg); } 100% { transform: scale(1.04, .92) skewX(-3deg); } }
+.fire-glow { mix-blend-mode: screen; animation: glow 2.2s ease-in-out infinite alternate; }
+@keyframes glow { to { opacity: .65; } }
+.torch-flame .flame { fill: #f29a35; }
+
+.stone { fill: var(--stone); }
+.column .inc { stroke: var(--wall-line); }
+.trunk { fill: none; stroke: var(--fig); stroke-width: 8; stroke-linecap: round; }
+.leaves { fill: var(--fig); }
+.beam { transition: transform 1.6s cubic-bezier(.5, -.2, .3, 1.4); }
+.pan { transition: transform 1.6s cubic-bezier(.5, -.2, .3, 1.4); }
+.beam > .pan:nth-child(2) { transform-origin: -90px -120px; }
+.beam > .pan:nth-child(3) { transform-origin: 90px -120px; }
+.scales.tipped .beam { transform: rotate(14deg); }
+.scales.tipped .pan { transform: rotate(-14deg); }
+.scales.tipped-left .beam { transform: rotate(-14deg); }
+.scales.tipped-left .pan { transform: rotate(14deg); }
+.scales { filter: drop-shadow(0 0 14px rgba(255, 220, 130, .6)); }
+.pan-label { font-family: var(--display); font-weight: 700; font-size: 14px; fill: var(--gold); paint-order: stroke; stroke: rgba(27, 18, 14, .75); stroke-width: 4px; letter-spacing: .04em; }
+.wheel { fill: none; stroke: var(--fig); stroke-width: 5; }
+.wheel-spoke { stroke: var(--fig); stroke-width: 3; }
+.horse .fill-stroke { fill: none; stroke: var(--fig); stroke-width: 6; }
+
+.arrow { animation: arrowfall 2.2s linear infinite; opacity: 0; }
+.arrow-line { fill: none; stroke: var(--fig); stroke-width: 2.6; stroke-linecap: round; }
+@keyframes arrowfall {
+  0% { transform: translate(calc(var(--ax) - 420px), -60px); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { transform: translate(var(--ax), 640px); opacity: 0; }
+}
+.spark { fill: #ffd37a; opacity: 0; }
+.sparks.burst .spark { animation: spark .8s ease-out both; }
+@keyframes spark { 0% { transform: translate(0, 0); opacity: 1; } 100% { transform: translate(var(--sx), var(--sy)); opacity: 0; } }
+.dust-p { fill: var(--dust); animation: dust 2.6s ease-out infinite; }
+@keyframes dust { 0% { transform: translate(0, 0) scale(.4); opacity: .9; } 100% { transform: translate(var(--sx), var(--sy)) scale(1.6); opacity: 0; } }
+.mist-p { fill: var(--mist); opacity: .42; }
+.mist { animation: mistdrift 3s ease-in-out infinite alternate; }
+@keyframes mistdrift { to { transform: translate(14px, -8px); } }
+
+/* fading things in and out */
+:where(.stage, .hero-art) g, :where(.stage, .hero-art) text { transition: opacity .7s ease; }
+.j { transition: transform .65s cubic-bezier(.45, .05, .3, 1), opacity .6s; }
+.fig { transition: transform 1s cubic-bezier(.45, .05, .35, 1), opacity .7s ease, filter .3s; }
+.fig.chase { transition-timing-function: linear, ease, ease; }
+svg .gone { opacity: 0; pointer-events: none; }
+.rising { transition: opacity 1.6s ease, filter 1.6s ease !important; }
+.rising.gone { filter: blur(6px); }
+.fig.rising { transition: transform 1s, opacity 1.6s ease, filter 1.6s ease !important; }
+.fig .aura { animation: aura 3.2s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+@keyframes aura { to { transform: scale(1.12); opacity: .7; } }
+.sky-god { filter: drop-shadow(0 0 16px rgba(255, 236, 170, .8)); }
+.blazing { filter: drop-shadow(0 0 10px rgba(255, 186, 80, .95)) drop-shadow(0 0 26px rgba(255, 140, 40, .6)); }
+.stage .fig[data-char], .stage .fig[data-term], .toy { cursor: pointer; }
+.stage .fig[data-char]:hover, .stage .fig[data-term]:hover, .toy:hover { filter: drop-shadow(0 0 8px rgba(255, 226, 150, .95)); }
+.stage .fig.blazing:hover { filter: drop-shadow(0 0 10px rgba(255, 186, 80, .95)) drop-shadow(0 0 26px rgba(255, 140, 40, .6)); }
+.stage .fig:focus { outline: none; }
+.stage .fig:focus-visible { filter: drop-shadow(0 0 6px #fff2c2); }
+.instant, .instant * { transition: none !important; }
+
+.hint { cursor: pointer; outline: none; }
+.hint-dot { fill: #fff6d8; stroke: rgba(60, 20, 0, .55); stroke-width: 2; animation: breathe 1.8s ease-in-out infinite; }
+.hint-ring { fill: rgba(255, 233, 170, .16); stroke: #fff6d8; stroke-width: 4; transform-box: fill-box; transform-origin: center; animation: pulse 1.8s ease-out infinite; filter: drop-shadow(0 0 2px rgba(60, 20, 0, .9)) drop-shadow(0 0 8px rgba(255, 210, 120, .9)); }
+.hint-ring.r2 { fill: rgba(255, 233, 170, .25); stroke-width: 2; animation-delay: .6s; }
+.hint:hover .hint-ring, .hint:focus-visible .hint-ring { fill: rgba(255, 233, 170, .35); }
+@keyframes pulse { 0% { transform: scale(.8); opacity: 1; } 100% { transform: scale(1.35); opacity: 0; } }
+
+/* scene-specific pieces */
+.name-tag rect { fill: var(--skin-w); stroke: var(--fig); stroke-width: 2; }
+.name-tag text { font-family: var(--display); font-weight: 700; font-size: 14px; fill: var(--fig); letter-spacing: .04em; }
+.tag-line { stroke: var(--fig); stroke-width: 2; stroke-dasharray: 3 3; }
+.names:not(.gone) .name-tag { animation: rise .5s ease both; }
+.names .name-tag:nth-child(2) { animation-delay: .25s; }
+.names .name-tag:nth-child(3) { animation-delay: .5s; }
+.thrown .shaft { stroke-width: 5; }
+.baby { transition: transform 1s cubic-bezier(.45, .05, .35, 1); }
+.baby.crying { animation: cry .22s ease-in-out infinite alternate; }
+@keyframes cry { from { translate: -2px 0; } to { translate: 2px -2px; } }
+.baby.held { animation: dandle 1.2s ease-in-out infinite alternate; }
+@keyframes dandle { to { translate: 0 -8px; } }
+.prop-helmet .crest { fill: var(--crest); }
+.armor-stand .shaft { stroke-width: 6; }
+.armor-stand:not(.gone) { animation: glint 2.4s ease-in-out infinite; }
+@keyframes glint { 50% { filter: drop-shadow(0 0 10px rgba(255, 220, 140, .9)); } }
+.ship-fire .flame { animation-duration: .6s; }
+.lyre-toy .lyre-frame { stroke: var(--gold); }
+.lyre-toy .fill { fill: var(--gold); }
+.lyre-toy .string { stroke: #fff2c2; }
+.lyre-toy:active { transform: translate(470px, 640px) rotate(-6deg); }
+.gifts:not(.gone) .gift { animation: rise .6s ease both; }
+.forge-wall { fill: #93401d; }
+.forge-floor { fill: #4b1f10; }
+.forge .stone { fill: #c98a52; }
+.forge .column .inc { stroke: #6b2e14; }
+.furnace .flame { animation-duration: .5s; }
+.anvil { cursor: pointer; }
+.forged .ring { fill: #b8862f; stroke: #fff0be; stroke-width: 2.5; opacity: .12; transition: opacity .6s, fill .3s; cursor: pointer; }
+.forged .ring:nth-child(odd) { fill: #d9aa4a; }
+.forged .ring.lit { opacity: 1; }
+.forged .ring.active { fill: #ffe39a; }
+.forged .ring:hover { fill: #f2c45a; }
+.forged.unforged .ring { cursor: default; }
+.forged { filter: drop-shadow(0 0 22px rgba(255, 200, 100, .55)); }
+.shield-art { pointer-events: none; transition: opacity 1s; }
+.forged.unforged .shield-art { opacity: 0; }
+.sun-mark { fill: #fff3c8; }
+.moon-mark { fill: #fff3c8; opacity: .85; }
+.dancer { fill: #5a2c0c; }
+.wave-mark { fill: none; stroke: #3c5f7a; stroke-width: 2.4; }
+.lap-label { font-family: var(--display); font-weight: 700; font-size: 46px; fill: var(--gold); letter-spacing: .14em; paint-order: stroke; stroke: rgba(27, 18, 14, .7); stroke-width: 6px; }
+.wagon-g { transition: transform 3.2s cubic-bezier(.45, .05, .35, 1), opacity .7s; }
+.urn.good .fill { fill: var(--gold); }
+.urn.good .inc { stroke: #6b3a10; }
+.urn.bad .fill { fill: #2a2a33; }
+.urn.bad .inc { stroke: #8888a0; }
+.urn .lyre-frame { stroke: var(--fig); }
+.urn.good .lyre-frame { stroke: var(--gold); }
+.urn.bad .lyre-frame { stroke: #2a2a33; }
+.pyre-fire .flame { animation-duration: .55s; }
+
+
+/* finer detail on the figures */
+.inc-dot { fill: var(--inc); }
+.cloak { fill: var(--red); opacity: .92; }
+.trojan .cloak { fill: #3d5560; }
+[data-mode="night"] .trojan .cloak { fill: #1b2a30; }
+.hero-gold .cloak { fill: #6a1e18; }
+
+/* the gods, in gold */
+.god .fill, .god .skin-w, .god .limb { fill: url(#goldFig); }
+.god .inc { stroke: #6b3d0c; }
+.god .inc-dot, .god .eye, .god .skin-w ~ .eye { fill: #5a3008; }
+.god .emblem, .god .gorgon { fill: #6b3d0c; }
+.god .aegis { fill: #b8461f; }
+.god .crest { fill: #b8461f; }
+.god .shaft, .god .bowline, .god .lyre-frame { stroke: #f2c45a; }
+.god .blade { stroke: #f2c45a; }
+.fig.god { filter: drop-shadow(0 0 10px rgba(255, 214, 120, .55)); }
+.fig.god.sky-god { filter: drop-shadow(0 0 22px rgba(255, 226, 150, .9)); }
+.stage .fig.god[data-char]:hover { filter: drop-shadow(0 0 14px rgba(255, 226, 150, 1)); }
+
+/* the prologue and the epilogue */
+.apple .gold { fill: #ffd35c; }
+.apple-g { transition: transform 1.3s cubic-bezier(.4, -.2, .3, 1.2), opacity .6s; filter: drop-shadow(0 0 10px rgba(255, 210, 90, .95)); }
+.slider { will-change: transform; }
+.wood { fill: #a5612f; stroke: #4a2410; stroke-width: 2; }
+[data-mode="night"] .wood { fill: #b8743c; }
+.wood-line { fill: none; stroke: #4a2410; stroke-width: 2; stroke-linecap: round; }
+.wood-door { fill: #3a1a0a; }
+.wood-line-dot { fill: #1a0a04; }
+.wood-horse .wheel { stroke: #4a2410; }
+.wood-horse .wheel-spoke { stroke: #4a2410; }
+.burnt .wood { fill: #2a1208; }
+.flying { transition: transform .7s cubic-bezier(.3, .1, .6, 1), opacity .5s; }
+.fleet .sail { fill: var(--skin-w); }
+
+/* a stage that is off screen keeps still */
+.paused *, .paused *::before, .paused *::after { animation-play-state: paused !important; }
+
+/* the map of the Troad */
+.m-sea { fill: #213c55; }
+.m-wave-line { stroke: #6f9ab8; stroke-width: 2.4; }
+.m-waves { animation: mapwave 18s linear infinite; }
+@keyframes mapwave { to { transform: translateX(60px); } }
+.m-land { fill: #d4955a; stroke: #8f5a2e; stroke-width: 2; }
+.m-land.far { fill: #b77a45; opacity: .8; }
+.m-mount { fill: #8a5530; stroke: #5d3418; stroke-width: 2; }
+.m-river { fill: none; stroke: #4f7fa3; stroke-width: 4; stroke-linecap: round; }
+.m-hill { fill: #c07a44; }
+#map .wall { fill: #f0d3a0; stroke: #8f5a2e; stroke-width: 1; }
+#map .window { fill: #3a2214; }
+#map .inc { stroke: #8f5a2e; }
+.m-label { font-family: var(--display); font-weight: 700; font-size: 17px; letter-spacing: .25em; fill: #4a2410; }
+.m-label.sea { fill: #a7c6dc; font-size: 14px; letter-spacing: .4em; font-weight: 600; }
+.m-label.small { font-size: 10px; letter-spacing: .2em; }
+.m-route { fill: none; stroke: var(--gold-light); stroke-width: 2.4; stroke-dasharray: 2 8; stroke-linecap: round; opacity: .8; animation: march 1.4s linear infinite; }
+@keyframes march { to { stroke-dashoffset: -20; } }
+.m-medal { cursor: pointer; outline: none; }
+.m-halo { fill: rgba(255, 220, 140, .15); stroke: var(--gold-light); stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.m-medal.next .m-halo { opacity: 1; animation: pulse 1.8s ease-out infinite; }
+.m-disc { fill: var(--tyrian); stroke: var(--gold-leaf); stroke-width: 3; transition: fill .2s; }
+.m-ring { fill: none; stroke: var(--gold-leaf); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.m-num { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--gold-light); pointer-events: none; }
+.m-laurel { color: var(--gold-light); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.m-medal.done .m-laurel { opacity: 1; }
+.m-medal.done .m-disc { fill: #7a1d38; }
+.m-medal:hover .m-disc, .m-medal:focus-visible .m-disc { fill: var(--wine); stroke: #fff2c2; }
+.m-medal:focus-visible .m-halo { opacity: 1; }
+@keyframes mapwave { to { transform: translateX(60px); } }
+@keyframes march { to { stroke-dashoffset: -20; } }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes breathe { 50% { transform: scale(1.25); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .waves, .cloud, .arrow, .m-waves, .flame, .star { animation: none !important; }
+}

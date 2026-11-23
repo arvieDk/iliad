@@ -178,6 +178,9 @@ ILIAD.audio = (function () {
   const SFX = {
     flip: () => flip(),
     tick(t) { tone(t, 1900, 0.06, { type: "triangle", peak: 0.05 }); },
+    // the beat of a line of verse: a deep drum for a long syllable, a light tap for a short
+    long(t) { tone(t, 150, 0.32, { peak: 0.34, f1: 70 }); noise(t, 0.05, { f0: 900, q: 1, peak: 0.12 }); },
+    short(t) { tone(t, 420, 0.1, { type: "triangle", peak: 0.12, f1: 300 }); },
     chime(t) { [0, 4, 7].forEach((s, i) => bell(t + i * 0.09, 880 * Math.pow(2, s / 12), 0.05, 1.8)); },
     clang(t) { bell(t, 420 + Math.random() * 60, 0.16, 1.1); noise(t, 0.12, { f0: 3800, q: 2, peak: 0.25 }); },
     anvil(t) { bell(t, 760 + Math.random() * 40, 0.18, 1.4); noise(t, 0.08, { f0: 5000, q: 1.5, peak: 0.3 }); },

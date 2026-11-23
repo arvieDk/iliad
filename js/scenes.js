@@ -103,6 +103,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ I */
     {
       n: 1, title: "The Wrath of Achilles", book: "I", mode: "day", place: "myrmidons",
+      greek: "Μῆνις", gloss: "The Wrath", light: "noon", dek: "A quarrel over a captive splits the Achaean army, and Achilles withdraws from the war.",
       build(c) {
         const A = c.A, r = {};
         A.sky(c.bg, "day");
@@ -154,7 +155,7 @@ ILIAD.source = {
           say: "[[Patroclus|Patroclus]] leads Briseis away. Alone by the grey sea, Achilles weeps and calls to his mother.",
           tap: { at: [1330, 520, 56], label: "Touch the waves" },
           act(r) { r.athena.show(false); r.agamemnon.face(-1).pose("stand"); r.achilles.face(1).pose("mourn").move(1200); } },
-        { cam: [1180, 420, 1.1],
+        { tableau: true, cam: [1180, 420, 1.1],
           say: "[[Thetis]] rises from the sea like a mist and carries her son’s prayer to [[Zeus]]: let the Trojans win, until the Achaeans honor him.",
           quote: ["As he spoke the son of Kronos bowed his dark brows, and the ambrosial locks swayed on his immortal head, till vast Olympus reeled.", "1.528–530"],
           act(r, c) { r.thetis.show(); r.achilles.pose("hail"); r.olympus.classList.remove("gone"); r.zeus.show(); c.later(900, () => { r.zeus.pose("sit", { head: 24 }); c.shake(); c.sfx("thunder"); }); } }
@@ -164,6 +165,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ II */
     {
       n: 2, title: "Helen upon the Wall", book: "III", mode: "day", place: "scaean",
+      greek: "Τειχοσκοπία", gloss: "The View from the Wall", light: "noon", dek: "Paris and Menelaus fight for Helen while she watches from the walls of Troy.",
       build(c) {
         const A = c.A, r = {};
         A.sky(c.bg, "day");
@@ -217,7 +219,7 @@ ILIAD.source = {
           say: "The oaths are sworn and the duel begins. Paris throws first, and his spear glances off Menelaus’ shield.",
           tap: { at: [440, 560, 54], label: "Touch Menelaus to make his throw" },
           act(r) { r.names.classList.add("gone"); r.paris.pose("throwback").move(700); r.menelaus.pose("guard").move(470); } },
-        { cam: [580, 600, 1.4],
+        { tableau: true, cam: [580, 600, 1.4],
           say: "Menelaus’ spear tears through Paris’ armor. His sword shatters on Paris’ helmet, so he seizes him by the plume and drags him toward the Achaeans.",
           quote: ["Menelaos would have dragged him off to his own great glory had not Zeus’ daughter Aphrodite been quick to mark and to break the strap of oxhide, so that the empty helmet came away in his hand.", "3.373–375"],
           act(r, c) { r.menelaus.pose("throwback"); c.fly(r.spear, [470, 600], [690, 620]); c.sfx("clang"); c.later(700, () => { r.paris.pose("fall").move(660); r.menelaus.pose("stride").move(560); }); } },
@@ -230,6 +232,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ III */
     {
       n: 3, title: "Hector and Andromache", book: "VI", mode: "day", place: "troy", warm: true,
+      greek: "Ἕκτορος καὶ Ἀνδρομάχης ὁμιλία", gloss: "The Meeting of Hector and Andromache", light: "dusk", dek: "A last farewell at the Scaean Gates.",
       build(c) {
         const A = c.A, r = {};
         A.sky(c.bg, "day");
@@ -260,7 +263,7 @@ ILIAD.source = {
           say: "Hector cannot hang back from the fighting. He reaches for his son, but the boy screams at the sight of the great nodding horsehair plume and hides in his nurse’s arms.",
           tap: { at: [700, 520, 46], label: "Touch Hector’s helmet" },
           act(r) { r.hector.pose("hold").move(760); r.andromache.pose("stand"); r.baby.classList.add("crying"); } },
-        { cam: [860, 580, 1.4],
+        { tableau: true, cam: [860, 580, 1.4],
           say: "His father and mother laugh. Hector takes off the gleaming helmet, lays it on the ground, and lifts his son, praying that one day people will say the boy was better than his father.",
           quote: ["Hektor took the helmet from his head and laid it all gleaming upon the ground. Then he took his darling child, kissed him, and dandled him in his arms…", "6.472–474"],
           act(r, c) { r.hector.helmet(false); r.helmet.classList.remove("gone"); r.baby.classList.remove("crying"); r.baby.classList.add("held"); r.baby.style.transform = "translate(806px, 610px)"; r.hector.cls("no-shield").pose("hold"); r.andromache.pose("stand", { head: -8 }); c.sfx("chime"); } },
@@ -273,6 +276,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ IV */
     {
       n: 4, title: "The Embassy", book: "IX", mode: "night", place: "ships",
+      greek: "Πρεσβεία", gloss: "The Embassy", light: "moon", dek: "Gifts and pleading cannot move Achilles, who chooses between two fates.",
       build(c) {
         const A = c.A, r = {};
         A.sky(c.bg, "night");
@@ -322,7 +326,7 @@ ILIAD.source = {
           say: "Then he reveals what his mother told him: he must choose between two fates.",
           tap: { at: [800, 440, 60], label: "Touch the scales" },
           act(r) { r.scales.classList.remove("gone"); } },
-        { cam: [800, 470, 1.25],
+        { tableau: true, cam: [800, 470, 1.25],
           say: "Go home, and live long but be forgotten. Stay, and die young at Troy, but win {{kleos|kleos}}, glory that never fades. Achilles will not fight, and the envoys go back with nothing.",
           quote: ["If I stay here and fight, I shall lose my safe homecoming but I will have a glory that is unwilting…", "9.412–413"],
           act(r) { r.scales.classList.add("tipped"); r.odysseus.face(1).pose("stride").move(1400); r.ajax.face(1).pose("stride").move(1520); r.phoenix.pose("sit").move(1000); } }
@@ -332,6 +336,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ V */
     {
       n: 5, title: "The Death of Patroclus", book: "XVI", mode: "day", place: "plain", smoke: true,
+      greek: "Πατρόκλεια", gloss: "The Story of Patroclus", light: "ash", dek: "A friend goes to war in borrowed armor.",
       build(c) {
         const A = c.A, r = {};
         A.sky(c.bg, "day");
@@ -379,7 +384,7 @@ ILIAD.source = {
         { cam: [1220, 600, 1.3],
           say: "Forgetting the warning, he chases them to the walls of Troy. There [[Apollo]] strikes him from behind and knocks the helmet from his head.",
           act(r, c) { r.trojans._figs.forEach((f) => f.show(false)); r.achilles.show(false); r.patroclus2.move(1260).pose("stride"); r.apollo.show(); c.later(800, () => { r.patroclus2.helmet(false); r.helmetRoll.classList.remove("gone"); r.patroclus2.pose("crouch"); c.sfx("clang"); }); } },
-        { cam: [1260, 600, 1.3],
+        { tableau: true, wash: true, cam: [1260, 600, 1.3],
           say: "The young Trojan {{euphorbos|Euphorbos}} wounds him, and Hector deals the final blow. Dying, Patroclus warns Hector that his own death is near, at the hands of Achilles.",
           quote: ["You too shall live but for a little season; death and the day of your doom are close upon you…", "16.852–853"],
           act(r, c) { r.apollo.show(false); r.euphorbos.show().move(1150); r.hector.show().pose("thrust").move(1340); c.later(700, () => { r.patroclus2.pose("fall").move(1270); r.euphorbos.show(false); }); } }
@@ -389,6 +394,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ VI */
     {
       n: 6, title: "The Grief and the Shield", book: "XVIII", mode: "day", place: "myrmidons",
+      greek: "Ὁπλοποιία", gloss: "The Making of the Arms", light: "dusk", dek: "Achilles mourns, and a god forges him a shield with the whole world on it.",
       build(c) {
         const A = c.A, r = {};
         r.shore = A.g({ class: "set" }, c.bg);
@@ -456,7 +462,7 @@ ILIAD.source = {
           say: "Hector now wears Achilles’ armor, so Thetis goes to the bronze house of {{hephaestus|Hephaestus}}, the smith of the gods. All night he works at his roaring forge.",
           tap: { at: [830, 690, 56], label: "Strike the anvil five times", fn: (r, c) => c.strike() },
           act(r) { r.shore.classList.add("gone"); r.forge.classList.remove("gone"); r.achilles.show(false); r.thetis.move(1100, GY).pose("plead"); r.nereids.classList.add("gone"); r.heph.show(); r.shield.classList.remove("gone"); r.shield.classList.add("unforged"); } },
-        { cam: [860, 440, 1.05],
+        { tableau: true, cam: [860, 440, 1.05],
           say: "The shield is finished: five layers of bronze, tin, silver, and gold, with the whole world worked upon it. Touch each ring to see what Hephaestus made.",
           quote: ["He wrought the earth, the heavens, and the sea; the moon also at her full and the untiring sun, with all the signs that glorify the face of heaven…", "18.483–485"],
           act(r) { r.shield.classList.remove("unforged"); r.rings.forEach((x) => x.classList.add("lit")); r.heph.pose("stand"); } }
@@ -489,6 +495,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ VII */
     {
       n: 7, title: "The Death of Hector", book: "XXII", mode: "day", place: "scaean",
+      greek: "Ἕκτορος ἀναίρεσις", gloss: "The Killing of Hector", light: "noon", dek: "Three times around the walls of Troy.",
       build(c) {
         const A = c.A, r = {};
         A.sky(c.bg, "day");
@@ -522,31 +529,28 @@ ILIAD.source = {
         { cam: [800, 520, 0.95],
           say: "Three times they run around the city of Priam, past the lookout, past the wild fig tree, past the two springs where Trojan women once washed their clothes in time of peace.",
           quote: ["Good was the man that fled, but better far was he that followed after… they ran for the life of Hektor.", "22.158–161"],
-          act(r, c) {
-            r.hector.face(-1); r.achilles.face(-1);
-            if (c.instant) return;
-            let lap = 0;
-            const runLap = () => {
-              lap++;
-              r.lap.classList.remove("gone");
-              r.lap.textContent = ["", "First lap", "Second lap", "Third lap"][lap];
-              r.hector.cls("chase", false); r.achilles.cls("chase", false);
-              r.hector.move(-200, GY, 1).pose("run"); r.achilles.move(-60, GY, 1).pose("run2");
-              c.later(60, () => { r.hector.move(1800, GY, 1); r.achilles.move(1940, GY, 1); });
-              c.later(160, () => { r.hector.cls("chase"); r.achilles.cls("chase"); r.hector.face(-1).move(-200, GY, 2600); r.achilles.face(-1).move(-60, GY, 2600); });
-              if (lap < 3) c.later(2800, runLap);
-              else c.later(2800, () => { r.lap.classList.add("gone"); r.hector.cls("chase", false).face(-1).move(800, GY, 900).pose("guard"); r.achilles.cls("chase", false).move(1120, GY, 900).pose("stride"); });
-            };
-            runLap();
+          act(r) { r.hector.face(-1).pose("run"); r.achilles.face(-1).pose("run2"); },
+          // scrolling drives the chase: three laps around the city
+          scrub(r, c, p) {
+            const wrap = (v) => -400 + (((v % 2400) + 2400) % 2400);
+            const run = p * 7200;
+            r.hector.move(wrap(1200 - run), GY, 1);
+            r.achilles.move(wrap(1520 - run), GY, 1);
+            const stride = Math.floor(p * 70) % 2;
+            r.hector.pose(stride ? "run" : "run2");
+            r.achilles.pose(stride ? "run2" : "run");
+            const lap = Math.min(3, Math.floor(p * 3) + 1);
+            r.lap.classList.toggle("gone", p >= 0.995);
+            r.lap.textContent = ["", "First lap", "Second lap", "Third lap"][lap];
           } },
         { cam: [800, 400, 1.1],
           say: "On high, [[Zeus]] pities Hector. He lifts his golden scales and lays a fate of death in each pan.",
           tap: { at: [800, 240, 70], label: "Touch the golden scales" },
-          act(r) { r.hector.move(800, GY).pose("guard"); r.achilles.move(1120, GY).pose("stride"); r.olympus.classList.remove("gone"); r.scales.classList.remove("gone"); } },
+          act(r) { r.lap.classList.add("gone"); r.hector.move(800, GY).pose("guard"); r.achilles.move(1120, GY).pose("stride"); r.olympus.classList.remove("gone"); r.scales.classList.remove("gone"); } },
         { cam: [760, 560, 1.2],
           say: "Hector’s side sinks toward {{hades|Hades}}. [[Athena]] comes to him in the shape of his brother Deiphobus, and Hector turns to fight, only to find he stands alone.",
           act(r, c) { r.scales.classList.add("tipped-left"); c.sfx("thunder"); c.later(1200, () => { r.scales.classList.add("gone"); r.olympus.classList.add("gone"); r.athena.show(); }); } },
-        { cam: [920, 600, 1.35],
+        { tableau: true, wash: true, cam: [920, 600, 1.35],
           say: "Achilles finds the one gap in the armor Hector stripped from Patroclus, at the throat, and drives his spear home.",
           quote: ["I know you what you are, and was sure that I should not move you, for your heart is hard as iron…", "22.356–357"],
           act(r, c) { r.athena.show(false); r.achilles.pose("thrust").move(960); c.sfx("clang"); c.later(600, () => r.hector.pose("fall").move(840)); } },
@@ -559,6 +563,7 @@ ILIAD.source = {
     /* ------------------------------------------------------------ VIII */
     {
       n: 8, title: "The Ransom of Hector", book: "XXIV", mode: "night", place: "myrmidons",
+      greek: "Ἕκτορος λύτρα", gloss: "The Ransom of Hector", light: "moon", dek: "A king kneels before the man who killed his son.",
       build(c) {
         const A = c.A, r = {};
         r.night = A.g({ class: "set" }, c.bg);
@@ -594,11 +599,20 @@ ILIAD.source = {
       beats: [
         { cam: [500, 560, 1.0],
           say: "For twelve days Achilles drags Hector’s body, and for twelve days [[Apollo]] keeps it from harm. At last the gods send old [[Priam]] by night to the Achaean camp, with a wagon of treasure as {{ransom|ransom}}.",
-          act(r, c) { r.wagon.style.transform = "translate(260px, 0px)"; r.hermes.move(560); r.priam.move(420); c.sfx("hooves"); } },
+          act(r, c) { c.sfx("hooves"); },
+          // the night journey follows the reader's scroll
+          scrub(r, c, p) {
+            const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+            r.wagon.style.transition = "none";
+            r.wagon.style.transform = `translate(${-300 + 560 * e}px, 0px)`;
+            r.hermes.move(-100 + 660 * e, GY, 1);
+            r.priam.move(-260 + 680 * e, GY, 1);
+            return [300 + 260 * e, 560, 1.0];
+          } },
         { cam: [700, 560, 1.0],
           say: "{{hermes|Hermes}} guides him unseen past the sentries, right to the door of Achilles’ tent.",
           tap: { at: [1180, 640, 60], label: "Touch the tent to go in" },
-          act(r) { r.wagon.style.transform = "translate(560px, 0px)"; r.hermes.move(920).pose("point"); r.priam.move(800); } },
+          act(r) { r.wagon.style.transition = ""; r.wagon.style.transform = "translate(560px, 0px)"; r.hermes.move(920).pose("point"); r.priam.move(800); } },
         { cam: [1180, 600, 1.4],
           say: "Priam goes in unseen, clasps Achilles’ knees, and kisses the hands that killed so many of his sons.",
           quote: ["King Priam entered without their seeing him, and going right up to Achilles he clasped his knees and kissed the dread murderous hands that had slain so many of his sons.", "24.477–479"],
@@ -607,7 +621,7 @@ ILIAD.source = {
           say: "“Think of your father, Achilles,” the king begs. “He is old like me.”",
           tap: { at: [1210, 620, 50], label: "Touch Achilles’ hand" },
           act() {} },
-        { cam: [1180, 600, 1.4],
+        { tableau: true, cam: [1180, 600, 1.4],
           say: "Achilles takes the old man’s hand. Together they weep, one for his son, the other for his father and for Patroclus.",
           quote: ["The two wept bitterly—Priam, as he lay at Achilles’ feet, weeping for Hektor, and Achilles now for his father and now for Patroklos, till the house was filled with their lamentation.", "24.509–512"],
           act(r, c) { r.priam.pose("kneel", { head: 20 }); r.achilles.pose("sit", { head: 24, lean: 10, far: [150, 125], near: [140, 130] }); c.sfx("lament"); } },
@@ -627,6 +641,158 @@ ILIAD.source = {
       }
     }
   ];
+
+  /* ================================================================ *
+   * Before and after: the prologue and the epilogue
+   * ================================================================ */
+  // a wrapper that can be slid across the stage by scrolling
+  function slider(A, p, x, y) {
+    const w = A.g({ class: "slider" }, p);
+    w.style.transform = `translate(${x}px, ${y}px)`;
+    w._at = (nx, ny = y) => { w.style.transition = "none"; w.style.transform = `translate(${nx}px, ${ny}px)`; };
+    return w;
+  }
+  const ease = (p) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+
+  ILIAD.prologue = {
+    n: 0, key: "prologue", title: "The Apple of Discord", book: null, kicker: "Before the Iliad", mode: "day", light: "dawn",
+    greek: "Πρόλογος", gloss: "Prologue", dek: "A golden apple, a shepherd prince and a stolen queen: how a thousand ships came to Troy.",
+    later: true,
+    build(c) {
+      const A = c.A, r = {};
+      A.sky(c.bg, "day");
+      A.sun(c.bg, 1260, 210, 52);
+      A.clouds(c.bg, 130, 3);
+      A.mountain(c.bg, 330, 560, 820, 360, "far");
+      A.sea(c.bg, 470, 140);
+      r.troy = A.walls(c.bg, 1230, 600, 470, 170, { towers: [1320, 1620] });
+      r.troy.classList.add("distant");
+      A.ground(c.bg, 600, "ground");
+      // the camp before Troy, nine years on
+      r.camp = A.g({ class: "fadeable gone" }, c.mid);
+      [[80, 566, 0.5], [300, 562, 0.5], [520, 566, 0.45]].forEach(([x, y, s]) => A.ship(r.camp, x, y, s, 1, { sail: false }));
+      [[760, 0.8], [930, 0.7], [1090, 0.75]].forEach(([x, s]) => A.tent(r.camp, x, 640, s));
+      r.army = army(A, r.camp, 860, GY, 5, ILIAD.extras.soldier, 1, 0.55, 52);
+      // the ship of Paris and Helen
+      r.ship = slider(A, c.mid, 60, 566);
+      A.ship(r.ship, 0, 0, 0.62, 1, { sail: true });
+      c.fig("paris", -24, -16, { parent: r.ship, scale: 0.3, pose: "point" });
+      c.fig("helen", 26, -16, { parent: r.ship, scale: 0.3, facing: -1 });
+      r.ship.classList.add("gone");
+      // the fleet
+      r.fleet = slider(A, c.mid, -1000, 0);
+      A.fleet(r.fleet, 0, 500, 3, 8, 0.27);
+      r.fleet.classList.add("gone");
+      // the Judgment on Mount Ida
+      r.rock = A.path("M260 760 Q262 712 316 706 Q368 704 378 760 Z", { class: "fill" }, c.mid);
+      r.paris = c.fig("paris", 320, GY, { facing: 1, pose: "sit" });
+      r.hera = c.fig("hera", 640, GY, { facing: -1, pose: "point" });
+      r.athena = c.fig("athena", 790, GY, { facing: -1, pose: "stand" });
+      r.aphrodite = c.fig("aphrodite", 940, GY, { facing: -1, pose: "hail" });
+      r.agamemnon = c.fig("agamemnon", 470, GY, { facing: 1, pose: "point", cls: "fadeable gone" });
+      r.menelaus = c.fig("menelaus", 330, GY, { facing: 1, pose: "stand", cls: "fadeable gone" });
+      r.apple = A.g({ class: "apple-g" }, c.fx);
+      A.apple(r.apple, 0, 0, 13);
+      r.apple.style.transform = "translate(392px, 640px)";
+      A.frieze(c.fg, 878);
+      return r;
+    },
+    beats: [
+      { cam: [620, 560, 1.25],
+        say: "At a wedding of the gods, Strife throws down a golden apple marked “for the fairest.” [[Hera]], [[Athena]] and [[Aphrodite]] each claim it, and [[Zeus]] sends them to a shepherd on Mount Ida to judge: [[Paris]], a prince of Troy.",
+        act(r) { r.paris.pose("sit"); } },
+      { cam: [700, 560, 1.25],
+        say: "Hera offers him power, Athena victory in war, Aphrodite the most beautiful woman in the world. Paris gives the apple to Aphrodite, and two goddesses never forgive Troy.",
+        quote: ["…for they forgave not the wrong done them by Alexander in disdaining the goddesses who came to him when he was in his sheepyards, and preferring her who had offered him a wanton to his ruin.", "24.28–30"],
+        act(r, c) { r.paris.pose("point"); r.apple.style.transform = "translate(946px, 520px)"; r.aphrodite.pose("raise"); r.hera.face(1).pose("stand"); r.athena.face(1).pose("stand"); c.sfx("chime"); } },
+      { cam: [700, 520, 1.1],
+        say: "The most beautiful woman in the world is [[Helen]], wife of King [[Menelaus]] of Sparta. Paris visits as a guest, and sails home to Troy with Helen and a ship full of treasure.",
+        act(r) { r.apple.classList.add("gone"); [r.paris, r.hera, r.athena, r.aphrodite].forEach((f) => f.show(false)); r.rock.classList.add("gone"); r.ship.classList.remove("gone"); },
+        scrub(r, c, p) {
+          const x = 60 + 1120 * ease(p);
+          r.ship._at(x, 566);
+          return [Math.max(520, Math.min(1080, x + 80)), 500, 1.3];
+        } },
+      { cam: [800, 520, 1.0],
+        say: "Menelaus and his brother [[Agamemnon]], king of Mycenae, call the Greek kings to war. In Book II the poet counts their fleet ship by ship: 1,186 ships from twenty-nine peoples.",
+        act(r) { r.ship.classList.add("gone"); r.agamemnon.show(); r.menelaus.show(); r.fleet.classList.remove("gone"); },
+        scrub(r, c, p) { r.fleet._at(-1000 + 1200 * ease(p), 0); } },
+      { tableau: true, cam: [940, 540, 1.05],
+        say: "The Achaeans beach their ships before Troy. Nine years later the city still stands. Here, in the tenth year of the war, the Iliad begins.",
+        quote: ["Nine of Zeus years are gone; the timbers of our ships have rotted; their tackling is sound no longer.", "2.134–135"],
+        act(r) { r.fleet.classList.add("gone"); r.menelaus.show(false); r.agamemnon.move(640).pose("point"); r.camp.classList.remove("gone"); } }
+    ]
+  };
+
+  ILIAD.epilogue = {
+    n: 9, key: "epilogue", title: "The Fall of Troy", book: null, kicker: "After the Iliad", mode: "night", light: "moon",
+    greek: "Ἐπίλογος", gloss: "Epilogue", dek: "What the Iliad leaves untold: the death of Achilles, the wooden horse, and the long way home.",
+    later: true,
+    build(c) {
+      const A = c.A, r = {};
+      r.city = A.g({ class: "set" }, c.bg);
+      A.sky(r.city, "night");
+      A.moon(r.city, 1340, 140, 30);
+      A.hills(r.city, 560, 50, "far");
+      A.ground(r.city, 600, "ground");
+      r.walls = A.walls(r.city, 160, GY, 1280, 300, { towers: [300, 1300], gate: 800 });
+      r.parapet = A.el("rect", { x: 520, y: 430, width: 300, height: 30, class: "parapet" }, c.mid);
+      r.fires = A.g({ class: "fadeable gone" }, c.mid);
+      [[300, 380, 1.5], [560, 470, 1.1], [800, 470, 1.3], [1050, 470, 1.0], [1300, 380, 1.6], [180, 600, 0.8], [1460, 610, 0.9]].forEach(([x, y, s]) => A.fire(r.fires, x, y, s));
+      r.paris = c.fig("paris", 640, 460, { facing: 1, scale: 0.7, pose: "attack" });
+      r.apollo = c.fig("apollo", 520, 330, { facing: 1, scale: 0.75, pose: "point", cls: "fadeable gone sky-god" });
+      r.achilles = c.fig("achilles", 1060, GY, { facing: -1, pose: "attack", cls: "blazing" });
+      r.arrow = A.g({ class: "flying gone" }, c.fx);
+      A.path("M-34 0 L30 0 M30 -4 L42 0 L30 4 Z M-34 0 l-8 -5 M-34 0 l-8 5", { class: "arrow-line" }, r.arrow);
+      // the horse
+      r.horse = slider(A, c.act, 1700, GY);
+      A.woodHorse(r.horse, 0, 0, 1.1);
+      r.pullers = A.g({}, r.horse);
+      for (let i = 0; i < 3; i++) A.figure(r.pullers, ILIAD.extras.trojan, -200 - i * 64, 0, { facing: -1, pose: "plead", scale: 0.6 });
+      r.horse.classList.add("gone");
+      // the sea, for the voyage home
+      r.sea = A.g({ class: "set gone" }, c.bg);
+      A.sky(r.sea, "night");
+      A.moon(r.sea, 300, 160, 26);
+      A.sea(r.sea, 470, 430);
+      r.ship = slider(A, c.act, -300, 640);
+      A.ship(r.ship, 0, 0, 0.9, 1, { sail: true });
+      c.fig("odysseus", 0, -24, { parent: r.ship, scale: 0.42, pose: "point" });
+      r.ship.classList.add("gone");
+      A.frieze(c.fg, 878);
+      return r;
+    },
+    beats: [
+      { wash: true, cam: [840, 540, 1.05],
+        say: "Soon after Hector’s funeral, [[Achilles]] fights his way to the {{scaean|Scaean Gates}}. [[Paris]] shoots, and [[Apollo]] guides the arrow, just as Hector had foretold with his dying breath.",
+        quote: ["…on the day when Paris and Phoebus Apollo, valiant though you be, shall slay you at the Scaean gates.", "22.359–360"],
+        act(r, c) {
+          r.apollo.show();
+          const a = r.arrow;
+          a.classList.remove("gone");
+          a.style.transition = "none";
+          a.style.transform = "translate(690px, 420px) rotate(40deg)";
+          void a.getBoundingClientRect();
+          a.style.transition = c.instant ? "none" : "transform .7s cubic-bezier(.3,.1,.6,1)";
+          a.style.transform = "translate(1040px, 720px) rotate(40deg)";
+          c.later(700, () => { r.achilles.cls("blazing", false).pose("fall").move(1080); c.sfx("clang"); });
+          c.later(1400, () => { a.classList.add("gone"); r.apollo.show(false); });
+        } },
+      { light: "moon", cam: [1000, 540, 1.0],
+        say: "The war drags on. At last [[Odysseus]] has a plan: the Achaeans build a great wooden horse, hide their best men inside, and pretend to sail for home. The Trojans haul the horse through their own gates.",
+        act(r) { r.achilles.show(false); r.paris.show(false); r.arrow.classList.add("gone"); r.apollo.show(false); r.horse.classList.remove("gone"); r.walls.classList.add("open"); },
+        scrub(r, c, p) { r.horse._at(1700 - 820 * ease(p), GY); } },
+      { light: "fire", wash: true, cam: [800, 480, 1.0],
+        say: "That night the men inside climb out and open the gates. Troy burns. [[Priam]] is killed, and the women of the city, [[Andromache]] among them, are carried off as captives. Only a few escape the flames.",
+        act(r, c) { r.horse._at(880, GY); r.horse.classList.add("burnt"); r.fires.classList.remove("gone"); c.sfx("fire"); } },
+      { light: "dawn", end: true, cam: [800, 560, 1.0],
+        say: "Odysseus, whose trick won the war, sets out for home. Angry gods and the sea will keep him from it for ten more years. That is another poem: the {{odyssey|Odyssey}}.",
+        act(r) { r.city.classList.add("gone"); r.fires.classList.add("gone"); r.horse.classList.add("gone"); r.parapet.classList.add("gone"); r.sea.classList.remove("gone"); r.ship.classList.remove("gone"); },
+        scrub(r, c, p) { r.ship._at(-300 + 1500 * ease(p), 640); } }
+    ]
+  };
+
+  ILIAD.chapters = [ILIAD.prologue].concat(ILIAD.scenes, [ILIAD.epilogue]);
 
   // the lyre and other small pleasures
   ILIAD.scenes[3].toys = (r, c) => { c.onTap(r.lyre, () => c.pluck()); };
