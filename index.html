@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Iliad of Homer</title>
+  <meta name="description" content="An interactive book of the Iliad: the wrath of Achilles in eight scrolls, with cited excerpts, character profiles, a glossary, and a map of Troy.">
+  <meta name="theme-color" content="#160b10">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23160b10' stroke='%23c9a24a' stroke-width='3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23e3c77f'%3EΙ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Shared SVG ornaments, referenced with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f3dc98"/>
+        <stop offset=".45" stop-color="#c9a24a"/>
+        <stop offset=".7" stop-color="#e8cc7e"/>
+        <stop offset="1" stop-color="#9c7a2e"/>
+      </linearGradient>
+      <!-- one laurel branch, curving up and to the right -->
+      <symbol id="laurel" viewBox="0 0 120 60">
+        <path d="M6 54 C 30 50, 70 38, 112 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <g fill="currentColor">
+          <ellipse cx="22" cy="44" rx="8" ry="3.2" transform="rotate(-50 22 44)"/>
+          <ellipse cx="26" cy="55" rx="8" ry="3.2" transform="rotate(10 26 55)"/>
+          <ellipse cx="40" cy="38" rx="8" ry="3.2" transform="rotate(-55 40 38)"/>
+          <ellipse cx="46" cy="49" rx="8" ry="3.2" transform="rotate(5 46 49)"/>
+          <ellipse cx="58" cy="30" rx="8" ry="3.2" transform="rotate(-62 58 30)"/>
+          <ellipse cx="66" cy="40" rx="8" ry="3.2" transform="rotate(-5 66 40)"/>
+          <ellipse cx="75" cy="21" rx="7.5" ry="3" transform="rotate(-68 75 21)"/>
+          <ellipse cx="84" cy="30" rx="7.5" ry="3" transform="rotate(-15 84 30)"/>
+          <ellipse cx="92" cy="12" rx="7" ry="2.8" transform="rotate(-72 92 12)"/>
+          <ellipse cx="100" cy="19" rx="7" ry="2.8" transform="rotate(-25 100 19)"/>
+          <ellipse cx="113" cy="6" rx="6" ry="2.5" transform="rotate(-35 113 6)"/>
+        </g>
+      </symbol>
+      <!-- a wreath made of two branches -->
+      <symbol id="wreath" viewBox="0 0 200 120">
+        <use href="#laurel" x="-2" y="40" width="104" height="52" transform="rotate(-28 50 66)"/>
+        <use href="#laurel" x="-2" y="40" width="104" height="52" transform="translate(200 0) scale(-1 1) rotate(-28 50 66)"/>
+      </symbol>
+      <!-- small rosette / sun ornament -->
+      <symbol id="rosette" viewBox="0 0 40 40">
+        <g fill="currentColor">
+          <circle cx="20" cy="20" r="4"/>
+          <g id="petal"><ellipse cx="20" cy="8.5" rx="3" ry="6"/></g>
+          <use href="#petal" transform="rotate(45 20 20)"/>
+          <use href="#petal" transform="rotate(90 20 20)"/>
+          <use href="#petal" transform="rotate(135 20 20)"/>
+          <use href="#petal" transform="rotate(180 20 20)"/>
+          <use href="#petal" transform="rotate(225 20 20)"/>
+          <use href="#petal" transform="rotate(270 20 20)"/>
+          <use href="#petal" transform="rotate(315 20 20)"/>
+        </g>
+      </symbol>
+      <!-- Greek amphora silhouette -->
+      <symbol id="amphora" viewBox="0 0 60 100">
+        <path fill="currentColor" d="M22 4h16v4h-3v8c0 4 2 6 6 9 9 7 13 17 13 29 0 16-7 28-17 36v4h4v4H19v-4h4v-4C13 82 6 70 6 54c0-12 4-22 13-29 4-3 6-5 6-9V8h-3z"/>
+        <path fill="none" stroke="currentColor" stroke-width="3" d="M25 14c-10 0-14 6-14 14M35 14c10 0 14 6 14 14"/>
+      </symbol>
+      <!-- Corinthian helmet in profile, with a horsehair crest -->
+      <symbol id="helmet" viewBox="0 0 100 100">
+        <path fill="currentColor" d="M26 22 C34 6 66 2 86 14 C94 20 97 30 95 42 C90 30 80 21 66 17 C52 13 38 15 26 22 Z"/>
+        <path fill="currentColor" fill-rule="evenodd" d="M20 46 C20 28 34 18 54 18 C74 18 86 30 86 48 L86 66 C86 72 89 78 94 84 L70 84 C66 79 64 73 63 68 L54 68 C52 76 46 84 38 87 L31 87 C27 79 25 72 25 64 L18 62 L19 50 Z M27 42 C31 37 40 36 46 41 C41 46 32 46 27 42 Z"/>
+        <path d="M54 24 C66 24 78 32 80 46" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <!-- a page-turn arrow -->
+      <symbol id="arrow" viewBox="0 0 24 24"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="stage" id="stage">
+    <div class="book" id="book" aria-live="polite"></div>
+  </div>
+
+  <nav class="toolbar" id="toolbar" aria-label="Book controls">
+    <button class="tb" id="prevBtn" aria-label="Previous page" title="Previous page (←)">
+      <svg viewBox="0 0 24 24" style="transform:scaleX(-1)"><use href="#arrow"/></svg>
+    </button>
+    <button class="tb" id="contentsBtn" aria-label="Contents" title="Contents">
+      <svg viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      <span>Contents</span>
+    </button>
+    <button class="tb" id="castBtn" aria-label="Characters" title="Dramatis personae">
+      <svg viewBox="0 0 100 100"><use href="#helmet"/></svg>
+      <span>Cast</span>
+    </button>
+    <button class="tb" id="mapBtn" aria-label="Map of Troy" title="Map of the Troad">
+      <svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>Map</span>
+    </button>
+    <span class="folio" id="folio" aria-live="polite">Cover</span>
+    <button class="tb toggle on" id="soundBtn" aria-pressed="true" aria-label="Page-turn sound" title="Page-turn sound">
+      <svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="waves" d="M16 9c1.5 1.5 1.5 4.5 0 6M18.5 6.5c3 3 3 8 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Sound</span>
+    </button>
+    <button class="tb toggle" id="musicBtn" aria-pressed="false" aria-label="Ambient music" title="Ambient lyre music">
+      <svg viewBox="0 0 24 24"><path d="M7 3c-2 4-2 10 1 14h8c3-4 3-10 1-14M8 5h8M10 5v12M12 5v12M14 5v12M8 21h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span>Music</span>
+    </button>
+    <button class="tb" id="nextBtn" aria-label="Next page" title="Next page (→)">
+      <svg viewBox="0 0 24 24"><use href="#arrow"/></svg>
+    </button>
+  </nav>
+
+  <!-- Character profile -->
+  <div class="modal" id="profile" role="dialog" aria-modal="true" aria-labelledby="profileName" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <article class="tablet" tabindex="-1">
+      <button class="close" data-close aria-label="Close profile">×</button>
+      <div class="tablet-inner" id="profileBody"></div>
+    </article>
+  </div>
+
+  <!-- Glossary and map popover -->
+  <div class="popover" id="popover" role="tooltip" hidden></div>
+
+  <noscript><p class="noscript">This book needs JavaScript to turn its pages.</p></noscript>
+
+  <script src="js/data.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/book.js"></script>
+</body>
+</html>
