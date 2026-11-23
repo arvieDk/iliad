@@ -24,7 +24,7 @@ No build step. Open `index.html` in a browser, or serve the folder:
 python3 -m http.server 8000
 ```
 
-To publish with GitHub Pages, enable Pages for the repository's default branch (root folder).
+To publish with Vercel, import the repository with the framework preset set to **Other**, no build command, and the project root as the output directory. `vercel.json` needs no further settings. GitHub Pages also works: enable Pages for the default branch (root folder).
 
 ## Structure
 
