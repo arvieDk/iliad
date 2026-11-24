@@ -243,6 +243,7 @@ export async function mountQuiz(root, { count = 10, mode = 'full', storageKey = 
   document.addEventListener('keydown', (event) => {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
     if (document.querySelector('dialog[open]')) return;
+    if (root.closest('[hidden]')) return; // another quiz mode is showing
     const scoped = mode === 'full' || root.contains(document.activeElement);
     if (!scoped || answered || !round.length || index >= round.length) return;
 

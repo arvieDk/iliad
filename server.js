@@ -18,6 +18,7 @@ const gods = require('./public/data/gods.json');
 const story = require('./public/data/story.json');
 const timeline = require('./public/data/timeline.json');
 const quiz = require('./public/data/quiz.json');
+const battle = require('./public/data/battle.json');
 
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const app = express();
@@ -89,6 +90,7 @@ profileRoutes(api, 'gods', gods);
 
 api.get('/story', (req, res) => sendData(res, story));
 api.get('/timeline', (req, res) => sendData(res, timeline));
+api.get('/battle', (req, res) => sendData(res, battle));
 
 // Quiz questions are shuffled per request, so it must not be cached.
 api.get('/quiz', (req, res) => {

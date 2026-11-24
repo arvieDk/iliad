@@ -1,0 +1,108 @@
+{
+  "rules": { "hit": 34, "aristeia": 50, "enemyHit": 25, "heal": 25 },
+  "prologue": [
+    { "speaker": "muse", "text": "Sing, goddess, of rage. That is how Homer begins the Iliad." },
+    { "speaker": "muse", "text": "Today I sing of a different contest. Its weapons are memory and truth." },
+    { "speaker": "muse", "text": "This duel is not a scene from the poem, but every answer comes from Homer's text." },
+    { "speaker": "muse", "text": "Answer truly and your blow lands. Answer wrongly and your enemy strikes. Three true answers in a row, and you enter your aristeia: a hero's moment of glory." }
+  ],
+  "sides": {
+    "greek": {
+      "hero": "achilles",
+      "label": "Fight as Achilles",
+      "blurb": "Greek · swift-footed leader of the Myrmidons",
+      "opponents": ["paris", "ares", "hector"],
+      "intro": [
+        { "speaker": "achilles", "text": "I have sat beside my ships long enough. Bring me Troy's champions." }
+      ],
+      "victory": [
+        { "speaker": "muse", "text": "Three champions have fallen before Achilles." },
+        { "speaker": "muse", "text": "In the poem, his rage ends not in triumph but in pity, when he weeps with Priam over Hector's body." },
+        { "speaker": "achilles", "text": "The glory is mine. But Patroclus is still gone." }
+      ]
+    },
+    "trojan": {
+      "hero": "hector",
+      "label": "Fight as Hector",
+      "blurb": "Trojan · tamer of horses, defender of Troy",
+      "opponents": ["menelaus", "ajax", "achilles"],
+      "intro": [
+        { "speaker": "hector", "text": "For Troy, for my father, and for my son. Let them come." }
+      ],
+      "victory": [
+        { "speaker": "muse", "text": "Hector has turned back the Greeks, something the poem never grants him." },
+        { "speaker": "muse", "text": "In Homer he falls at the Scaean Gate, and the poem ends with his funeral." },
+        { "speaker": "hector", "text": "Troy stands. Tonight I will hold my son again." }
+      ]
+    }
+  },
+  "opponents": {
+    "paris": {
+      "place": "The plain before Troy",
+      "scene": "plain",
+      "intro": [
+        { "speaker": "paris", "text": "So the great Achilles finally leaves his tent. I am Paris, who brought Helen to Troy." },
+        { "speaker": "paris", "text": "My arrows strike from far away. Let us see whether your answers do." }
+      ],
+      "defeat": "Aphrodite saved me once from Menelaus. Today no goddess comes.",
+      "win": "Even swift feet cannot outrun an arrow."
+    },
+    "ares": {
+      "place": "The banks of the Scamander",
+      "scene": "river",
+      "intro": [
+        { "speaker": "ares", "text": "I am Ares, and war is my whole nature." },
+        { "speaker": "ares", "text": "Diomedes wounded me once, with Athena guiding his spear. You have no goddess beside you." }
+      ],
+      "defeat": "Wounded again! I will run to my father Zeus, as I did before.",
+      "win": "Mortals bleed, and the war goes on."
+    },
+    "hector": {
+      "place": "The Scaean Gate",
+      "scene": "gate",
+      "intro": [
+        { "speaker": "hector", "text": "Three times you chased me around these walls. I will not run again." },
+        { "speaker": "hector", "text": "Let us agree: whoever wins gives the other's body back to his people." },
+        { "speaker": "achilles", "text": "There are no bargains between us. Answer, and fight." }
+      ],
+      "defeat": "Remember my words. Paris and Apollo will bring you down at these same gates.",
+      "win": "Troy stands another day."
+    },
+    "menelaus": {
+      "place": "The plain before Troy",
+      "scene": "plain",
+      "intro": [
+        { "speaker": "menelaus", "text": "Your brother took my wife from my house in Sparta." },
+        { "speaker": "menelaus", "text": "He hid behind a goddess's mist. Will you hide too, Hector?" }
+      ],
+      "defeat": "I yield the field. But the Greeks will not sail home without her.",
+      "win": "Sparta's honour is restored, for today."
+    },
+    "ajax": {
+      "place": "The Greek ships",
+      "scene": "ships",
+      "intro": [
+        { "speaker": "ajax", "text": "We fought once until night fell, and parted with gifts." },
+        { "speaker": "ajax", "text": "When you brought fire to these ships, I held them. I will hold them again." }
+      ],
+      "defeat": "I stood like a tower. But even towers fall.",
+      "win": "The ships are safe. Go back to your walls, Hector."
+    },
+    "achilles": {
+      "place": "The Scaean Gate",
+      "scene": "gate",
+      "intro": [
+        { "speaker": "achilles", "text": "You killed Patroclus. Now you face me." },
+        { "speaker": "hector", "text": "Then let us agree: whoever wins gives the other's body back to his people." },
+        { "speaker": "achilles", "text": "There are no bargains between us. Answer, and fight." }
+      ],
+      "defeat": "My mother said my life would be short. Shorter than I thought.",
+      "win": "Patroclus is avenged."
+    }
+  },
+  "interlude": "{hero} catches his breath. Strength returns.",
+  "defeat": [
+    { "speaker": "muse", "text": "{hero} has fallen." },
+    { "speaker": "muse", "text": "Even the greatest heroes of the Iliad fall. But memory can be trained. Try again." }
+  ]
+}

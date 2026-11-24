@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quiz · The Iliad Interactive</title>
-  <meta name="description" content="A fact-checked Iliad quiz. Ten questions asked by the heroes, with instant feedback, sources and score tracking.">
+  <meta name="description" content="Two fact-checked Iliad quizzes: a classic ten-question round, and Battle of Troy, a visual novel where every right answer is a blow against a champion.">
   <meta name="theme-color" content="#EBD5CE">
   <meta property="og:title" content="Quiz · The Iliad Interactive">
-  <meta property="og:description" content="A fact-checked Iliad quiz. Ten questions asked by the heroes, with instant feedback, sources and score tracking.">
+  <meta property="og:description" content="Two fact-checked Iliad quizzes: a classic ten-question round, and Battle of Troy, a visual novel where every right answer is a blow against a champion.">
   <meta property="og:type" content="website">
   <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/battle.css">
   <script type="module" src="/js/pages/quiz.js"></script>
 </head>
 <body>
@@ -51,18 +52,33 @@
       <div class="container">
         <p class="eyebrow reveal">Quiz</p>
         <h1 id="page-title" class="reveal" style="--i:1">Test your knowledge</h1>
-        <p class="lead reveal" style="--i:2">Ten questions, picked at random from the poem. Each answer is checked against Homer's text and comes with its source.</p>
+        <p class="lead reveal" style="--i:2">Two ways to play. Take the classic quiz, or fight through Troy in a visual novel where every right answer is a blow against a champion. Every answer is checked against Homer's text.</p>
       </div>
     </section>
 
     <section class="section" style="padding-top:var(--space-7)" aria-label="Quiz">
       <div class="container">
         <div class="quiz-page">
-          <div class="quiz-page__meta">
-            <span>10 questions · instant feedback</span>
-            <span>Best score: <strong data-best>0 / 10</strong></span>
+          <div class="mode-tabs" role="tablist" aria-label="Quiz type">
+            <button type="button" class="mode-tab" role="tab" id="tab-classic" aria-controls="panel-classic" aria-selected="true" data-mode="classic">
+              Classic quiz <small>10 questions · instant feedback</small>
+            </button>
+            <button type="button" class="mode-tab" role="tab" id="tab-battle" aria-controls="panel-battle" aria-selected="false" tabindex="-1" data-mode="battle">
+              Battle of Troy <small>Visual novel · three duels</small>
+            </button>
           </div>
-          <div id="quiz"></div>
+
+          <div role="tabpanel" id="panel-classic" aria-labelledby="tab-classic">
+            <div class="quiz-page__meta">
+              <span>Heroes ask, you answer</span>
+              <span>Best score: <strong data-best>0 / 10</strong></span>
+            </div>
+            <div id="quiz"></div>
+          </div>
+
+          <div role="tabpanel" id="panel-battle" aria-labelledby="tab-battle" hidden>
+            <div id="battle"></div>
+          </div>
         </div>
       </div>
     </section>

@@ -40,7 +40,23 @@ No settings are needed:
 | `/characters` | Eleven mortals with Greek/Trojan filters and profile modals (key moments, connections, fate, a "did you know") |
 | `/gods` | Eleven gods with the same modals, plus an alliance board based on the sides listed in Book 20 |
 | `/timeline` | Twenty-one events grouped by phase, a 24-Book rail to jump around, and flags for events that are *not* in the Iliad |
-| `/quiz` | Ten random questions from a pool of eighteen, with instant feedback, sources, streaks and a saved best score |
+| `/quiz` | Two modes in tabs. **Classic quiz:** ten random questions from a pool of eighteen, with instant feedback, sources, streaks and a saved best score. **Battle of Troy** (`/quiz#battle`): a visual novel, described below |
+
+### Battle of Troy (visual-novel quiz)
+
+A start-to-finish visual novel built on the same fact-checked questions:
+
+1. **Title screen.** Choose your side: fight as Achilles (against Paris, Ares and Hector) or as Hector (against Menelaus, Ajax and Achilles).
+2. **Prologue.** The Muse sets the scene in a dialogue box with typewriter text. Click, tap, Enter or Space to continue.
+3. **Three duels**, each in its own painted scene: the plain before Troy, the banks of the Scamander, the Greek ships, and the Scaean Gate at dusk. The champion asks the questions.
+   - Right answer: your hero lunges, the spear thrusts, a slash lands and the enemy loses strength.
+   - Wrong answer: the enemy strikes you.
+   - Three right in a row: an **aristeia** (a hero's moment of glory) for extra damage.
+   - After each answer the Muse gives the explanation and its Book.
+   - Win a duel and you get some strength back before the next one.
+4. **Ending.** Victory or defeat scenes, then results (champions defeated, accuracy), the best run saved on the device, a review of every answer, and buttons to fight again or switch sides.
+
+The duels are a contest of knowledge, not scenes from the poem, and the prologue says so. The dialogue sticks to the poem's facts: Hector's offer to return the loser's body, his dying prophecy about Paris and Apollo, Ajax defending the ships, and so on. The script is in `public/data/battle.json`.
 
 ## API
 
@@ -52,6 +68,7 @@ No settings are needed:
 | `GET /api/story` | Story chapters |
 | `GET /api/timeline` | `{ phases, events }` |
 | `GET /api/quiz?count=10` | Shuffled questions |
+| `GET /api/battle` | The Battle of Troy script (sides, opponents, lines, rules) |
 
 The front end calls the API first and falls back to the same JSON files in `public/data/` if the API cannot be reached.
 
@@ -67,14 +84,16 @@ public/
     base.css         Reset, typography, header, navigation, footer
     components.css   Buttons, cards, figures, modal, quiz
     pages.css        Page layouts
+    battle.css       Battle of Troy stage, fighters, dialogue box, quiz tabs
   js/core/
     site.js          Navigation, scroll reveal, figure placeholders
     api.js           Data loading with fallback, helpers
     figures.js       Animated black-figure SVG characters
     modal.js         Profile modal (native <dialog>)
     quiz-engine.js   Quiz shared by the home page and /quiz
+    battle-engine.js Battle of Troy visual novel
   js/pages/          One script per page
-  data/              Characters, gods, story, timeline and quiz (JSON)
+  data/              Characters, gods, story, timeline, quiz and battle (JSON)
   img/favicon.svg
 ```
 

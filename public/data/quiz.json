@@ -4,7 +4,12 @@
     "speaker": "achilles",
     "category": "The poem",
     "question": "The Iliad opens by asking the Muse to sing of one thing. What is it?",
-    "choices": ["The rage of Achilles", "The beauty of Helen", "The Wooden Horse", "The voyage of Odysseus"],
+    "choices": [
+      "The rage of Achilles",
+      "The beauty of Helen",
+      "The Wooden Horse",
+      "The voyage of Odysseus"
+    ],
     "answer": 0,
     "explanation": "The first word of the poem in Greek is mēnin — 'rage' or 'wrath'. The whole story follows Achilles' anger and what it costs.",
     "source": "Iliad, Book 1"
@@ -14,7 +19,13 @@
     "speaker": "agamemnon",
     "category": "Story",
     "question": "I gave up Chryseis to end the plague. What did I take from Achilles in return?",
-    "choices": ["His prize, Briseis", "His armour", "His horses", "His ships"],
+    "prompt": "Agamemnon gave up Chryseis to end the plague. What did he take from Achilles in return?",
+    "choices": [
+      "His prize, Briseis",
+      "His armour",
+      "His horses",
+      "His ships"
+    ],
     "answer": 0,
     "explanation": "Agamemnon claimed Briseis to replace Chryseis. Achilles saw it as a public insult and withdrew from the fighting.",
     "source": "Iliad, Book 1"
@@ -24,7 +35,12 @@
     "speaker": "apollo",
     "category": "Gods",
     "question": "Who sent the plague on the Greek camp?",
-    "choices": ["Apollo, because Agamemnon dishonoured his priest", "Poseidon, because the Greeks built a wall", "Hera, because of the Judgment of Paris", "Ares, because the Greeks were slow to fight"],
+    "choices": [
+      "Apollo, because Agamemnon dishonoured his priest",
+      "Poseidon, because the Greeks built a wall",
+      "Hera, because of the Judgment of Paris",
+      "Ares, because the Greeks were slow to fight"
+    ],
     "answer": 0,
     "explanation": "Agamemnon turned away Chryses, Apollo's priest. Apollo shot plague arrows into the camp for nine days.",
     "source": "Iliad, Book 1"
@@ -34,7 +50,13 @@
     "speaker": "patroclus",
     "category": "Story",
     "question": "Why did I go into battle wearing Achilles' armour?",
-    "choices": ["So the Trojans would think Achilles had returned", "Because my own armour was stolen", "To trick Hector into a duel", "To claim Achilles' glory for myself"],
+    "prompt": "Why did Patroclus go into battle wearing Achilles’ armour?",
+    "choices": [
+      "So the Trojans would think Achilles had returned",
+      "Because his own armour was stolen",
+      "To trick Hector into a duel",
+      "To claim Achilles' glory for himself"
+    ],
     "answer": 0,
     "explanation": "Patroclus hoped the Trojans would mistake him for Achilles and fall back from the ships — and at first they did.",
     "source": "Iliad, Book 16"
@@ -44,7 +66,13 @@
     "speaker": "hector",
     "category": "Characters",
     "question": "When I said goodbye to my family, what frightened my baby son?",
-    "choices": ["The horsehair crest on my helmet", "The roar of the battle", "A clap of thunder from Zeus", "My bronze spear"],
+    "prompt": "When Hector said goodbye to his family, what frightened his baby son?",
+    "choices": [
+      "The horsehair crest on his helmet",
+      "The roar of the battle",
+      "A clap of thunder from Zeus",
+      "His bronze spear"
+    ],
     "answer": 0,
     "explanation": "The child shrank back from the nodding crest. Hector laughed, set the helmet on the ground and held his son.",
     "source": "Iliad, Book 6"
@@ -54,7 +82,13 @@
     "speaker": "priam",
     "category": "Gods",
     "question": "Which god guided me secretly through the Greek camp to Achilles?",
-    "choices": ["Hermes", "Athena", "Apollo", "Aphrodite"],
+    "prompt": "Which god guided Priam secretly through the Greek camp to Achilles?",
+    "choices": [
+      "Hermes",
+      "Athena",
+      "Apollo",
+      "Aphrodite"
+    ],
     "answer": 0,
     "explanation": "Zeus sent Hermes, disguised as a young Myrmidon, to lead Priam's wagon safely to Achilles' hut.",
     "source": "Iliad, Book 24"
@@ -64,7 +98,12 @@
     "speaker": "zeus",
     "category": "Gods",
     "question": "When the gods join the battle, which of these fights on the Greek side?",
-    "choices": ["Poseidon", "Apollo", "Ares", "Aphrodite"],
+    "choices": [
+      "Poseidon",
+      "Apollo",
+      "Ares",
+      "Aphrodite"
+    ],
     "answer": 0,
     "explanation": "Hera, Athena, Poseidon, Hermes and Hephaestus side with the Greeks. Ares, Apollo, Artemis, Leto, Xanthus and Aphrodite side with Troy.",
     "source": "Iliad, Book 20"
@@ -74,7 +113,13 @@
     "speaker": "athena",
     "category": "Story",
     "question": "Whose form did I take to trick Hector into facing Achilles?",
-    "choices": ["His brother Deiphobus", "His father Priam", "His wife Andromache", "His brother Paris"],
+    "prompt": "Athena tricked Hector into facing Achilles. Whose form did she take?",
+    "choices": [
+      "His brother Deiphobus",
+      "His father Priam",
+      "His wife Andromache",
+      "His brother Paris"
+    ],
     "answer": 0,
     "explanation": "Thinking Deiphobus was beside him, Hector stood his ground. When he turned for a second spear, no one was there.",
     "source": "Iliad, Book 22"
@@ -84,7 +129,13 @@
     "speaker": "odysseus",
     "category": "Story",
     "question": "We brought Achilles gifts and the return of Briseis. How did he answer?",
-    "choices": ["He refused", "He accepted and returned to battle", "He asked for Agamemnon's crown", "He challenged me to a duel"],
+    "prompt": "Odysseus, Ajax and Phoenix offered Achilles gifts and the return of Briseis. How did he answer?",
+    "choices": [
+      "He refused",
+      "He accepted and returned to battle",
+      "He asked for Agamemnon’s crown",
+      "He challenged Odysseus to a duel"
+    ],
     "answer": 0,
     "explanation": "Achilles turned the embassy down, saying no gifts could repay the insult, and even threatened to sail home.",
     "source": "Iliad, Book 9"
@@ -94,7 +145,12 @@
     "speaker": "odysseus",
     "category": "Myth vs. poem",
     "question": "Which famous event is NOT told in the Iliad?",
-    "choices": ["The Wooden Horse", "The duel of Paris and Menelaus", "The death of Patroclus", "Priam's visit to Achilles"],
+    "choices": [
+      "The Wooden Horse",
+      "The duel of Paris and Menelaus",
+      "The death of Patroclus",
+      "Priam's visit to Achilles"
+    ],
     "answer": 0,
     "explanation": "The Iliad ends with Hector's funeral, before Troy falls. The Wooden Horse is recalled in the Odyssey and told in Virgil's Aeneid.",
     "source": "Iliad, Book 24; Odyssey, Book 8"
@@ -103,8 +159,13 @@
     "id": "q-heel",
     "speaker": "achilles",
     "category": "Myth vs. poem",
-    "question": "Can I be wounded in the Iliad?",
-    "choices": ["Yes — a spear grazes my arm and draws blood", "No — I am invulnerable except my heel", "No — my divine armour makes me untouchable", "Only by the arrows of Apollo"],
+    "question": "Can Achilles be wounded in the Iliad?",
+    "choices": [
+      "Yes: a spear grazes his arm and draws blood",
+      "No: only his heel is vulnerable",
+      "No: his divine armour makes him untouchable",
+      "Only by the arrows of Apollo"
+    ],
     "answer": 0,
     "explanation": "Asteropaeus grazes Achilles' arm and draws dark blood. The invulnerable body and the fatal heel come from later tradition, not Homer.",
     "source": "Iliad, Book 21"
@@ -114,7 +175,13 @@
     "speaker": "helen",
     "category": "Characters",
     "question": "Who was my husband before Paris brought me to Troy?",
-    "choices": ["Menelaus, king of Sparta", "Agamemnon, king of Mycenae", "Odysseus, king of Ithaca", "Hector, prince of Troy"],
+    "prompt": "Who was Helen’s husband before Paris brought her to Troy?",
+    "choices": [
+      "Menelaus, king of Sparta",
+      "Agamemnon, king of Mycenae",
+      "Odysseus, king of Ithaca",
+      "Hector, prince of Troy"
+    ],
     "answer": 0,
     "explanation": "Helen was the wife of Menelaus. Their duel over her opens Book 3.",
     "source": "Iliad, Book 3"
@@ -123,8 +190,13 @@
     "id": "q-ajaxduel",
     "speaker": "ajax",
     "category": "Story",
-    "question": "How did my duel with Hector end?",
-    "choices": ["A draw — we parted and swapped gifts", "I killed Hector", "Hector killed me", "Zeus struck us both with lightning"],
+    "question": "How did Ajax’s duel with Hector end?",
+    "choices": [
+      "A draw: they parted and swapped gifts",
+      "Ajax killed Hector",
+      "Hector killed Ajax",
+      "Zeus struck them both with lightning"
+    ],
     "answer": 0,
     "explanation": "Heralds stopped the fight at nightfall. Hector gave Ajax a silver-studded sword; Ajax gave Hector a purple belt.",
     "source": "Iliad, Book 7"
@@ -134,7 +206,13 @@
     "speaker": "thetis",
     "category": "Gods",
     "question": "Whom did I beg to honour my son Achilles by letting the Trojans win?",
-    "choices": ["Zeus", "Poseidon", "Hera", "Apollo"],
+    "prompt": "Whom did Thetis beg to honour Achilles by letting the Trojans win?",
+    "choices": [
+      "Zeus",
+      "Poseidon",
+      "Hera",
+      "Apollo"
+    ],
     "answer": 0,
     "explanation": "Thetis clasped Zeus's knees and he nodded his agreement — a nod that shook Olympus.",
     "source": "Iliad, Book 1"
@@ -144,7 +222,12 @@
     "speaker": "hephaestus",
     "category": "Gods",
     "question": "Who forged Achilles' new armour and his famous shield?",
-    "choices": ["Hephaestus", "Athena", "Hermes", "Ares"],
+    "choices": [
+      "Hephaestus",
+      "Athena",
+      "Hermes",
+      "Ares"
+    ],
     "answer": 0,
     "explanation": "At Thetis's request, Hephaestus made new armour and a shield showing cities, farms, dances and the ocean.",
     "source": "Iliad, Book 18"
@@ -154,7 +237,13 @@
     "speaker": "hector",
     "category": "Story",
     "question": "How many times did Achilles chase me around the walls of Troy?",
-    "choices": ["Three", "Seven", "Ten", "Once"],
+    "prompt": "How many times did Achilles chase Hector around the walls of Troy?",
+    "choices": [
+      "Three",
+      "Seven",
+      "Ten",
+      "Once"
+    ],
     "answer": 0,
     "explanation": "They ran three times around the city. On the fourth approach to the springs, Zeus weighed their fates.",
     "source": "Iliad, Book 22"
@@ -164,7 +253,12 @@
     "speaker": "priam",
     "category": "The poem",
     "question": "How does the Iliad end?",
-    "choices": ["With Hector's funeral", "With the fall of Troy", "With the death of Achilles", "With the Greeks sailing home"],
+    "choices": [
+      "With Hector's funeral",
+      "With the fall of Troy",
+      "With the death of Achilles",
+      "With the Greeks sailing home"
+    ],
     "answer": 0,
     "explanation": "The last line describes the funeral of Hector, 'tamer of horses'. Troy is still standing.",
     "source": "Iliad, Book 24"
@@ -174,7 +268,13 @@
     "speaker": "menelaus",
     "category": "Gods",
     "question": "I was about to beat Paris in our duel. Who rescued him?",
-    "choices": ["Aphrodite", "Apollo", "Hector", "Ares"],
+    "prompt": "Menelaus was about to beat Paris in their duel. Who rescued Paris?",
+    "choices": [
+      "Aphrodite",
+      "Apollo",
+      "Hector",
+      "Ares"
+    ],
     "answer": 0,
     "explanation": "Aphrodite hid Paris in a mist and carried him back to his room in Troy.",
     "source": "Iliad, Book 3"

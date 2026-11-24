@@ -304,10 +304,14 @@ const PRESETS = {
  * @param {object} [opts]
  * @param {boolean} [opts.still]  pause animation until the card is hovered
  * @param {string}  [opts.label]  accessible label; omit for decorative use
+ * @param {string[]} [opts.omit]  part names to leave out (e.g. ['spear'])
  */
-export function figureSVG(id, { still = false, label = '' } = {}) {
+export function figureSVG(id, { still = false, label = '', omit = [] } = {}) {
   const preset = PRESETS[id] || { skin: 'ink', parts: ['hairline'] };
-  const parts = preset.parts.map((name) => PARTS[name]).filter(Boolean);
+  const parts = preset.parts
+    .filter((name) => !omit.includes(name))
+    .map((name) => PARTS[name])
+    .filter(Boolean);
   const back = parts.map((p) => p.back || '').join('');
   const front = parts.map((p) => p.front || '').join('');
   const a11y = label ? `role="img" aria-label="${label}"` : 'aria-hidden="true" focusable="false"';
