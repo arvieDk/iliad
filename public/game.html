@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greeks vs Trojans · The Iliad Interactive</title>
+  <meta name="description" content="Iliad: Greeks vs Trojans, a minimalist strategy board game. Place tiles, win rows and columns, and gather the support of the gods. Play two-player or against the computer.">
+  <meta name="theme-color" content="#EBD5CE">
+  <meta property="og:title" content="Greeks vs Trojans · The Iliad Interactive">
+  <meta property="og:description" content="Iliad: Greeks vs Trojans, a minimalist strategy board game. Place tiles, win rows and columns, and gather the support of the gods.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/game.css">
+  <script type="module" src="/js/pages/game.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="The Iliad Interactive, home">
+        <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+        <span>The Iliad <span class="brand__sub">Interactive</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="/">Home <small>Start here</small></a></li>
+          <li><a class="site-nav__link" href="/story">Story <small>Eight choices</small></a></li>
+          <li><a class="site-nav__link" href="/characters">Characters <small>Eleven mortals</small></a></li>
+          <li><a class="site-nav__link" href="/gods">Gods &amp; Alliances <small>Who fought for whom</small></a></li>
+          <li><a class="site-nav__link" href="/timeline">Timeline <small>Book by book</small></a></li>
+          <li><a class="site-nav__link" href="/quiz">Quiz <small>Test yourself</small></a></li>
+          <li><a class="site-nav__link" href="/game" aria-current="page">Game <small>Greeks vs Trojans</small></a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+    <main id="main" class="game-page">
+    <section class="game-shell" aria-labelledby="game-title">
+      <div class="container">
+        <div class="game-head">
+          <div>
+            <p class="eyebrow">The board game</p>
+            <h1 id="game-title">Greeks <em>vs</em> Trojans</h1>
+          </div>
+          <div class="game-tools" role="toolbar" aria-label="Game controls">
+            <button type="button" class="tool" data-open-start>Menu</button>
+            <button type="button" class="tool" data-open-log>Chronicle</button>
+            <button type="button" class="tool" data-restart>Restart</button>
+            <button type="button" class="tool" data-mute aria-pressed="false">Sound</button>
+          </div>
+        </div>
+
+        <div class="game" id="game" data-mode="idle">
+          <div class="g-status">
+            <div class="g-turn">
+              <span class="g-turn__coin" data-turn-coin></span>
+              <div>
+                <p class="g-turn__num" data-turn-num>Ready</p>
+                <p class="g-turn__team" data-turn-team>Start a new game</p>
+              </div>
+            </div>
+            <p class="g-hint" data-hint aria-live="polite"></p>
+            <div class="g-acts" data-acts></div>
+          </div>
+
+          <div class="g-table">
+            <aside class="g-side g-side--T" data-side="T" aria-label="Trojans">
+              <header class="g-side__head">
+                <span class="g-side__coin" data-side-coin></span>
+                <h2>Trojans</h2>
+                <span class="g-side__badge" data-side-badge hidden></span>
+                <span class="g-side__total" data-side-total hidden></span>
+              </header>
+              <div class="g-side__play">
+                <div class="g-hand" data-hand aria-label="Trojan hand"></div>
+                <div class="g-deck" data-deck></div>
+              </div>
+              <p class="g-tileinfo" data-tile-info aria-live="polite"></p>
+              <div class="g-rack">
+                <p class="g-label">Tokens won · <span data-rack-count>0</span></p>
+                <div class="g-rack__grid" data-rack></div>
+              </div>
+            </aside>
+
+            <div class="g-center">
+              <div class="g-board" data-board aria-label="Battlefield: six by six spaces inside a ring of tokens"></div>
+              <div class="g-market">
+                <p class="g-label">Market</p>
+                <div class="g-market__row" data-market></div>
+              </div>
+            </div>
+
+            <aside class="g-side g-side--G" data-side="G" aria-label="Greeks">
+              <header class="g-side__head">
+                <span class="g-side__coin" data-side-coin></span>
+                <h2>Greeks</h2>
+                <span class="g-side__badge" data-side-badge hidden></span>
+                <span class="g-side__total" data-side-total hidden></span>
+              </header>
+              <div class="g-side__play">
+                <div class="g-hand" data-hand aria-label="Greek hand"></div>
+                <div class="g-deck" data-deck></div>
+              </div>
+              <p class="g-tileinfo" data-tile-info aria-live="polite"></p>
+              <div class="g-rack">
+                <p class="g-label">Tokens won · <span data-rack-count>0</span></p>
+                <div class="g-rack__grid" data-rack></div>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Start screen -->
+          <div class="g-overlay g-start" data-start hidden>
+            <div class="g-start__panel">
+              <p class="g-start__kicker">A board game of the Trojan War</p>
+              <p class="g-start__title">Iliad</p>
+              <p class="g-start__sub">Greeks vs Trojans</p>
+              <fieldset class="g-modes">
+                <legend>Players</legend>
+                <label><input type="radio" name="g-mode" value="two" checked><span><strong>Two players</strong><small>Take turns on one device</small></span></label>
+                <label><input type="radio" name="g-mode" value="ai-G"><span><strong>Play as the Greeks</strong><small>The computer leads Troy</small></span></label>
+                <label><input type="radio" name="g-mode" value="ai-T"><span><strong>Play as the Trojans</strong><small>The computer leads the Greeks</small></span></label>
+              </fieldset>
+              <div class="g-start__actions">
+                <button type="button" class="btn" data-continue hidden>Continue game</button>
+                <button type="button" class="btn btn--ghost" data-new-game>New game</button>
+              </div>
+              <details class="g-sound">
+                <summary>Sound settings</summary>
+                <label>Music <input type="range" min="0" max="100" data-vol-music></label>
+                <label>Effects <input type="range" min="0" max="100" data-vol-sfx></label>
+              </details>
+              <a class="g-start__rules" href="#rules">How to play</a>
+            </div>
+          </div>
+
+          <!-- Coin toss -->
+          <div class="g-overlay g-toss" data-toss hidden>
+            <div class="g-tosscoin" data-toss-coin></div>
+            <p class="g-toss__msg" data-toss-msg aria-live="polite">Tossing the coin…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--olive" id="rules" aria-labelledby="rules-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">How to play</p>
+          <h2 id="rules-title" class="reveal">Win the gods, win the war</h2>
+        </div>
+        <div class="g-rules">
+          <ol class="g-steps">
+            <li class="reveal"><strong>Toss the coin.</strong> The winner moves first. Each side starts with two tiles in the center of the board and two in hand.</li>
+            <li class="reveal" style="--i:1"><strong>Place a tile.</strong> Put one tile on an empty space of your color that touches another tile. You then draw back up to two.</li>
+            <li class="reveal" style="--i:2"><strong>Use its power, if you like.</strong> Tiles 1 to 4 have an optional effect. 5 is simply strong, and Dolos copies its neighbors.</li>
+            <li class="reveal" style="--i:3"><strong>Win the lines.</strong> When a row or column is full, the higher total wins it. The winner takes one token from its ends; the loser gets the other. A tie goes to the player whose turn it is.</li>
+            <li class="reveal" style="--i:4"><strong>Count the spoils.</strong> At the end, a side with all five gods wins (four gods plus both marriages also counts). Otherwise the most points win: only your best token of each god scores, plus the +10 and negative tokens.</li>
+          </ol>
+          <p class="g-rules__note reveal">Ties are broken by lower god tokens, then the best Zeus, then the best Poseidon. Hover or focus any tile or token in the game to read what it does. Press Escape to put back a picked tile or token.</p>
+        </div>
+
+        <h3 class="g-legend__title reveal">The tiles</h3>
+        <ul class="g-legend g-legend--tiles" role="list" data-legend-tiles></ul>
+
+        <h3 class="g-legend__title reveal">The tokens</h3>
+        <ul class="g-legend g-legend--tokens" role="list" data-legend-tokens></ul>
+
+        <h3 class="g-legend__title reveal">Coins and decks</h3>
+        <div class="g-legend--coins" data-legend-coins></div>
+      </div>
+    </section>
+
+    <!-- Chronicle -->
+    <dialog class="g-dialog" id="dlg-log" aria-labelledby="log-title">
+      <header class="g-dialog__head">
+        <h2 id="log-title">Chronicle</h2>
+        <button type="button" class="g-dialog__close" data-close aria-label="Close">✕</button>
+      </header>
+      <ol class="g-log" data-log></ol>
+    </dialog>
+
+    <!-- Result -->
+    <dialog class="g-dialog g-dialog--win" id="dlg-win" aria-labelledby="win-title">
+      <header class="g-win__head">
+        <div class="g-win__emblem" data-win-emblem></div>
+        <h2 id="win-title" data-win-title>Result</h2>
+        <p data-win-why></p>
+        <button type="button" class="g-dialog__close" data-close aria-label="Close">✕</button>
+      </header>
+      <div class="g-win__detail" data-win-detail></div>
+      <footer class="g-win__actions">
+        <button type="button" class="btn" data-play-again>Play again</button>
+        <button type="button" class="btn btn--ghost" data-view-board>View the board</button>
+      </footer>
+    </dialog>
+
+    <div class="g-tip" data-tip role="tooltip" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="/">
+            <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+            <span>The Iliad <span class="brand__sub">Interactive</span></span>
+          </a>
+          <p class="site-footer__about">Homer's Iliad, retold for curious minds. Every fact is checked against the poem and cited by Book.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul role="list">
+            <li><a href="/story">Story</a></li>
+            <li><a href="/characters">Characters</a></li>
+            <li><a href="/gods">Gods &amp; Alliances</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+            <li><a href="/game">Board game</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Read the poem</h2>
+          <ul role="list">
+            <li><a href="https://www.britannica.com/topic/Iliad-epic-poem-by-Homer" target="_blank" rel="noopener">Britannica: <i>Iliad</i> ↗</a></li>
+            <li><a href="https://classics.mit.edu/Homer/iliad.html" target="_blank" rel="noopener">Full text, Butler translation ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> The Iliad Interactive</span>
+        <span>An original retelling. Homer's poem is in the public domain.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

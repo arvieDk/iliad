@@ -106,6 +106,23 @@
 .soon__shield { animation: shield-float 6s var(--ease-in-out) infinite; }
 .soon__ring { animation: fig-spin 40s linear infinite; transform-origin: center; transform-box: fill-box; }
 @keyframes shield-float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+.soon__preview { display: block; width: min(320px, 100%); transition: transform var(--dur-slow) var(--ease); }
+.soon__preview:hover { transform: rotate(-2deg) scale(1.02); }
+.soon__board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 6px;
+  border-radius: 18px;
+  background: #EFE8DC;
+  box-shadow: var(--shadow);
+  transform: rotate(3deg);
+}
+.soon__cell { aspect-ratio: 1; display: grid; place-items: center; border-radius: 18%; }
+.soon__cell svg { width: 92%; height: 92%; }
+.soon__cell--G { background: #D9E3EE; }
+.soon__cell--T { background: #F1D8D0; }
+.soon__cell--ring { border: 1px dashed rgba(168, 123, 69, 0.45); }
 .soon__features { display: grid; gap: var(--space-3); margin-top: var(--space-5); padding: 0; list-style: none; }
 .soon__features li { display: flex; gap: var(--space-3); align-items: baseline; }
 .soon__features li::before { content: '◆'; color: var(--bronze); font-size: 0.7rem; }

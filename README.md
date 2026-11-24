@@ -41,6 +41,38 @@ No settings are needed:
 | `/gods` | Eleven gods with the same modals, plus an alliance board based on the sides listed in Book 20 |
 | `/timeline` | Twenty-one events grouped by phase, a 24-Book rail to jump around, and flags for events that are *not* in the Iliad |
 | `/quiz` | Two modes in tabs. **Classic quiz:** ten random questions from a pool of eighteen, with instant feedback, sources, streaks and a saved best score. **Battle of Troy** (`/quiz#battle`): a visual novel, described below |
+| `/game` | **Iliad: Greeks vs Trojans**, the board game (below) |
+
+### Greeks vs Trojans (board game)
+
+A two-sided strategy game on a 6×6 battlefield, ringed by 24 tokens. The rules are the original game's, unchanged:
+
+- Each turn, place a tile from your hand on an empty space of your color that touches another tile.
+- Tiles 1–4 have optional powers: move an enemy tile, move your own, swap a token with the market, or turn tiles face down. 5 has no power; **Dolos** (the wooden horse) counts as the sum of its neighbors.
+- When a row or column fills, the higher total wins it and takes one of its end tokens. The loser gets the other.
+- The support of all five gods wins (four gods plus both marriages also counts). Otherwise the most points win, then the tie-breaks.
+
+What the redesign adds:
+
+- **Every asset drawn**, as minimalist vector art, with no placeholders left:
+  - 12 tiles (Roman numerals built from shapes, with a small power icon) and 2 tile backs
+  - 2 team coins and 2 decks
+  - 21 god tokens (Zeus, Apollo, Athena, Poseidon, Aphrodite), 6 hero and hardship tokens, and the marriage token
+  - the board corners and the interface icons
+
+  All of them are also exported as standalone files in `public/img/game/` (40 SVGs).
+- Blue (Greeks) and red (Trojans), toned down to sit with the site's Iliad palette.
+- **Three modes:** two players on one device, play as the Greeks against the computer, or play as the Trojans against the computer.
+- **Interface:**
+  - glowing legal spaces, and a preview of your tile when you hover one
+  - tooltips for every tile and token
+  - line and token choices you can click directly on the board
+  - Escape puts back a picked tile
+- **Animations:** a coin toss, a turn coin that flips, tiles dropping in and flipping face down, lines flashing when scored, and an end-of-game tally followed by a full score breakdown.
+- **Saving:** the game is saved after every move, so a reload offers "Continue game".
+- **Other:** a chronicle (game log), soft synthesized lyre-like sound with volume settings, a phone layout that keeps the active hand under the board, and a pieces legend on the page.
+
+Code: `public/js/game/engine.js` (rules, no DOM), `ai.js` (computer opponent), `art.js` (all artwork), `audio.js` (sound), `public/js/pages/game.js` (interface), `public/css/game.css`.
 
 ### Battle of Troy (visual-novel quiz)
 
@@ -85,6 +117,7 @@ public/
     components.css   Buttons, cards, figures, modal, quiz
     pages.css        Page layouts
     battle.css       Battle of Troy stage, fighters, dialogue box, quiz tabs
+    game.css         Board game layout, board, tiles, panels, overlays
   js/core/
     site.js          Navigation, scroll reveal, figure placeholders
     api.js           Data loading with fallback, helpers
@@ -92,7 +125,9 @@ public/
     modal.js         Profile modal (native <dialog>)
     quiz-engine.js   Quiz shared by the home page and /quiz
     battle-engine.js Battle of Troy visual novel
+  js/game/           Board game: engine, computer opponent, artwork, sound
   js/pages/          One script per page
+  img/game/          Every board-game asset as a standalone SVG
   data/              Characters, gods, story, timeline, quiz and battle (JSON)
   img/favicon.svg
 ```
