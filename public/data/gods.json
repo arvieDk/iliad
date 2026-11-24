@@ -1,0 +1,229 @@
+[
+  {
+    "id": "zeus",
+    "name": "Zeus",
+    "side": "neutral",
+    "role": "King of the gods",
+    "epithet": "the cloud-gatherer",
+    "summary": "Father of gods and men. Zeus favours neither army for its own sake: he keeps his promise to Thetis to honour Achilles, and he weighs the fates of heroes on golden scales.",
+    "traits": ["Supreme", "Balancing", "Bound by fate"],
+    "moments": [
+      { "book": 1, "text": "Nods to Thetis's request to let the Trojans win until Achilles is honoured." },
+      { "book": 8, "text": "Forbids the other gods from joining the battle." },
+      { "book": 16, "text": "Grieves but lets his own son Sarpedon die." },
+      { "book": 22, "text": "Lifts his golden scales; Hector's doom sinks." }
+    ],
+    "relations": [
+      { "id": "hera", "label": "Wife" },
+      { "id": "athena", "label": "Daughter" },
+      { "id": "apollo", "label": "Son" },
+      { "id": "thetis", "label": "Owes a favour to" }
+    ],
+    "fate": "Above the sides — he lets the gods take part in the fighting from Book 20.",
+    "fact": "In Book 14 Hera lulls him to sleep so Poseidon can help the Greeks behind his back."
+  },
+  {
+    "id": "hera",
+    "name": "Hera",
+    "side": "greek",
+    "role": "Queen of the gods",
+    "epithet": "white-armed",
+    "summary": "Wife of Zeus and a relentless enemy of Troy. She schemes constantly to help the Greeks, even against her husband's orders.",
+    "traits": ["Determined", "Strategic", "Unforgiving"],
+    "moments": [
+      { "book": 1, "text": "Sends Athena to stop Achilles drawing his sword on Agamemnon." },
+      { "book": 14, "text": "Borrows Aphrodite's charmed band to distract Zeus." },
+      { "book": 21, "text": "Strikes Artemis with her own bow during the battle of the gods." }
+    ],
+    "relations": [
+      { "id": "zeus", "label": "Husband" },
+      { "id": "athena", "label": "Ally" },
+      { "id": "aphrodite", "label": "Rival" }
+    ],
+    "fate": "Sides with the Greeks throughout.",
+    "fact": "Book 24 hints at the Judgment of Paris — the insult behind her hatred of Troy."
+  },
+  {
+    "id": "athena",
+    "name": "Athena",
+    "side": "greek",
+    "role": "Goddess of wisdom and war strategy",
+    "epithet": "grey-eyed",
+    "summary": "Daughter of Zeus and the Greeks' most active divine ally. She guides heroes, deflects spears and, at the end, tricks Hector.",
+    "traits": ["Wise", "Decisive", "Protective of heroes"],
+    "moments": [
+      { "book": 1, "text": "Holds Achilles back by his hair as he reaches for his sword." },
+      { "book": 4, "text": "Disguised as Laodocus, persuades Pandarus to break the truce." },
+      { "book": 5, "text": "Rides with Diomedes as he wounds Ares." },
+      { "book": 22, "text": "Takes the form of Deiphobus so Hector stands and fights." }
+    ],
+    "relations": [
+      { "id": "zeus", "label": "Father" },
+      { "id": "hera", "label": "Ally" },
+      { "id": "achilles", "label": "Guides" },
+      { "id": "ares", "label": "Opposes" }
+    ],
+    "fate": "Sides with the Greeks throughout.",
+    "fact": "Only Achilles can see her when she stops him in Book 1."
+  },
+  {
+    "id": "apollo",
+    "name": "Apollo",
+    "side": "trojan",
+    "role": "God of archery, healing and plague",
+    "epithet": "the far-shooter",
+    "summary": "Son of Zeus and Leto, and Troy's strongest divine protector. His arrows open the poem with a plague.",
+    "traits": ["Deadly", "Protective", "Dignified"],
+    "moments": [
+      { "book": 1, "text": "Sends nine days of plague after Agamemnon insults his priest Chryses." },
+      { "book": 16, "text": "Strikes Patroclus from behind and knocks off his armour." },
+      { "book": 24, "text": "Protects Hector's body from harm while Achilles abuses it." }
+    ],
+    "relations": [
+      { "id": "artemis", "label": "Twin sister" },
+      { "id": "hector", "label": "Protects" },
+      { "id": "poseidon", "label": "Refuses to fight" }
+    ],
+    "fate": "Sides with Troy. Hector, dying, says Apollo will help Paris kill Achilles.",
+    "fact": "In Book 21 he refuses to duel his uncle Poseidon, saying mortals are not worth gods fighting over."
+  },
+  {
+    "id": "poseidon",
+    "name": "Poseidon",
+    "side": "greek",
+    "role": "God of the sea and earthquakes",
+    "epithet": "earth-shaker",
+    "summary": "Brother of Zeus. Poseidon helps the Greeks, partly out of an old grudge against Troy's former king Laomedon.",
+    "traits": ["Powerful", "Resentful", "Bold"],
+    "moments": [
+      { "book": 13, "text": "Rallies the Greeks while Zeus looks away." },
+      { "book": 20, "text": "Saves the Trojan Aeneas — fate says he must survive." },
+      { "book": 21, "text": "Reminds Apollo that Laomedon cheated them both." }
+    ],
+    "relations": [
+      { "id": "zeus", "label": "Brother" },
+      { "id": "apollo", "label": "Challenges" }
+    ],
+    "fate": "Sides with the Greeks.",
+    "fact": "He says he built Troy's walls for Laomedon, who then refused to pay."
+  },
+  {
+    "id": "aphrodite",
+    "name": "Aphrodite",
+    "side": "trojan",
+    "role": "Goddess of love and desire",
+    "epithet": "laughter-loving",
+    "summary": "Paris's patron and the mother of the Trojan hero Aeneas. She protects her favourites but is no fighter.",
+    "traits": ["Persuasive", "Protective", "Vulnerable in battle"],
+    "moments": [
+      { "book": 3, "text": "Snatches Paris away from his duel with Menelaus." },
+      { "book": 5, "text": "Wounded on the hand by Diomedes while rescuing Aeneas." }
+    ],
+    "relations": [
+      { "id": "paris", "label": "Favours" },
+      { "id": "helen", "label": "Commands" },
+      { "id": "ares", "label": "Ally" }
+    ],
+    "fate": "Sides with Troy.",
+    "fact": "After Diomedes wounds her she flees to Olympus, where Zeus tells her to stick to love, not war."
+  },
+  {
+    "id": "ares",
+    "name": "Ares",
+    "side": "trojan",
+    "role": "God of war",
+    "epithet": "the man-slayer",
+    "summary": "Violent and reckless, Ares fights for Troy — and gets the worst of it whenever he meets Athena.",
+    "traits": ["Violent", "Impulsive", "Bloodthirsty"],
+    "moments": [
+      { "book": 5, "text": "Wounded by Diomedes, whose spear Athena drives home." },
+      { "book": 21, "text": "Knocked down by a boulder thrown by Athena." }
+    ],
+    "relations": [
+      { "id": "athena", "label": "Bitter rival" },
+      { "id": "aphrodite", "label": "Ally" },
+      { "id": "zeus", "label": "Father" }
+    ],
+    "fate": "Sides with Troy.",
+    "fact": "When wounded he bellows as loudly as nine or ten thousand men in battle."
+  },
+  {
+    "id": "hephaestus",
+    "name": "Hephaestus",
+    "side": "greek",
+    "role": "God of fire and the forge",
+    "epithet": "the famed craftsman",
+    "summary": "The lame smith of the gods. He makes Achilles the most famous armour in literature.",
+    "traits": ["Skilled", "Loyal", "Peacemaker"],
+    "moments": [
+      { "book": 1, "text": "Calms a quarrel between Zeus and Hera on Olympus." },
+      { "book": 18, "text": "Forges new armour and a great shield for Achilles." },
+      { "book": 21, "text": "Turns his fire on the river god who is drowning Achilles." }
+    ],
+    "relations": [
+      { "id": "thetis", "label": "Owes a debt to" },
+      { "id": "achilles", "label": "Arms" }
+    ],
+    "fate": "Sides with the Greeks.",
+    "fact": "The shield he makes shows a whole world: cities at peace and war, farms, vineyards and dancing."
+  },
+  {
+    "id": "hermes",
+    "name": "Hermes",
+    "side": "greek",
+    "role": "Messenger and guide",
+    "epithet": "slayer of Argus",
+    "summary": "Listed with the Greek-side gods in Book 20, but his great moment is an act of mercy: guiding Priam to Achilles.",
+    "traits": ["Clever", "Diplomatic", "Kind guide"],
+    "moments": [
+      { "book": 21, "text": "Politely refuses to fight Leto." },
+      { "book": 24, "text": "Sent by Zeus, disguised as a young Myrmidon, he leads Priam safely through the Greek camp." }
+    ],
+    "relations": [
+      { "id": "zeus", "label": "Messenger of" },
+      { "id": "priam", "label": "Guides" }
+    ],
+    "fate": "Sides with the Greeks, yet serves Zeus's will in helping Priam.",
+    "fact": "He casts sleep on the Greek sentries so Priam's wagon can pass unseen."
+  },
+  {
+    "id": "artemis",
+    "name": "Artemis",
+    "side": "trojan",
+    "role": "Goddess of the hunt",
+    "epithet": "the archer",
+    "summary": "Apollo's twin sister. She supports Troy but comes off badly in the battle of the gods.",
+    "traits": ["Independent", "Proud", "Skilled archer"],
+    "moments": [
+      { "book": 21, "text": "Scolds Apollo for not fighting Poseidon." },
+      { "book": 21, "text": "Hera boxes her ears with her own bow, and she flees in tears." }
+    ],
+    "relations": [
+      { "id": "apollo", "label": "Twin brother" },
+      { "id": "hera", "label": "Humiliated by" }
+    ],
+    "fate": "Sides with Troy.",
+    "fact": "She and Apollo are children of Leto, who also sides with Troy."
+  },
+  {
+    "id": "thetis",
+    "name": "Thetis",
+    "side": "greek",
+    "role": "Sea-nymph, mother of Achilles",
+    "epithet": "of the silver feet",
+    "summary": "A goddess of the sea married to a mortal. She knows her son's life will be short and does everything she can for him.",
+    "traits": ["Devoted", "Sorrowful", "Persuasive"],
+    "moments": [
+      { "book": 1, "text": "Clasps Zeus's knees and asks him to honour Achilles." },
+      { "book": 18, "text": "Asks Hephaestus to forge new armour for her son." },
+      { "book": 24, "text": "Tells Achilles that Zeus wants him to return Hector's body." }
+    ],
+    "relations": [
+      { "id": "achilles", "label": "Son" },
+      { "id": "zeus", "label": "Petitions" },
+      { "id": "hephaestus", "label": "Old friend" }
+    ],
+    "fate": "Supports Achilles above all.",
+    "fact": "She is not an Olympian but a Nereid — one of the daughters of the old sea god."
+  }
+]

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gods & Alliances · The Iliad Interactive</title>
+  <meta name="description" content="Which gods fought for the Greeks and which for Troy? Profiles of Zeus, Athena, Apollo and the Olympians, plus the alliances of the war.">
+  <meta name="theme-color" content="#EBD5CE">
+  <meta property="og:title" content="Gods & Alliances · The Iliad Interactive">
+  <meta property="og:description" content="Which gods fought for the Greeks and which for Troy? Profiles of Zeus, Athena, Apollo and the Olympians, plus the alliances of the war.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <script type="module" src="/js/pages/gods.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="The Iliad Interactive, home">
+        <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+        <span>The Iliad <span class="brand__sub">Interactive</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="/">Home <small>Start here</small></a></li>
+          <li><a class="site-nav__link" href="/story">Story <small>Eight choices</small></a></li>
+          <li><a class="site-nav__link" href="/characters">Characters <small>Eleven mortals</small></a></li>
+          <li><a class="site-nav__link" href="/gods" aria-current="page">Gods &amp; Alliances <small>Who fought for whom</small></a></li>
+          <li><a class="site-nav__link" href="/timeline">Timeline <small>Book by book</small></a></li>
+          <li><a class="site-nav__link" href="/quiz">Quiz <small>Test yourself</small></a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow reveal">Gods &amp; Alliances</p>
+        <h1 id="page-title" class="reveal" style="--i:1">Gods on both sides</h1>
+        <p class="lead reveal" style="--i:2">In the Iliad the gods take sides, argue, scheme and even get wounded. Meet them, then see how the two alliances line up.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gods-title">
+      <div class="container">
+        <h2 id="gods-title" class="visually-hidden">The gods</h2>
+        <div class="toolbar">
+          <div class="chips" role="group" aria-label="Filter by side">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-filter="greek" aria-pressed="false">Greek side</button>
+            <button type="button" class="chip" data-filter="trojan" aria-pressed="false">Trojan side</button>
+            <button type="button" class="chip" data-filter="neutral" aria-pressed="false">Above the sides</button>
+          </div>
+        </div>
+        <div class="card-grid" id="god-grid">
+          <p class="state">Climbing Olympus…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--olive" aria-labelledby="alliance-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">Alliances</p>
+          <h2 id="alliance-title" class="reveal">Who fought for whom</h2>
+          <p class="reveal">When Zeus lets the gods join the battle in Book 20, Homer lists exactly who stands where. Focus on one side, or tap anyone for their profile.</p>
+          <div class="segmented reveal" role="group" aria-label="Focus on a side">
+            <button type="button" data-focus-side="both" aria-pressed="true">Both sides</button>
+            <button type="button" data-focus-side="greek" aria-pressed="false">Greeks</button>
+            <button type="button" data-focus-side="trojan" aria-pressed="false">Trojans</button>
+          </div>
+        </div>
+
+        <div class="alliance" id="alliance" data-focus="both">
+          <div class="alliance__zeus reveal">
+            <button type="button" data-open="zeus" aria-label="Open Zeus's profile" aria-haspopup="dialog"><span data-zeus style="display:block;width:64px"></span></button>
+            <div>
+              <h3>Zeus, above both sides</h3>
+              <p>He keeps his promise to Thetis and weighs the fates of heroes on golden scales, but he fights for neither army.</p>
+            </div>
+          </div>
+
+          <div class="alliance__sides">
+            <section class="side side--greek reveal" aria-labelledby="side-greek">
+              <h3 id="side-greek">The Greeks</h3>
+              <p>Homer calls them Achaeans, Danaans and Argives.</p>
+              <div class="side__group"><h4>Gods</h4><div class="side__list" data-list="greek-gods"></div></div>
+              <div class="side__group"><h4>Heroes</h4><div class="side__list" data-list="greek-heroes"></div></div>
+              <div class="side__group"><h4>Forces</h4><p class="side__text">Contingents from all over Greece, listed in the Catalogue of Ships (Book 2): Mycenae, Sparta, Pylos, Ithaca, Salamis, Crete, the Myrmidons of Phthia and many more.</p></div>
+            </section>
+            <section class="side side--trojan reveal" style="--i:1" aria-labelledby="side-trojan">
+              <h3 id="side-trojan">Troy and its allies</h3>
+              <p>Defending their city with help from across Asia Minor and Thrace.</p>
+              <div class="side__group"><h4>Gods</h4><div class="side__list" data-list="trojan-gods"></div><p class="side__text" style="margin-top:var(--space-2)">Also Leto, and the river god Xanthus (Scamander).</p></div>
+              <div class="side__group"><h4>Heroes</h4><div class="side__list" data-list="trojan-heroes"></div></div>
+              <div class="side__group"><h4>Allies</h4><p class="side__text">Listed in Book 2: Dardanians under Aeneas, Lycians under Sarpedon and Glaucus, Thracians, Paeonians, Mysians, Phrygians, Carians and others.</p></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="why">
+          <article class="reveal">
+            <h3>Hera &amp; Athena</h3>
+            <p>Book 24 hints at the Judgment of Paris: the Trojan prince insulted them by choosing Aphrodite.</p>
+          </article>
+          <article class="reveal" style="--i:1">
+            <h3>Poseidon</h3>
+            <p>He built Troy's walls for King Laomedon, who refused to pay. He reminds Apollo of it in Book 21.</p>
+          </article>
+          <article class="reveal" style="--i:2">
+            <h3>Aphrodite &amp; Apollo</h3>
+            <p>Aphrodite protects Paris and her son Aeneas. Apollo has a temple on Troy's citadel and shields Hector.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="/">
+            <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+            <span>The Iliad <span class="brand__sub">Interactive</span></span>
+          </a>
+          <p class="site-footer__about">Homer's Iliad, retold for curious minds. Every fact is checked against the poem and cited by Book.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul role="list">
+            <li><a href="/story">Story</a></li>
+            <li><a href="/characters">Characters</a></li>
+            <li><a href="/gods">Gods &amp; Alliances</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Read the poem</h2>
+          <ul role="list">
+            <li><a href="https://www.britannica.com/topic/Iliad-epic-poem-by-Homer" target="_blank" rel="noopener">Britannica: <i>Iliad</i> ↗</a></li>
+            <li><a href="https://classics.mit.edu/Homer/iliad.html" target="_blank" rel="noopener">Full text, Butler translation ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> The Iliad Interactive</span>
+        <span>An original retelling. Homer's poem is in the public domain.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,236 @@
+[
+  {
+    "id": "achilles",
+    "name": "Achilles",
+    "side": "greek",
+    "role": "Greatest warrior of the Greeks",
+    "epithet": "swift-footed",
+    "summary": "Son of the mortal king Peleus and the sea-nymph Thetis, Achilles leads the Myrmidons. His rage at Agamemnon — the very first word of the poem in Greek — drives the whole story.",
+    "traits": ["Proud", "Fearless", "Fiercely loyal", "Quick to anger"],
+    "moments": [
+      { "book": 1, "text": "Agamemnon takes his prize, Briseis. Achilles withdraws from the fighting and asks Thetis to make the Greeks regret it." },
+      { "book": 9, "text": "Refuses Agamemnon's lavish offer of gifts, even with Briseis returned." },
+      { "book": 18, "text": "Learns Patroclus is dead and turns his rage against Hector." },
+      { "book": 22, "text": "Kills Hector and drags his body behind his chariot." },
+      { "book": 24, "text": "Weeps with Priam and gives back Hector's body." }
+    ],
+    "relations": [
+      { "id": "patroclus", "label": "Dearest companion" },
+      { "id": "agamemnon", "label": "Rival commander" },
+      { "id": "hector", "label": "Mortal enemy" },
+      { "name": "Thetis", "label": "Mother (sea-nymph)" }
+    ],
+    "fate": "His death is foretold — Hector, dying, names Paris and Apollo as his killers — but it happens after the poem ends.",
+    "fact": "The famous 'Achilles heel' never appears in the Iliad. In Book 21 a spear from Asteropaeus grazes his arm and draws blood."
+  },
+  {
+    "id": "agamemnon",
+    "name": "Agamemnon",
+    "side": "greek",
+    "role": "King of Mycenae, commander of the Greeks",
+    "epithet": "lord of men",
+    "summary": "Elder brother of Menelaus and leader of the whole Greek army. His pride sparks the quarrel that nearly loses the war.",
+    "traits": ["Powerful", "Proud", "Insecure about status"],
+    "moments": [
+      { "book": 1, "text": "Forced to return Chryseis to end Apollo's plague, he takes Briseis from Achilles." },
+      { "book": 2, "text": "Tests the army by suggesting they sail home — and they nearly do." },
+      { "book": 9, "text": "Admits his mistake and sends an embassy with gifts to Achilles." },
+      { "book": 19, "text": "Publicly reconciles with Achilles and returns Briseis." }
+    ],
+    "relations": [
+      { "id": "menelaus", "label": "Younger brother" },
+      { "id": "achilles", "label": "Quarrels with" },
+      { "id": "odysseus", "label": "Trusted adviser" }
+    ],
+    "fate": "Survives the war. His murder on returning home is told in the Odyssey, not the Iliad.",
+    "fact": "When he finally apologises in Book 19, he blames Ate — the goddess of ruinous folly — for clouding his mind."
+  },
+  {
+    "id": "menelaus",
+    "name": "Menelaus",
+    "side": "greek",
+    "role": "King of Sparta, Helen's husband",
+    "epithet": "of the loud war cry",
+    "summary": "The war began over his wife Helen, who left Sparta with Paris. He fights hard to win her back and to defend his friends.",
+    "traits": ["Honourable", "Brave", "Steadfast"],
+    "moments": [
+      { "book": 3, "text": "Fights Paris in a duel for Helen and is about to win when Aphrodite whisks Paris away." },
+      { "book": 4, "text": "Wounded by an arrow from Pandarus, breaking the truce." },
+      { "book": 17, "text": "Defends the body of Patroclus against the Trojans." }
+    ],
+    "relations": [
+      { "id": "agamemnon", "label": "Older brother" },
+      { "id": "helen", "label": "Wife" },
+      { "id": "paris", "label": "Rival" }
+    ],
+    "fate": "Survives the war; the Odyssey shows him home in Sparta with Helen.",
+    "fact": "In the duel he grabs Paris by the horsehair crest of his helmet and starts dragging him toward the Greeks."
+  },
+  {
+    "id": "odysseus",
+    "name": "Odysseus",
+    "side": "greek",
+    "role": "King of Ithaca, master strategist",
+    "epithet": "of many wiles",
+    "summary": "The cleverest of the Greeks, valued for his speeches and cool head as much as his spear.",
+    "traits": ["Cunning", "Persuasive", "Resilient"],
+    "moments": [
+      { "book": 2, "text": "Stops the army from fleeing to the ships and silences the troublemaker Thersites." },
+      { "book": 9, "text": "Gives the main speech in the embassy to Achilles." },
+      { "book": 10, "text": "Goes on a night raid with Diomedes behind Trojan lines." }
+    ],
+    "relations": [
+      { "id": "agamemnon", "label": "Advises" },
+      { "id": "achilles", "label": "Tries to persuade" },
+      { "id": "ajax", "label": "Fellow envoy" }
+    ],
+    "fate": "Survives. His ten-year journey home is the subject of the Odyssey.",
+    "fact": "The Wooden Horse — Odysseus's most famous trick — is not in the Iliad at all."
+  },
+  {
+    "id": "ajax",
+    "name": "Ajax",
+    "side": "greek",
+    "role": "Son of Telamon, the Greeks' great defender",
+    "epithet": "bulwark of the Achaeans",
+    "summary": "Huge, steady and nearly unstoppable, Ajax is the best Greek fighter while Achilles sulks. His great shield protects the army.",
+    "traits": ["Strong", "Dependable", "Few words"],
+    "moments": [
+      { "book": 7, "text": "Duels Hector until nightfall; they part as equals and swap gifts." },
+      { "book": 9, "text": "Joins the embassy to Achilles." },
+      { "book": 15, "text": "Defends the Greek ships almost single-handedly." }
+    ],
+    "relations": [
+      { "id": "hector", "label": "Duelled" },
+      { "id": "odysseus", "label": "Fellow envoy" }
+    ],
+    "fate": "Survives the poem. His later fate is told by other poets, not Homer's Iliad.",
+    "fact": "After their duel Hector gives Ajax a silver-studded sword, and Ajax gives Hector a purple belt."
+  },
+  {
+    "id": "patroclus",
+    "name": "Patroclus",
+    "side": "greek",
+    "role": "Achilles' closest companion",
+    "epithet": "son of Menoetius",
+    "summary": "Gentle and loyal, Patroclus cannot bear to watch the Greeks die. He borrows Achilles' armour to save the ships — and pays with his life.",
+    "traits": ["Kind", "Brave", "Loyal"],
+    "moments": [
+      { "book": 11, "text": "Tends the wounded and hears Nestor's plea to bring Achilles back." },
+      { "book": 16, "text": "Wears Achilles' armour, drives the Trojans back and kills Sarpedon." },
+      { "book": 16, "text": "Is struck by Apollo, wounded by Euphorbus and killed by Hector." }
+    ],
+    "relations": [
+      { "id": "achilles", "label": "Dearest friend" },
+      { "id": "hector", "label": "Killed by" }
+    ],
+    "fate": "Dies in Book 16. His funeral and games fill Book 23.",
+    "fact": "Achilles warned him to stop once the ships were safe. Patroclus pushed on toward Troy instead."
+  },
+  {
+    "id": "hector",
+    "name": "Hector",
+    "side": "trojan",
+    "role": "Prince and champion of Troy",
+    "epithet": "tamer of horses",
+    "summary": "Eldest son of Priam and Hecuba, Hector carries Troy's defence on his shoulders. A loving husband and father who fights for his city knowing it may fall.",
+    "traits": ["Dutiful", "Courageous", "Devoted to family"],
+    "moments": [
+      { "book": 6, "text": "Says farewell to his wife Andromache and baby son on the walls." },
+      { "book": 12, "text": "Smashes the gate of the Greek wall with a boulder." },
+      { "book": 16, "text": "Kills Patroclus, who is wearing Achilles' armour." },
+      { "book": 22, "text": "Faces Achilles alone outside the walls and is killed." }
+    ],
+    "relations": [
+      { "id": "andromache", "label": "Wife" },
+      { "id": "priam", "label": "Father" },
+      { "id": "paris", "label": "Younger brother" },
+      { "id": "achilles", "label": "Killed by" }
+    ],
+    "fate": "Killed by Achilles in Book 22. The poem's last line describes his funeral.",
+    "fact": "His baby son is frightened by Hector's nodding helmet crest — so Hector takes it off to hold him."
+  },
+  {
+    "id": "priam",
+    "name": "Priam",
+    "side": "trojan",
+    "role": "Old king of Troy",
+    "epithet": "the aged king",
+    "summary": "Father of Hector and Paris, Priam watches his sons die one by one. His night journey to Achilles is the emotional heart of the final book.",
+    "traits": ["Gentle", "Grieving", "Courageous"],
+    "moments": [
+      { "book": 3, "text": "Kindly asks Helen to name the Greek heroes from the walls." },
+      { "book": 22, "text": "Begs Hector from the walls not to face Achilles." },
+      { "book": 24, "text": "Crosses enemy lines at night to ransom Hector's body." }
+    ],
+    "relations": [
+      { "id": "hector", "label": "Son" },
+      { "id": "paris", "label": "Son" },
+      { "id": "achilles", "label": "Ransoms Hector from" }
+    ],
+    "fate": "Alive when the poem ends. Troy's fall comes later, in other poems.",
+    "fact": "Priam tells Achilles he had fifty sons when the Greeks arrived — nineteen of them from one mother."
+  },
+  {
+    "id": "paris",
+    "name": "Paris",
+    "side": "trojan",
+    "role": "Trojan prince who took Helen",
+    "epithet": "also called Alexandros",
+    "summary": "Handsome and favoured by Aphrodite, Paris brought Helen to Troy and started the war. He is a skilled archer but often avoids the front line.",
+    "traits": ["Charming", "Impulsive", "Skilled archer"],
+    "moments": [
+      { "book": 3, "text": "Challenges Menelaus to a duel, loses, and is rescued by Aphrodite." },
+      { "book": 6, "text": "Hector finds him at home and shames him back to battle." },
+      { "book": 11, "text": "Wounds Diomedes in the foot with an arrow." }
+    ],
+    "relations": [
+      { "id": "helen", "label": "Partner" },
+      { "id": "hector", "label": "Elder brother" },
+      { "id": "menelaus", "label": "Rival" }
+    ],
+    "fate": "Survives the poem. Hector's dying words predict Paris and Apollo will kill Achilles.",
+    "fact": "The 'Judgment of Paris' is only hinted at in the Iliad, in Book 24."
+  },
+  {
+    "id": "helen",
+    "name": "Helen",
+    "side": "trojan",
+    "role": "Queen of Sparta living in Troy",
+    "epithet": "daughter of Zeus",
+    "summary": "Wife of Menelaus, she left Sparta with Paris. In Troy she is surrounded by a war fought over her, and often blames herself.",
+    "traits": ["Self-aware", "Regretful", "Observant"],
+    "moments": [
+      { "book": 3, "text": "Names the Greek heroes for Priam from the walls of Troy." },
+      { "book": 6, "text": "Tells Hector she wishes she had died before the war began." },
+      { "book": 24, "text": "Mourns Hector as the one Trojan who was always kind to her." }
+    ],
+    "relations": [
+      { "id": "menelaus", "label": "Husband" },
+      { "id": "paris", "label": "Partner in Troy" },
+      { "id": "hector", "label": "Brother-in-law" }
+    ],
+    "fate": "Alive at the end. The Odyssey shows her back in Sparta with Menelaus.",
+    "fact": "At Hector's funeral three women lament him: Andromache, his mother Hecuba, and finally Helen."
+  },
+  {
+    "id": "andromache",
+    "name": "Andromache",
+    "side": "trojan",
+    "role": "Hector's wife",
+    "epithet": "of the white arms",
+    "summary": "Daughter of Eetion of Thebe, Andromache has already lost her father and brothers to Achilles. Hector is now her whole family.",
+    "traits": ["Loving", "Clear-sighted", "Grieving"],
+    "moments": [
+      { "book": 6, "text": "Begs Hector to defend Troy from the walls instead of the open plain." },
+      { "book": 22, "text": "Hears the wailing, runs to the walls and sees Hector's body dragged away." },
+      { "book": 24, "text": "Leads the laments at Hector's funeral." }
+    ],
+    "relations": [
+      { "id": "hector", "label": "Husband" },
+      { "id": "priam", "label": "Father-in-law" }
+    ],
+    "fate": "Alive when the poem ends, fearing slavery for herself and her son.",
+    "fact": "She tells Hector that Achilles killed her father and all seven of her brothers."
+  }
+]

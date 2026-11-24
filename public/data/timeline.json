@@ -1,0 +1,223 @@
+{
+  "phases": [
+    { "id": "before", "label": "Before the poem" },
+    { "id": "quarrel", "label": "The quarrel" },
+    { "id": "plain", "label": "War on the plain" },
+    { "id": "ships", "label": "Fight for the ships" },
+    { "id": "wrath", "label": "Achilles returns" },
+    { "id": "end", "label": "Funeral & ransom" },
+    { "id": "after", "label": "Beyond the poem" }
+  ],
+  "events": [
+    {
+      "id": "helen",
+      "phase": "before",
+      "books": [],
+      "title": "Paris takes Helen to Troy",
+      "summary": "The cause of the war, told in other ancient poems.",
+      "details": "Paris, a prince of Troy, carries off Helen, wife of King Menelaus of Sparta. Menelaus's brother Agamemnon gathers a Greek army to bring her back. The Iliad assumes you already know this story.",
+      "figures": ["paris", "helen", "menelaus"],
+      "inPoem": false
+    },
+    {
+      "id": "siege",
+      "phase": "before",
+      "books": [],
+      "title": "Nine years of siege",
+      "summary": "The Greeks camp by their ships outside Troy.",
+      "details": "The poem opens in the tenth year of the war. The Greeks have raided nearby towns — this is how both Chryseis and Briseis became captives.",
+      "figures": ["agamemnon", "achilles"],
+      "inPoem": false
+    },
+    {
+      "id": "plague",
+      "phase": "quarrel",
+      "books": [1],
+      "title": "Apollo's plague",
+      "summary": "Agamemnon insults a priest; Apollo strikes the camp.",
+      "details": "Chryses, priest of Apollo, offers a ransom for his daughter Chryseis. Agamemnon refuses, and Apollo shoots plague arrows into the camp for nine days. On the tenth day Achilles calls an assembly.",
+      "figures": ["apollo", "agamemnon"],
+      "inPoem": true
+    },
+    {
+      "id": "briseis",
+      "phase": "quarrel",
+      "books": [1],
+      "title": "The quarrel over Briseis",
+      "summary": "Agamemnon takes Achilles' prize. Achilles quits the war.",
+      "details": "Agamemnon returns Chryseis but claims Briseis from Achilles. Athena stops Achilles from drawing his sword. He withdraws, and Thetis persuades Zeus to let the Trojans win until her son is honoured.",
+      "figures": ["achilles", "agamemnon", "athena", "thetis"],
+      "inPoem": true
+    },
+    {
+      "id": "dream",
+      "phase": "quarrel",
+      "books": [2],
+      "title": "The false dream and the Catalogue of Ships",
+      "summary": "Zeus sends Agamemnon a misleading dream of victory.",
+      "details": "Agamemnon tests his troops by suggesting they go home; they rush for the ships until Odysseus stops them. Homer then lists the Greek contingents and the Trojan allies — the famous Catalogue of Ships.",
+      "figures": ["zeus", "agamemnon", "odysseus"],
+      "inPoem": true
+    },
+    {
+      "id": "duel",
+      "phase": "plain",
+      "books": [3, 4],
+      "title": "Paris and Menelaus duel; the truce breaks",
+      "summary": "A duel to end the war ends in divine rescue and betrayal.",
+      "details": "Aphrodite saves Paris from Menelaus. Athena then tempts the Trojan archer Pandarus to shoot Menelaus, breaking the sworn truce, and full battle begins again.",
+      "figures": ["paris", "menelaus", "aphrodite"],
+      "inPoem": true
+    },
+    {
+      "id": "diomedes",
+      "phase": "plain",
+      "books": [5],
+      "title": "Diomedes wounds two gods",
+      "summary": "With Athena's help, a mortal wounds Aphrodite and Ares.",
+      "details": "Athena gives Diomedes the power to tell gods from men. He wounds Aphrodite on the hand and, with Athena driving the spear, wounds Ares himself.",
+      "figures": ["athena", "ares", "aphrodite"],
+      "inPoem": true
+    },
+    {
+      "id": "farewell",
+      "phase": "plain",
+      "books": [6],
+      "title": "Hector says farewell",
+      "summary": "Hector meets Andromache and their baby son on the walls.",
+      "details": "Andromache begs Hector to stay. He holds his son, prays for him, and returns to battle — one of the most famous scenes in literature.",
+      "figures": ["hector", "andromache"],
+      "inPoem": true
+    },
+    {
+      "id": "ajaxduel",
+      "phase": "plain",
+      "books": [7],
+      "title": "Hector duels Ajax",
+      "summary": "Two champions fight until nightfall.",
+      "details": "Heralds stop the duel as night falls. Hector and Ajax part with honour and exchange gifts: a sword for a belt.",
+      "figures": ["hector", "ajax"],
+      "inPoem": true
+    },
+    {
+      "id": "embassy",
+      "phase": "ships",
+      "books": [8, 9],
+      "title": "The Trojans camp on the plain; the embassy fails",
+      "summary": "Zeus keeps the gods out; Achilles refuses Agamemnon's gifts.",
+      "details": "Zeus forbids the gods to fight, and the Trojans drive the Greeks back, camping on the plain overnight. Odysseus, Ajax and Phoenix offer Achilles huge gifts. He refuses.",
+      "figures": ["zeus", "odysseus", "achilles"],
+      "inPoem": true
+    },
+    {
+      "id": "wall",
+      "phase": "ships",
+      "books": [12, 13, 14, 15],
+      "title": "Hector breaks through to the ships",
+      "summary": "The Greek wall falls and the fight reaches the ships.",
+      "details": "Hector smashes the gate with a boulder. Poseidon secretly rallies the Greeks while Hera lulls Zeus to sleep. Zeus wakes, and the Trojans surge forward again.",
+      "figures": ["hector", "poseidon", "hera", "ajax"],
+      "inPoem": true
+    },
+    {
+      "id": "patroclus",
+      "phase": "wrath",
+      "books": [16],
+      "title": "Patroclus falls",
+      "summary": "Wearing Achilles' armour, Patroclus goes too far.",
+      "details": "Patroclus saves the ships and kills Sarpedon, son of Zeus. Apollo strikes him, Euphorbus wounds him, and Hector kills him.",
+      "figures": ["patroclus", "hector", "apollo"],
+      "inPoem": true
+    },
+    {
+      "id": "armour",
+      "phase": "wrath",
+      "books": [17, 18],
+      "title": "Grief and new armour",
+      "summary": "The fight over the body; Hephaestus forges a shield.",
+      "details": "Menelaus and Ajax fight to recover Patroclus's body. Achilles' grief brings Thetis from the sea, and Hephaestus forges new armour and the great shield.",
+      "figures": ["achilles", "thetis", "hephaestus", "menelaus"],
+      "inPoem": true
+    },
+    {
+      "id": "reconcile",
+      "phase": "wrath",
+      "books": [19],
+      "title": "Achilles and Agamemnon reconcile",
+      "summary": "The quarrel ends before the army.",
+      "details": "Agamemnon blames Ate, the spirit of folly, and hands over the gifts and Briseis. Achilles refuses food until Patroclus is avenged.",
+      "figures": ["achilles", "agamemnon"],
+      "inPoem": true
+    },
+    {
+      "id": "river",
+      "phase": "wrath",
+      "books": [20, 21],
+      "title": "Gods at war; the river fights back",
+      "summary": "Zeus releases the gods; Achilles battles a river.",
+      "details": "The gods take sides openly. Achilles fills the river Scamander with bodies until the river god attacks him; Hephaestus drives it back with fire.",
+      "figures": ["achilles", "hephaestus", "poseidon", "apollo"],
+      "inPoem": true
+    },
+    {
+      "id": "hectordeath",
+      "phase": "wrath",
+      "books": [22],
+      "title": "The death of Hector",
+      "summary": "Three times around the walls, then the end.",
+      "details": "Achilles chases Hector three times around Troy. Zeus weighs their fates; Athena, disguised as Deiphobus, tricks Hector into fighting. Achilles kills him and drags the body away.",
+      "figures": ["hector", "achilles", "athena"],
+      "inPoem": true
+    },
+    {
+      "id": "games",
+      "phase": "end",
+      "books": [23],
+      "title": "Funeral games for Patroclus",
+      "summary": "Chariot races, boxing and wrestling in his honour.",
+      "details": "Achilles holds a great funeral and athletic games for Patroclus, handing out prizes with unexpected generosity.",
+      "figures": ["achilles", "patroclus"],
+      "inPoem": true
+    },
+    {
+      "id": "ransom",
+      "phase": "end",
+      "books": [24],
+      "title": "Priam ransoms Hector",
+      "summary": "A king kneels before his son's killer.",
+      "details": "Guided by Hermes, Priam reaches Achilles at night. They weep together, and Achilles returns the body and grants eleven days of truce.",
+      "figures": ["priam", "achilles", "hermes"],
+      "inPoem": true
+    },
+    {
+      "id": "funeral",
+      "phase": "end",
+      "books": [24],
+      "title": "The funeral of Hector",
+      "summary": "The last line of the poem.",
+      "details": "Andromache, Hecuba and Helen lament Hector, and Troy burns his body on a pyre. The Iliad ends here — before the fall of Troy.",
+      "figures": ["hector", "andromache", "helen"],
+      "inPoem": true
+    },
+    {
+      "id": "achillesdeath",
+      "phase": "after",
+      "books": [],
+      "title": "The death of Achilles",
+      "summary": "Foretold in the Iliad, told by later poets.",
+      "details": "Hector's dying words predict that Paris and Apollo will kill Achilles at the Scaean Gate. The death itself was told in later epics now lost.",
+      "figures": ["achilles", "paris", "apollo"],
+      "inPoem": false
+    },
+    {
+      "id": "horse",
+      "phase": "after",
+      "books": [],
+      "title": "The Wooden Horse and the fall of Troy",
+      "summary": "Not in the Iliad at all.",
+      "details": "The trick of the Wooden Horse is recalled in Homer's Odyssey and told at length in Virgil's Aeneid, Book 2.",
+      "figures": ["odysseus"],
+      "inPoem": false
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "quarrel",
+    "book": "1",
+    "title": "The Plague and the Quarrel",
+    "place": "The Greek camp by the ships",
+    "figures": ["agamemnon", "achilles"],
+    "beats": [
+      "Ten years into the siege of Troy, a priest of Apollo named Chryses comes to ransom his captive daughter, Chryseis.",
+      "Agamemnon sends him away with threats. Apollo answers with nine days of plague arrows on the Greek camp.",
+      "The seer Calchas reveals the cause: the girl must go home."
+    ],
+    "choice": {
+      "as": "agamemnon",
+      "prompt": "You are Agamemnon. Your army is dying. What do you do?",
+      "options": [
+        { "text": "Return Chryseis — and take Achilles' prize Briseis to make up for it.", "homer": true, "reply": "That's exactly what Homer's Agamemnon does — and it costs him his best warrior." },
+        { "text": "Return Chryseis and ask for nothing in return.", "homer": false, "reply": "Wiser, perhaps — but Agamemnon's pride wouldn't allow it." },
+        { "text": "Keep Chryseis and ignore the seer.", "homer": false, "reply": "Agamemnon did give in to the seer. The plague had to end." }
+      ]
+    },
+    "homer": "Agamemnon returns Chryseis but seizes Briseis from Achilles. Insulted, Achilles withdraws from the war and asks his mother Thetis to persuade Zeus to let the Trojans win until the Greeks honour him."
+  },
+  {
+    "id": "duel",
+    "book": "3–4",
+    "title": "A Duel to End the War",
+    "place": "The plain before Troy",
+    "figures": ["paris", "menelaus"],
+    "beats": [
+      "The armies meet. Paris, who brought Helen to Troy, offers to settle everything by single combat.",
+      "Menelaus, Helen's husband, accepts. Both sides swear oaths: the winner takes Helen and the war ends.",
+      "Menelaus is winning — dragging Paris by his helmet crest — when the strap snaps."
+    ],
+    "choice": {
+      "as": "paris",
+      "prompt": "You are Paris, beaten and choking in the dust. Who saves you?",
+      "options": [
+        { "text": "Aphrodite, who wraps me in mist and carries me home.", "homer": true, "reply": "Right. Aphrodite snatches her favourite away to safety." },
+        { "text": "Hector, who charges in to rescue me.", "homer": false, "reply": "Not this time — it was a goddess, not a brother." },
+        { "text": "No one: I surrender and the war ends.", "homer": false, "reply": "If only! The gods had other plans." }
+      ]
+    },
+    "homer": "Aphrodite rescues Paris. Then Athena, in disguise, tempts the Trojan archer Pandarus to shoot Menelaus. The truce is broken and the war goes on (Book 4)."
+  },
+  {
+    "id": "farewell",
+    "book": "6",
+    "title": "Hector and Andromache",
+    "place": "The Scaean Gate of Troy",
+    "figures": ["hector", "andromache"],
+    "beats": [
+      "Hector returns to the city and finds his wife Andromache on the walls with their baby son.",
+      "She begs him to stay and defend Troy from the walls. Achilles already killed her father and seven brothers.",
+      "Hector knows in his heart that Troy may fall one day."
+    ],
+    "choice": {
+      "as": "hector",
+      "prompt": "You are Hector. Your wife begs you to stay. What do you do?",
+      "options": [
+        { "text": "Stay on the walls with my family.", "homer": false, "reply": "Hector says he would feel deep shame before the Trojans if he hung back." },
+        { "text": "Hold my son, pray for him, and go back to battle.", "homer": true, "reply": "Yes. Duty wins — and it is one of the most moving scenes in the poem." },
+        { "text": "Send Paris to fight in my place.", "homer": false, "reply": "Paris does return to battle, but alongside Hector, not instead of him." }
+      ]
+    },
+    "homer": "The baby is frightened by Hector's horsehair crest, so Hector laughs, sets the helmet on the ground and holds him. He prays his son will be greater than he, then returns to the fighting."
+  },
+  {
+    "id": "embassy",
+    "book": "9",
+    "title": "The Embassy to Achilles",
+    "place": "Achilles' tent",
+    "figures": ["odysseus", "achilles"],
+    "beats": [
+      "With Achilles gone, the Trojans have pushed the Greeks back to their ships. Agamemnon finally admits his mistake.",
+      "Odysseus, Ajax and old Phoenix carry an offer: treasure, horses, cities — and Briseis returned.",
+      "Achilles welcomes them warmly and listens."
+    ],
+    "choice": {
+      "as": "achilles",
+      "prompt": "You are Achilles. Do you accept Agamemnon's gifts?",
+      "options": [
+        { "text": "Yes — honour restored, I return to battle.", "homer": false, "reply": "Not yet. Achilles' anger runs deeper than gifts can reach." },
+        { "text": "No. No gifts can buy back my honour.", "homer": true, "reply": "Exactly. Achilles refuses, even threatening to sail home." }
+      ]
+    },
+    "homer": "Achilles refuses. He says his mother told him of two fates: a short life with undying glory at Troy, or a long life at home without it. He will not fight until fire reaches his own ships."
+  },
+  {
+    "id": "patroclus",
+    "book": "16",
+    "title": "Patroclus in Borrowed Armour",
+    "place": "The Greek ships, then the plain",
+    "figures": ["patroclus", "hector"],
+    "beats": [
+      "Hector's Trojans reach the ships and set one on fire. The Greeks are close to defeat.",
+      "Patroclus begs Achilles: if you won't fight, let me wear your armour so the Trojans think you have returned.",
+      "Achilles agrees — but warns him to come back once the ships are safe."
+    ],
+    "choice": {
+      "as": "patroclus",
+      "prompt": "You are Patroclus. The Trojans are fleeing. Do you stop at the ships?",
+      "options": [
+        { "text": "Yes — I return to Achilles as promised.", "homer": false, "reply": "That was Achilles' advice. Patroclus didn't take it." },
+        { "text": "No — I chase them all the way to the walls of Troy.", "homer": true, "reply": "That is what he does, and it is fatal." }
+      ]
+    },
+    "homer": "Patroclus kills Sarpedon, son of Zeus, and storms toward Troy. Apollo strikes him and knocks off his armour, Euphorbus wounds him, and Hector delivers the death blow."
+  },
+  {
+    "id": "return",
+    "book": "18–19",
+    "title": "The Return of Achilles",
+    "place": "The Greek camp",
+    "figures": ["achilles", "thetis"],
+    "beats": [
+      "News of Patroclus's death reaches Achilles. His grief is so loud that Thetis hears it under the sea.",
+      "Hector has taken Achilles' armour from the body. Thetis goes to Hephaestus, who forges new armour and a dazzling shield.",
+      "Achilles' anger now has a new target."
+    ],
+    "choice": {
+      "as": "achilles",
+      "prompt": "You are Achilles, holding new armour. What about your quarrel with Agamemnon?",
+      "options": [
+        { "text": "End it publicly and go straight to war.", "homer": true, "reply": "Right. The old quarrel no longer matters to him." },
+        { "text": "Demand that Agamemnon apologise first, then decide.", "homer": false, "reply": "Agamemnon does apologise, but Achilles barely cares — he only wants Hector." }
+      ]
+    },
+    "homer": "Achilles and Agamemnon reconcile before the army. The gifts and Briseis are handed over, but Achilles can barely wait — he refuses to eat until Patroclus is avenged."
+  },
+  {
+    "id": "hector",
+    "book": "22",
+    "title": "The Death of Hector",
+    "place": "Outside the walls of Troy",
+    "figures": ["hector", "achilles"],
+    "beats": [
+      "The Trojans flee into the city. Only Hector stays outside the gates.",
+      "Priam and Hecuba beg him from the walls to come in. Achilles approaches, blazing in his new armour.",
+      "Hector's courage breaks."
+    ],
+    "choice": {
+      "as": "hector",
+      "prompt": "You are Hector. Achilles is coming. What do you do?",
+      "options": [
+        { "text": "Run — around the walls of Troy.", "homer": true, "reply": "Yes. Achilles chases him three times around the city." },
+        { "text": "Retreat through the gate to safety.", "homer": false, "reply": "Hector felt too ashamed: he had led the army to disaster." },
+        { "text": "Stand and fight at once.", "homer": false, "reply": "Eventually — but only after he runs, and only because a goddess tricks him." }
+      ]
+    },
+    "homer": "On the fourth lap Zeus weighs their fates and Hector's sinks. Athena, disguised as his brother Deiphobus, convinces Hector to stand. Achilles kills him and drags his body behind his chariot."
+  },
+  {
+    "id": "ransom",
+    "book": "24",
+    "title": "Priam's Ransom",
+    "place": "Achilles' hut",
+    "figures": ["priam", "achilles"],
+    "beats": [
+      "For days Achilles drags Hector's body around Patroclus's tomb, but the gods keep it unharmed.",
+      "Zeus sends Hermes to guide old Priam, with a wagon of treasure, secretly through the Greek camp at night.",
+      "Priam kneels before the man who killed his son."
+    ],
+    "choice": {
+      "as": "achilles",
+      "prompt": "You are Achilles. Priam kisses your hands. What do you do?",
+      "options": [
+        { "text": "Weep with him and return Hector's body.", "homer": true, "reply": "Yes. Two enemies grieve together — the poem ends in pity, not triumph." },
+        { "text": "Take the treasure and keep the body.", "homer": false, "reply": "Thetis had already told Achilles that Zeus wanted the body returned." }
+      ]
+    },
+    "homer": "Priam asks Achilles to remember his own father. They weep together, share a meal, and Achilles grants eleven days of truce. The poem closes with Hector's funeral — Troy has not yet fallen."
+  }
+]

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Characters · The Iliad Interactive</title>
+  <meta name="description" content="Profiles of the Iliad's heroes: Achilles, Hector, Agamemnon, Priam, Helen, Andromache and more.">
+  <meta name="theme-color" content="#EBD5CE">
+  <meta property="og:title" content="Characters · The Iliad Interactive">
+  <meta property="og:description" content="Profiles of the Iliad's heroes: Achilles, Hector, Agamemnon, Priam, Helen, Andromache and more.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <script type="module" src="/js/pages/characters.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="The Iliad Interactive, home">
+        <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+        <span>The Iliad <span class="brand__sub">Interactive</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="/">Home <small>Start here</small></a></li>
+          <li><a class="site-nav__link" href="/story">Story <small>Eight choices</small></a></li>
+          <li><a class="site-nav__link" href="/characters" aria-current="page">Characters <small>Eleven mortals</small></a></li>
+          <li><a class="site-nav__link" href="/gods">Gods &amp; Alliances <small>Who fought for whom</small></a></li>
+          <li><a class="site-nav__link" href="/timeline">Timeline <small>Book by book</small></a></li>
+          <li><a class="site-nav__link" href="/quiz">Quiz <small>Test yourself</small></a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow reveal">Characters</p>
+        <h1 id="page-title" class="reveal" style="--i:1">The mortals of Troy</h1>
+        <p class="lead reveal" style="--i:2">Kings, warriors, wives and fathers. Tap a hero to open their profile: key moments by Book, connections, and what happens to them.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Character profiles">
+      <div class="container">
+        <div class="toolbar">
+          <div class="chips" role="group" aria-label="Filter by side">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-filter="greek" aria-pressed="false">Greeks</button>
+            <button type="button" class="chip" data-filter="trojan" aria-pressed="false">Trojans</button>
+          </div>
+          <p class="toolbar__count" data-count aria-live="polite"></p>
+        </div>
+        <div class="card-grid" id="character-grid">
+          <p class="state">Gathering the heroes…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="/">
+            <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+            <span>The Iliad <span class="brand__sub">Interactive</span></span>
+          </a>
+          <p class="site-footer__about">Homer's Iliad, retold for curious minds. Every fact is checked against the poem and cited by Book.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul role="list">
+            <li><a href="/story">Story</a></li>
+            <li><a href="/characters">Characters</a></li>
+            <li><a href="/gods">Gods &amp; Alliances</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Read the poem</h2>
+          <ul role="list">
+            <li><a href="https://www.britannica.com/topic/Iliad-epic-poem-by-Homer" target="_blank" rel="noopener">Britannica: <i>Iliad</i> ↗</a></li>
+            <li><a href="https://classics.mit.edu/Homer/iliad.html" target="_blank" rel="noopener">Full text, Butler translation ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> The Iliad Interactive</span>
+        <span>An original retelling. Homer's poem is in the public domain.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
