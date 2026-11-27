@@ -642,6 +642,18 @@
 .dev-frame__num { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; color: var(--bronze-text); }
 .dev-frame__name { font-size: clamp(1rem, 0.85rem + 0.45vw, 1.2rem); line-height: 1.2; overflow-wrap: anywhere; }
 
+/* Tablets and up: all frames on one row, sharing the width equally */
+@media (min-width: 640px) {
+  .dev-gallery { flex-wrap: nowrap; gap: clamp(var(--space-3), 1.8vw, var(--space-6)); }
+  .dev-frame { flex: 1 1 0; max-width: 12.5rem; }
+  .dev-stage { padding-inline: clamp(var(--space-5), 4vw, var(--space-7)); }
+}
+@media (min-width: 640px) and (max-width: 959px) {
+  .dev-frame__art { padding: 6px; }
+  .dev-frame__mat { padding: 4px; }
+  .dev-frame__plaque { padding: var(--space-1) var(--space-2); }
+  .dev-frame__name { font-size: 0.92rem; }
+}
 @media (max-width: 559px) {
   .dev-gallery { gap: var(--space-5) var(--space-3); }
   .dev-frame { flex-basis: calc(50% - var(--space-3) / 2); gap: var(--space-3); }
