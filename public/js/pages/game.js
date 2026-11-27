@@ -776,9 +776,9 @@ function syncSound() {
   const cfg = audio.settings.get();
   $('[data-vol-music]').value = Math.round(cfg.music * 100);
   $('[data-vol-sfx]').value = Math.round(cfg.sfx * 100);
-  const mute = $('[data-mute]');
-  mute.setAttribute('aria-pressed', String(cfg.muted));
-  mute.innerHTML = `${art.icon(cfg.muted ? 'mute' : 'sound')}<span>${cfg.muted ? 'Muted' : 'Sound'}</span>`;
+  // The switch reads "on" when sound plays; the toolbar button shows the state
+  $('[data-mute]').setAttribute('aria-pressed', String(!cfg.muted));
+  $('[data-sound-open]').innerHTML = `${art.icon(cfg.muted ? 'mute' : 'sound')}<span>${cfg.muted ? 'Muted' : 'Sound'}</span>`;
 }
 $('[data-vol-music]').addEventListener('input', (e) => audio.settings.set({ music: e.target.value / 100 }));
 $('[data-vol-sfx]').addEventListener('input', (e) => audio.settings.set({ sfx: e.target.value / 100 }));
@@ -787,6 +787,28 @@ $('[data-mute]').addEventListener('click', () => {
   audio.unlock();
   audio.settings.set({ muted: !audio.settings.get().muted });
   syncSound();
+});
+
+/* The Sound button opens a small panel: on/off, music and effects volume */
+const soundBtn = $('[data-sound-open]');
+const soundPanel = $('[data-sound-panel]');
+function setSoundPanel(open, { focus = false } = {}) {
+  soundPanel.hidden = !open;
+  soundBtn.setAttribute('aria-expanded', String(open));
+  if (open && focus) $('[data-mute]').focus();
+}
+soundBtn.addEventListener('click', () => {
+  audio.unlock();
+  setSoundPanel(soundPanel.hidden, { focus: true });
+});
+document.addEventListener('click', (event) => {
+  if (!soundPanel.hidden && !event.target.closest('.tool-pop')) setSoundPanel(false);
+});
+soundPanel.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    setSoundPanel(false);
+    soundBtn.focus();
+  }
 });
 
 /* ---------------------------------------------------------------------- */

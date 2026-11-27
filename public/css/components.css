@@ -135,6 +135,7 @@
 /* Actor: a figure that can walk in and react */
 .actor { position: relative; width: 100%; }
 .actor__inner { width: 100%; }
+.actor--mirror .figure { transform: scaleX(-1); }
 .actor.is-entering { animation: actor-walk-in 900ms var(--ease) both; }
 .actor.is-entering .actor__inner { animation: actor-step 225ms ease-in-out 4; }
 .actor.is-correct .actor__inner { animation: actor-jump 700ms var(--ease) both; }

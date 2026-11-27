@@ -39,6 +39,7 @@
           <li><a class="site-nav__link" href="/timeline">Timeline <small>Book by book</small></a></li>
           <li><a class="site-nav__link" href="/quiz">Quiz <small>Test yourself</small></a></li>
           <li><a class="site-nav__link" href="/game" aria-current="page">Game <small>Greeks vs Trojans</small></a></li>
+          <li><a class="site-nav__link" href="/developers">Developers <small>Who made this</small></a></li>
         </ul>
       </nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -59,7 +60,17 @@
             <button type="button" class="tool" data-open-start>Menu</button>
             <button type="button" class="tool" data-open-log>Chronicle</button>
             <button type="button" class="tool" data-restart>Restart</button>
-            <button type="button" class="tool" data-mute aria-pressed="false">Sound</button>
+            <div class="tool-pop">
+              <button type="button" class="tool" data-sound-open aria-expanded="false" aria-controls="sound-panel">Sound</button>
+              <div class="g-soundpanel" id="sound-panel" data-sound-panel role="group" aria-label="Sound settings" hidden>
+                <button type="button" class="g-soundpanel__switch" data-mute aria-pressed="true">
+                  <span class="g-soundpanel__label">Sound</span>
+                  <span class="g-switch" aria-hidden="true"></span>
+                </button>
+                <label class="g-soundpanel__row">Music <input type="range" min="0" max="100" data-vol-music></label>
+                <label class="g-soundpanel__row">Effects <input type="range" min="0" max="100" data-vol-sfx></label>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -122,28 +133,27 @@
             </aside>
           </div>
 
-          <!-- Start screen -->
+          <!-- Start screen: laid out flat over the board, no card -->
           <div class="g-overlay g-start" data-start hidden>
             <div class="g-start__panel">
-              <p class="g-start__kicker">A board game of the Trojan War</p>
-              <p class="g-start__title">Iliad</p>
-              <p class="g-start__sub">Greeks vs Trojans</p>
-              <fieldset class="g-modes">
-                <legend>Players</legend>
-                <label><input type="radio" name="g-mode" value="two" checked><span><strong>Two players</strong><small>Take turns on one device</small></span></label>
-                <label><input type="radio" name="g-mode" value="ai-G"><span><strong>Play as the Greeks</strong><small>The computer leads Troy</small></span></label>
-                <label><input type="radio" name="g-mode" value="ai-T"><span><strong>Play as the Trojans</strong><small>The computer leads the Greeks</small></span></label>
-              </fieldset>
-              <div class="g-start__actions">
-                <button type="button" class="btn" data-continue hidden>Continue game</button>
-                <button type="button" class="btn btn--ghost" data-new-game>New game</button>
+              <div class="g-start__intro">
+                <p class="g-start__kicker">Win the favour of the gods</p>
+                <p class="g-start__title">Iliad</p>
+                <p class="g-start__sub">Greeks vs Trojans</p>
+                <a class="g-start__rules" href="#rules">How to play</a>
               </div>
-              <details class="g-sound">
-                <summary>Sound settings</summary>
-                <label>Music <input type="range" min="0" max="100" data-vol-music></label>
-                <label>Effects <input type="range" min="0" max="100" data-vol-sfx></label>
-              </details>
-              <a class="g-start__rules" href="#rules">How to play</a>
+              <div class="g-start__form">
+                <fieldset class="g-modes">
+                  <legend>Players</legend>
+                  <label><input type="radio" name="g-mode" value="two" checked><span><strong>Two players</strong><small>Take turns on one device</small></span></label>
+                  <label><input type="radio" name="g-mode" value="ai-G"><span><strong>Play as the Greeks</strong><small>The computer leads Troy</small></span></label>
+                  <label><input type="radio" name="g-mode" value="ai-T"><span><strong>Play as the Trojans</strong><small>The computer leads the Greeks</small></span></label>
+                </fieldset>
+                <div class="g-start__actions">
+                  <button type="button" class="btn" data-continue hidden>Continue game</button>
+                  <button type="button" class="btn btn--ghost" data-new-game>New game</button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -171,6 +181,7 @@
             <li class="reveal" style="--i:4"><strong>Count the spoils.</strong> At the end, a side with all five gods wins (four gods plus both marriages also counts). Otherwise the most points win: only your best token of each god scores, plus the +10 and negative tokens.</li>
           </ol>
           <p class="g-rules__note reveal">Ties are broken by lower god tokens, then the best Zeus, then the best Poseidon. Hover or focus any tile or token in the game to read what it does. Press Escape to put back a picked tile or token.</p>
+          <p class="game-credit reveal"><strong>For school purposes only.</strong> This game is adapted from the board game <cite>Iliad</cite> by Bitewing Games, game design by Reiner Knizia. It is not an official version and is not for sale.</p>
         </div>
 
         <h3 class="g-legend__title reveal">The tiles</h3>
@@ -230,6 +241,7 @@
             <li><a href="/timeline">Timeline</a></li>
             <li><a href="/quiz">Quiz</a></li>
             <li><a href="/game">Board game</a></li>
+            <li><a href="/developers">Developers</a></li>
           </ul>
         </nav>
         <div>

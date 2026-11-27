@@ -1,0 +1,12 @@
+{
+  "eyebrow": "The team",
+  "title": "Meet the developers",
+  "intro": "The people who built The Iliad Interactive.",
+  "members": [
+    { "name": "Developer name", "photo": "developer-1.jpg" },
+    { "name": "Developer name", "photo": "developer-2.jpg" },
+    { "name": "Developer name", "photo": "developer-3.jpg" },
+    { "name": "Developer name", "photo": "developer-4.jpg" },
+    { "name": "Developer name", "photo": "developer-5.jpg" }
+  ]
+}

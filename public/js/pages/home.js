@@ -1,5 +1,5 @@
 /**
- * Home page: hero duel figures (via site.js), a live three-question mini quiz,
+ * Home page: a live three-question mini quiz,
  * and a small preview of the board game drawn with the game's own art.
  */
 import '../core/site.js';

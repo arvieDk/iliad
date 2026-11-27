@@ -288,6 +288,7 @@ p { max-width: 65ch; text-wrap: pretty; }
     transition: color var(--dur-fast);
   }
   .site-nav__link small { display: none; }
+  .site-nav__link { white-space: nowrap; }
   .site-nav__link::after {
     content: '';
     position: absolute;
@@ -304,6 +305,13 @@ p { max-width: 65ch; text-wrap: pretty; }
   .site-nav__link[aria-current='page'] { color: var(--ink); }
   .site-nav__link:hover::after,
   .site-nav__link[aria-current='page']::after { transform: scaleX(1); }
+}
+
+/* Eight links: tighten them on narrower desktops so the bar stays on one line */
+@media (min-width: 960px) and (max-width: 1179px) {
+  .site-nav__list { gap: 0; }
+  .site-nav__link { padding-inline: var(--space-2); font-size: 0.86rem; }
+  .site-nav__link::after { left: var(--space-2); right: var(--space-2); }
 }
 
 /* ---- Footer ---------------------------------------------------------------- */

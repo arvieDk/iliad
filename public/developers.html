@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developers · The Iliad Interactive</title>
+  <meta name="description" content="Meet the developers who built The Iliad Interactive.">
+  <meta name="theme-color" content="#EBD5CE">
+  <meta property="og:title" content="Developers · The Iliad Interactive">
+  <meta property="og:description" content="Meet the developers who built The Iliad Interactive.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <script type="module" src="/js/pages/developers.js"></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="The Iliad Interactive, home">
+        <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+        <span>The Iliad <span class="brand__sub">Interactive</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="/">Home <small>Start here</small></a></li>
+          <li><a class="site-nav__link" href="/story">Story <small>Eight choices</small></a></li>
+          <li><a class="site-nav__link" href="/characters">Characters <small>Eleven mortals</small></a></li>
+          <li><a class="site-nav__link" href="/gods">Gods &amp; Alliances <small>Who fought for whom</small></a></li>
+          <li><a class="site-nav__link" href="/timeline">Timeline <small>Book by book</small></a></li>
+          <li><a class="site-nav__link" href="/quiz">Quiz <small>Test yourself</small></a></li>
+          <li><a class="site-nav__link" href="/game">Game <small>Greeks vs Trojans</small></a></li>
+          <li><a class="site-nav__link" href="/developers" aria-current="page">Developers <small>Who made this</small></a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Content comes from public/content/developers/ (see the README there) -->
+    <section class="dev-page" aria-labelledby="dev-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal" data-dev-eyebrow>The team</p>
+          <h1 id="dev-title" class="reveal" style="--i:1" data-dev-title>Meet the developers</h1>
+          <p class="lead reveal" style="--i:2" data-dev-intro>The people who built The Iliad Interactive.</p>
+        </div>
+      </div>
+      <!-- The temple: pediment and beam above, a colonnade of cards, steps below -->
+      <div class="container dev-wide">
+        <div class="dev-temple" id="dev-temple">
+          <svg class="dev-pediment" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 150 L500 4 L1000 150 Z" />
+            <path d="M70 140 L500 22 L930 140 Z" class="dev-pediment__inner" />
+          </svg>
+          <div class="dev-beam dev-beam--top" aria-hidden="true"></div>
+          <div class="dev-colonnade" data-colonnade>
+            <p class="state">Gathering the team…</p>
+          </div>
+          <div class="dev-steps" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="/">
+            <img class="brand__mark" src="/img/favicon.svg" alt="" width="30" height="30">
+            <span>The Iliad <span class="brand__sub">Interactive</span></span>
+          </a>
+          <p class="site-footer__about">Homer's Iliad, retold for curious minds. Every fact is checked against the poem and cited by Book.</p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Explore</h2>
+          <ul role="list">
+            <li><a href="/story">Story</a></li>
+            <li><a href="/characters">Characters</a></li>
+            <li><a href="/gods">Gods &amp; Alliances</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+            <li><a href="/game">Board game</a></li>
+            <li><a href="/developers">Developers</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Read the poem</h2>
+          <ul role="list">
+            <li><a href="https://www.britannica.com/topic/Iliad-epic-poem-by-Homer" target="_blank" rel="noopener">Britannica: <i>Iliad</i> ↗</a></li>
+            <li><a href="https://classics.mit.edu/Homer/iliad.html" target="_blank" rel="noopener">Full text, Butler translation ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© <span data-year>2026</span> The Iliad Interactive</span>
+        <span>An original retelling. Homer's poem is in the public domain.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

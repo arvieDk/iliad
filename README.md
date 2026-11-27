@@ -35,15 +35,18 @@ No settings are needed:
 
 | Route | What it does |
 |---|---|
-| `/` | The four bands from the wireframe: title, summary with links to Britannica and the full text, a live 3-question mini quiz, and the "coming soon" game teaser |
+| `/` | Four bands over a fixed, faded painting: title, summary with an "at a glance" facts card and links to Britannica and the full text, a live 3-question mini quiz, and the board game teaser with its credit |
 | `/story` | Eight chapters. Read short beats, choose as the character, then see what Homer wrote (Book cited). Progress is saved in the browser |
 | `/characters` | Eleven mortals with Greek/Trojan filters and profile modals (key moments, connections, fate, a "did you know") |
 | `/gods` | Eleven gods with the same modals, plus an alliance board based on the sides listed in Book 20 |
 | `/timeline` | Twenty-one events grouped by phase, a 24-Book rail to jump around, and flags for events that are *not* in the Iliad |
 | `/quiz` | Two modes in tabs. **Classic quiz:** ten random questions from a pool of eighteen, with instant feedback, sources, streaks and a saved best score. **Battle of Troy** (`/quiz#battle`): a visual novel, described below |
 | `/game` | **Iliad: Greeks vs Trojans**, the board game (below) |
+| `/developers` | The team inside a temple front: one card per developer (photo and name) standing between two pillars, under a pediment that rises behind the title. Edited in `public/content/developers/` (see below) |
 
 ### Greeks vs Trojans (board game)
+
+> **For school purposes only.** This game is adapted from the board game *Iliad* by Bitewing Games, game design by Reiner Knizia. It is not an official version and is not for sale.
 
 A two-sided strategy game on a 6×6 battlefield, ringed by 24 tokens. The rules are the original game's, unchanged:
 
@@ -70,6 +73,7 @@ What the redesign adds:
   - Escape puts back a picked tile
 - **Animations:** a coin toss, a turn coin that flips, tiles dropping in and flipping face down, lines flashing when scored, and an end-of-game tally followed by a full score breakdown.
 - **Saving:** the game is saved after every move, so a reload offers "Continue game".
+- **Layout:** the play area fits on one screen. The board is sized from the window height, so there's no scrolling on laptops, desktops, tablets or most phones. The start menu is laid out flat over the board, with no card. The Sound button opens a small panel with on/off, music and effects volume.
 - **Other:** a chronicle (game log), soft synthesized lyre-like sound with volume settings, a phone layout that keeps the active hand under the board, and a pieces legend on the page.
 
 Code: `public/js/game/engine.js` (rules, no DOM), `ai.js` (computer opponent), `art.js` (all artwork), `audio.js` (sound), `public/js/pages/game.js` (interface), `public/css/game.css`.
@@ -130,9 +134,30 @@ public/
   img/game/          Every board-game asset as a standalone SVG
   data/              Characters, gods, story, timeline, quiz and battle (JSON)
   img/favicon.svg
+  img/iliad-background.jpg  Home page background painting
+  content/developers/       Developers page content and photos (editable)
 ```
 
 To edit content, change the JSON files in `public/data/`. Nothing else needs to change.
+
+### Editing the Developers page
+
+Everything on `/developers` lives in `public/content/developers/`:
+
+```
+public/content/developers/
+  developers.json    Title, intro and the list of developers
+  README.md          Step-by-step instructions
+  *.jpg / *.png      Photos, referenced by file name from developers.json
+```
+
+Add a photo to that folder, then add or edit an entry in `developers.json`:
+
+```json
+{ "name": "Maria Santos", "photo": "maria.jpg" }
+```
+
+Cards appear in list order and are numbered automatically. A missing photo shows the person's initials instead.
 
 ## Design
 

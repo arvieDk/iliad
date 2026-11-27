@@ -19,7 +19,9 @@
   <link rel="stylesheet" href="/css/pages.css">
   <script type="module" src="/js/pages/home.js"></script>
 </head>
-<body>
+<body class="page-home">
+
+  <div class="page-bg" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -38,6 +40,7 @@
           <li><a class="site-nav__link" href="/timeline">Timeline <small>Book by book</small></a></li>
           <li><a class="site-nav__link" href="/quiz">Quiz <small>Test yourself</small></a></li>
           <li><a class="site-nav__link" href="/game">Game <small>Greeks vs Trojans</small></a></li>
+          <li><a class="site-nav__link" href="/developers">Developers <small>Who made this</small></a></li>
         </ul>
       </nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -50,26 +53,13 @@
 
     <!-- 1 · Title -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__grid">
-        <div>
-          <p class="eyebrow reveal">Homer's epic, retold</p>
-          <h1 id="hero-title" class="reveal" style="--i:1">The Iliad <em>Interactive</em></h1>
-          <p class="lead reveal" style="--i:2">Rage, honour and grief at the walls of Troy, told through choices you make and heroes you meet.</p>
-          <div class="hero__actions reveal" style="--i:3">
-            <a class="btn" href="/story">Start the story →</a>
-            <a class="btn btn--ghost" href="#quiz">Take the quiz</a>
-          </div>
-        </div>
-        <div class="duel reveal" style="--i:2">
-          <div class="actor">
-            <div class="actor__inner" data-figure="achilles"></div>
-            <p class="actor__name">Achilles <small>Greek</small></p>
-          </div>
-          <span class="duel__vs" aria-hidden="true">vs</span>
-          <div class="actor actor--mirror">
-            <div class="actor__inner" data-figure="hector"></div>
-            <p class="actor__name">Hector <small>Trojan</small></p>
-          </div>
+      <div class="container hero__inner">
+        <p class="eyebrow reveal">Homer's epic, retold</p>
+        <h1 id="hero-title" class="reveal" style="--i:1">The Iliad <em>Interactive</em></h1>
+        <p class="lead reveal" style="--i:2">Rage, honour and grief at the walls of Troy, told through choices you make and heroes you meet.</p>
+        <div class="hero__actions reveal" style="--i:3">
+          <a class="btn" href="/story">Start the story →</a>
+          <a class="btn btn--ghost" href="#quiz">Take the quiz</a>
         </div>
       </div>
       <a class="hero__scroll" href="#about">Scroll</a>
@@ -88,12 +78,15 @@
             <a class="link-arrow" href="https://classics.mit.edu/Homer/iliad.html" target="_blank" rel="noopener">Read the full poem</a>
           </div>
         </div>
-        <dl class="facts reveal" style="--i:1">
-          <div class="fact"><dt class="fact__label">Books</dt><dd class="fact__value" style="margin:0">24</dd></div>
-          <div class="fact"><dt class="fact__label">Lines of Greek verse</dt><dd class="fact__value" style="margin:0">≈15,700</dd></div>
-          <div class="fact"><dt class="fact__label">Probably composed</dt><dd class="fact__value" style="margin:0">8th c. BCE</dd></div>
-          <div class="fact"><dt class="fact__label">Of the siege of Troy</dt><dd class="fact__value" style="margin:0">Year 10</dd></div>
-        </dl>
+        <div class="facts-card reveal" style="--i:1">
+          <p class="facts-card__title">At a glance</p>
+          <dl class="facts">
+            <div class="fact"><dt class="fact__label">Books</dt><dd class="fact__value">24</dd></div>
+            <div class="fact"><dt class="fact__label">Lines of Greek verse</dt><dd class="fact__value">≈15,700</dd></div>
+            <div class="fact"><dt class="fact__label">Probably composed</dt><dd class="fact__value">8th c. <small>BCE</small></dd></div>
+            <div class="fact"><dt class="fact__label">Of the siege of Troy</dt><dd class="fact__value">Year 10</dd></div>
+          </dl>
+        </div>
       </div>
     </section>
 
@@ -130,6 +123,10 @@
               <li>Your game is saved, so you can continue later</li>
             </ul>
             <a class="btn reveal" href="/game" style="margin-top:var(--space-5)">Play the game →</a>
+            <p class="game-credit reveal">
+              <strong>For school purposes only.</strong>
+              This game is adapted from the board game <cite>Iliad</cite> by Bitewing Games, game design by Reiner Knizia. It is not an official version and is not for sale.
+            </p>
           </div>
         </div>
         <nav class="explore" aria-label="Explore more">
@@ -161,6 +158,7 @@
             <li><a href="/timeline">Timeline</a></li>
             <li><a href="/quiz">Quiz</a></li>
             <li><a href="/game">Board game</a></li>
+            <li><a href="/developers">Developers</a></li>
           </ul>
         </nav>
         <div>
