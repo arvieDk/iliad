@@ -37,9 +37,9 @@ No settings are needed:
 |---|---|
 | `/` | Four bands over a fixed, faded painting: title, summary with an "at a glance" facts card and links to Britannica and the full text, a live 3-question mini quiz, and the board game teaser with its credit |
 | `/story` | Eight chapters. Read short beats, choose as the character, then see what Homer wrote (Book cited). Progress is saved in the browser |
-| `/characters` | Eleven mortals with Greek/Trojan filters and profile modals (key moments, connections, fate, a "did you know") |
+| `/characters` | Eleven mortals with Greek/Trojan filters and profile modals (key moments, connections, fate, a "did you know"). Each is shown with a public-domain or openly licensed artwork, framed as a terracotta medallion |
 | `/gods` | Eleven gods with the same modals, plus an alliance board based on the sides listed in Book 20 |
-| `/timeline` | Twenty-one events grouped by phase, a 24-Book rail to jump around, and flags for events that are *not* in the Iliad |
+| `/timeline` | Twenty-one events as a carousel (swipe, arrows, ←/→ keys) with phase chips that follow along. Each event cites its Book, and events that are *not* in the Iliad are flagged |
 | `/quiz` | Two modes in tabs. **Classic quiz:** ten random questions from a pool of eighteen, with instant feedback, sources, streaks and a saved best score. **Battle of Troy** (`/quiz#battle`): a visual novel, described below |
 | `/game` | **Iliad: Greeks vs Trojans**, the board game (below) |
 | `/developers` | The team inside a temple front: one card per developer (photo and name) standing between two pillars, under a pediment that rises behind the title. Edited in `public/content/developers/` (see below) |
@@ -135,6 +135,8 @@ public/
   data/              Characters, gods, story, timeline, quiz and battle (JSON)
   img/favicon.svg
   img/iliad-background.jpg  Home page background painting
+  img/characters/           Character portraits (credits in data/characters.json)
+  img/banners/              Page banners for Story, Characters, Gods, Timeline, Quiz
   content/developers/       Developers page content and photos (editable)
 ```
 
@@ -175,13 +177,27 @@ The colors come from the Iliad and the vases that illustrate it:
 
 The characters are drawn in black-figure style: ink silhouettes on terracotta, with details as thin "incised" lines. As on real black-figure vases, women's skin is painted in white. They blink, their crests sway and Apollo's rays turn. In the quiz they walk on stage, jump when you're right and shake their heads when you're wrong.
 
+### Images and credits
+
+Character portraits and page banners are artworks from Wikimedia Commons, either in the public domain or under Creative Commons licences:
+
+- Each character's artwork, artist, date, licence and source link are in `public/data/characters.json` (`image`), and are shown at the bottom of their profile.
+- Each banner's credit is printed in the corner of its page header.
+- The cropped photos of the Sosias cup (Patroclus) and the Giaquinto painting (Odysseus) are shared under CC BY-SA 4.0, like the originals. The Characters and Timeline banners are CC BY 2.0 and CC BY 3.0.
+
+To swap a portrait, replace the square JPG in `public/img/characters/` and update that character's `image` entry.
+
+### Scrollbars
+
+Scrollbars stay hidden until something scrolls, then fade out half a second after it stops. The page's own bar is drawn by `site.js` (it can still be dragged with a mouse); inner scroll areas use thin native bars that appear while they move.
+
 ## Accessibility
 
 - Skip link, landmarks, one `h1` per page, visible focus rings
 - Mobile menu with `aria-expanded`; Esc closes it
 - Modals use native `<dialog>`, so focus is trapped, Esc closes and focus goes back to the card
 - Quiz and story feedback is announced through `aria-live`; quiz keys 1–4 or A–D
-- Collapsed timeline panels are `inert`
+- The timeline carousel is a labelled region with numbered slides, and can be driven with ←/→, Home and End
 - Text colors meet WCAG AA contrast
 - Animations are switched off under `prefers-reduced-motion`
 - Layout is mobile-first and tested at 375px with no horizontal scrolling

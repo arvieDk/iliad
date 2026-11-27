@@ -21,7 +21,8 @@
       { "name": "Thetis", "label": "Mother (sea-nymph)" }
     ],
     "fate": "His death is foretold — Hector, dying, names Paris and Apollo as his killers — but it happens after the poem ends.",
-    "fact": "The famous 'Achilles heel' never appears in the Iliad. In Book 21 a spear from Asteropaeus grazes his arm and draws blood."
+    "fact": "The famous 'Achilles heel' never appears in the Iliad. In Book 21 a spear from Asteropaeus grazes his arm and draws blood.",
+    "image": { "src": "/img/characters/achilles.jpg", "focus": "50% 50%", "title": "The Wrath of Achilles", "artist": "Michel Martin Drolling", "date": "1810", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Michel_Martin_Drolling_-_La_col%C3%A8re_d%27Achille.jpg" }
   },
   {
     "id": "agamemnon",
@@ -43,7 +44,8 @@
       { "id": "odysseus", "label": "Trusted adviser" }
     ],
     "fate": "Survives the war. His murder on returning home is told in the Odyssey, not the Iliad.",
-    "fact": "When he finally apologises in Book 19, he blames Ate — the goddess of ruinous folly — for clouding his mind."
+    "fact": "When he finally apologises in Book 19, he blames Ate — the goddess of ruinous folly — for clouding his mind.",
+    "image": { "src": "/img/characters/agamemnon.jpg", "focus": "50% 50%", "title": "Quarrel of Achilles and Agamemnon (detail)", "artist": "William Page", "date": "1832", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:William_Page_-_Quarrel_of_Achilles_and_Agamemnon_-_1984.153.1_-_Smithsonian_American_Art_Museum.jpg" }
   },
   {
     "id": "menelaus",
@@ -64,7 +66,8 @@
       { "id": "paris", "label": "Rival" }
     ],
     "fate": "Survives the war; the Odyssey shows him home in Sparta with Helen.",
-    "fact": "In the duel he grabs Paris by the horsehair crest of his helmet and starts dragging him toward the Greeks."
+    "fact": "In the duel he grabs Paris by the horsehair crest of his helmet and starts dragging him toward the Greeks.",
+    "image": { "src": "/img/characters/menelaus.jpg", "focus": "50% 50%", "title": "Menelaus Supporting the Body of Patroclus", "artist": "Robert Fagan", "date": "c. 1793–95", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Robert_Fagan_(1761-1816)_-_%27Pasquino%27,_Menelaus_Supporting_the_Body_of_Patroclus_-_609091_-_National_Trust.jpg" }
   },
   {
     "id": "odysseus",
@@ -85,7 +88,8 @@
       { "id": "ajax", "label": "Fellow envoy" }
     ],
     "fate": "Survives. His ten-year journey home is the subject of the Odyssey.",
-    "fact": "The Wooden Horse — Odysseus's most famous trick — is not in the Iliad at all."
+    "fact": "The Wooden Horse — Odysseus's most famous trick — is not in the Iliad at all.",
+    "image": { "src": "/img/characters/odysseus.jpg", "focus": "50% 50%", "title": "Ulysses and Diomedes in the Tent of Rhesus (detail)", "artist": "Corrado Giaquinto; photo by Sailko", "date": "18th century", "license": "CC BY-SA 4.0", "source": "https://commons.wikimedia.org/wiki/File:Corrado_giaquinto,_ulisse_e_diomede_nella_tenda_di_reso.jpg" }
   },
   {
     "id": "ajax",
@@ -105,7 +109,8 @@
       { "id": "odysseus", "label": "Fellow envoy" }
     ],
     "fate": "Survives the poem. His later fate is told by other poets, not Homer's Iliad.",
-    "fact": "After their duel Hector gives Ajax a silver-studded sword, and Ajax gives Hector a purple belt."
+    "fact": "After their duel Hector gives Ajax a silver-studded sword, and Ajax gives Hector a purple belt.",
+    "image": { "src": "/img/characters/ajax.jpg", "focus": "50% 50%", "title": "Achilles and Ajax playing dice (detail)", "artist": "Exekias", "date": "c. 530 BCE", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Akhilleus_Aias_MGEt_16757.jpg" }
   },
   {
     "id": "patroclus",
@@ -125,7 +130,8 @@
       { "id": "hector", "label": "Killed by" }
     ],
     "fate": "Dies in Book 16. His funeral and games fill Book 23.",
-    "fact": "Achilles warned him to stop once the ships were safe. Patroclus pushed on toward Troy instead."
+    "fact": "Achilles warned him to stop once the ships were safe. Patroclus pushed on toward Troy instead.",
+    "image": { "src": "/img/characters/patroclus.jpg", "focus": "50% 50%", "title": "Achilles tending the wounded Patroclus", "artist": "Sosias Painter; photo by Dosseman", "date": "c. 500 BCE", "license": "CC BY-SA 4.0", "source": "https://commons.wikimedia.org/wiki/File:Altes_Museum_Achilles_and_Patroclus_Kylix_1371.jpg" }
   },
   {
     "id": "hector",
@@ -148,7 +154,8 @@
       { "id": "achilles", "label": "Killed by" }
     ],
     "fate": "Killed by Achilles in Book 22. The poem's last line describes his funeral.",
-    "fact": "His baby son is frightened by Hector's nodding helmet crest — so Hector takes it off to hold him."
+    "fact": "His baby son is frightened by Hector's nodding helmet crest — so Hector takes it off to hold him.",
+    "image": { "src": "/img/characters/hector.jpg", "focus": "50% 50%", "title": "Farewell of Hector and Andromache (detail)", "artist": "Anton Losenko", "date": "1773", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Anton_Losenko_-_%D0%9F%D1%80%D0%BE%D1%89%D0%B0%D0%BD%D0%B8%D0%B5_%D0%93%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B0_%D1%81_%D0%90%D0%BD%D0%B4%D1%80%D0%BE%D0%BC%D0%B0%D1%85%D0%BE%D0%B9_-_Google_Art_Project.jpg" }
   },
   {
     "id": "priam",
@@ -169,7 +176,8 @@
       { "id": "achilles", "label": "Ransoms Hector from" }
     ],
     "fate": "Alive when the poem ends. Troy's fall comes later, in other poems.",
-    "fact": "Priam tells Achilles he had fifty sons when the Greeks arrived — nineteen of them from one mother."
+    "fact": "Priam tells Achilles he had fifty sons when the Greeks arrived — nineteen of them from one mother.",
+    "image": { "src": "/img/characters/priam.jpg", "focus": "50% 50%", "title": "Priam Asks Achilles to Return Hector's Body", "artist": "Alexander Ivanov", "date": "1824", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Alexandr_Ivanov_005.jpg" }
   },
   {
     "id": "paris",
@@ -190,7 +198,8 @@
       { "id": "menelaus", "label": "Rival" }
     ],
     "fate": "Survives the poem. Hector's dying words predict Paris and Apollo will kill Achilles.",
-    "fact": "The 'Judgment of Paris' is only hinted at in the Iliad, in Book 24."
+    "fact": "The 'Judgment of Paris' is only hinted at in the Iliad, in Book 24.",
+    "image": { "src": "/img/characters/paris.jpg", "focus": "50% 50%", "title": "Hector Rebukes Paris (detail)", "artist": "Johann Heinrich Wilhelm Tischbein", "date": "1786", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Hektor_wirft_Paris_seine_Weichlichkeit_vor_(Tischbein).jpg" }
   },
   {
     "id": "helen",
@@ -211,7 +220,8 @@
       { "id": "hector", "label": "Brother-in-law" }
     ],
     "fate": "Alive at the end. The Odyssey shows her back in Sparta with Menelaus.",
-    "fact": "At Hector's funeral three women lament him: Andromache, his mother Hecuba, and finally Helen."
+    "fact": "At Hector's funeral three women lament him: Andromache, his mother Hecuba, and finally Helen.",
+    "image": { "src": "/img/characters/helen.jpg", "focus": "50% 50%", "title": "Helen on the Walls of Troy", "artist": "Frederic Leighton", "date": "1865", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Frederic_Leighton_-_Helen_On_The_Walls_Of_Troy.jpg" }
   },
   {
     "id": "andromache",
@@ -231,6 +241,7 @@
       { "id": "priam", "label": "Father-in-law" }
     ],
     "fate": "Alive when the poem ends, fearing slavery for herself and her son.",
-    "fact": "She tells Hector that Achilles killed her father and all seven of her brothers."
+    "fact": "She tells Hector that Achilles killed her father and all seven of her brothers.",
+    "image": { "src": "/img/characters/andromache.jpg", "focus": "50% 50%", "title": "Andromache Mourning Hector (detail)", "artist": "Jacques-Louis David", "date": "1783", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Andromache_Mourning_Hector_-_WGA6050.jpg" }
   }
 ]

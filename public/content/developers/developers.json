@@ -3,10 +3,10 @@
   "title": "Meet the developers",
   "intro": "The people who built The Iliad Interactive.",
   "members": [
-    { "name": "Developer name", "photo": "developer-1.jpg" },
-    { "name": "Developer name", "photo": "developer-2.jpg" },
-    { "name": "Developer name", "photo": "developer-3.jpg" },
-    { "name": "Developer name", "photo": "developer-4.jpg" },
-    { "name": "Developer name", "photo": "developer-5.jpg" }
+    { "name": "Jancel A. Bejer", "photo": "developer-1.jpg" },
+    { "name": "Joemar Ammiel B. Brutas", "photo": "developer-2.jpg" },
+    { "name": "Lance Christopher T. Delos Reyes", "photo": "developer-3.jpg" },
+    { "name": "Geoff Larenz M. Peñafiel", "photo": "developer-4.jpg" },
+    { "name": "Arvie G. Rivera", "photo": "developer-5.jpg" }
   ]
 }

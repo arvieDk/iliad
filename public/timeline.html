@@ -49,28 +49,38 @@
 
   <main id="main">
 
-    <div class="timeline-progress" aria-hidden="true"></div>
-
-    <section class="page-hero" aria-labelledby="page-title">
+    <section class="page-hero page-hero--art" style="--hero-art:url('/img/banners/timeline.jpg'); --hero-pos:center" aria-labelledby="page-title">
       <div class="container">
         <p class="eyebrow reveal">Timeline</p>
         <h1 id="page-title" class="reveal" style="--i:1">From the plague to the pyre</h1>
-        <p class="lead reveal" style="--i:2">The key events in order. Tap a Book to jump to it, filter by phase, or open any event for details.</p>
-        <div class="books reveal" style="--i:3">
-          <p class="books__label">The 24 Books. Highlighted Books have featured events.</p>
-          <div class="books__grid" data-books></div>
-        </div>
+        <p class="lead reveal" style="--i:2">The key events in order, from the plague in the Greek camp to Hector's funeral. Swipe through the carousel or jump to a phase.</p>
       </div>
+      <p class="page-hero__credit">Background: <cite>Tabula Iliaca Capitolina</cite>, Roman relief, 1st century CE. Photo: Sailko, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Tabula_iliaca_capitolina,_da_marino,_I_sec..JPG" target="_blank" rel="noopener">Wikimedia Commons</a>.</p>
     </section>
 
-    <section class="section" aria-labelledby="timeline-title" style="padding-top:var(--space-7)">
-      <div class="container container--narrow">
+    <!-- The carousel of events -->
+    <section class="tl" aria-labelledby="timeline-title">
+      <div class="container tl__bar">
         <h2 id="timeline-title" class="visually-hidden">Events</h2>
-        <div class="chips" data-phases role="group" aria-label="Filter by phase"></div>
-        <ol class="timeline" id="timeline" role="list">
-          <li class="state">Charting the war…</li>
-        </ol>
+        <div class="chips tl__phases" data-phases role="group" aria-label="Jump to a phase"></div>
       </div>
+
+      <div class="tl__track" data-track tabindex="0" role="region" aria-roledescription="carousel" aria-label="Events of the Trojan War, in order">
+        <p class="state">Charting the war…</p>
+      </div>
+      <div class="container tl__foot">
+        <div class="tl__progress" aria-hidden="true"><span data-progress></span></div>
+        <div class="tl__nav">
+          <p class="tl__count" aria-live="polite"><span data-current>–</span> / <span data-total>–</span></p>
+          <button type="button" class="tl__arrow" data-prev aria-label="Previous event">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button type="button" class="tl__arrow" data-next aria-label="Next event">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
     </section>
   </main>
 

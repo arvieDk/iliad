@@ -29,6 +29,49 @@ body {
 
 body.is-locked { overflow: hidden; }
 
+/* ---- Scrollbars -------------------------------------------------------------
+   Hidden until something scrolls, then fading out half a second after it stops.
+   The page's own bar is replaced by a slim overlay drawn by site.js (so it can
+   fade); inner scroll areas get a class while they move. */
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+
+* { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.is-scrolling { scrollbar-color: rgba(74, 65, 58, 0.45) transparent; }
+/* Browsers without scrollbar-color (Safari) */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { border-radius: 8px; background: transparent; }
+.is-scrolling::-webkit-scrollbar-thumb { background: rgba(74, 65, 58, 0.45); }
+
+.page-scrollbar {
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  touch-action: none;
+}
+.page-scrollbar.is-visible { opacity: 1; }
+.page-scrollbar[hidden] { display: none; }
+.page-scrollbar__thumb {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  width: 6px;
+  border-radius: 6px;
+  background: rgba(74, 65, 58, 0.45);
+  transition: width 160ms ease, background-color 160ms ease;
+  cursor: grab;
+}
+.page-scrollbar:hover .page-scrollbar__thumb,
+.page-scrollbar.is-dragging .page-scrollbar__thumb { width: 9px; background: rgba(74, 65, 58, 0.62); }
+.page-scrollbar.is-dragging .page-scrollbar__thumb { cursor: grabbing; }
+@media (pointer: coarse) { .page-scrollbar { pointer-events: none; } }
+
 [hidden] { display: none !important; }
 
 img, svg, video { display: block; max-width: 100%; }
@@ -147,6 +190,45 @@ p { max-width: 65ch; text-wrap: pretty; }
 }
 .page-hero h1 { font-size: var(--step-4); margin-block: var(--space-3) var(--space-4); }
 .page-hero .lead { max-width: 52ch; }
+
+/* Inner-page banners: a faded artwork for each section, strongest on the
+   right and melting into the rose ground behind the text on the left */
+.page-hero--art { position: relative; isolation: isolate; overflow: hidden; }
+.page-hero--art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--hero-art) var(--hero-pos, center) / cover no-repeat;
+  opacity: 0.42;
+  filter: sepia(0.35) saturate(0.85);
+}
+.page-hero--art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, var(--dawn) 0%, rgba(235, 213, 206, 0.92) 30%, rgba(235, 213, 206, 0.35) 70%, rgba(235, 213, 206, 0.15) 100%),
+    linear-gradient(0deg, var(--dawn) 0%, transparent 35%);
+}
+.page-hero__credit {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--space-3);
+  max-width: min(46ch, 70%);
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  text-align: right;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+.page-hero__credit a { color: inherit; }
+@media (max-width: 639px) {
+  .page-hero--art::after { background: linear-gradient(0deg, var(--dawn) 0%, rgba(235, 213, 206, 0.78) 100%); }
+  .page-hero__credit { left: var(--gutter); max-width: none; text-align: left; }
+}
 
 /* ---- Header & navigation --------------------------------------------------- */
 .site-header {

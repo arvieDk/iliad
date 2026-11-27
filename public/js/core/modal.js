@@ -5,7 +5,7 @@
  * close and an inert page behind it. We add: backdrop-click close, a closing
  * animation, body scroll lock, prev/next browsing and linked relationships.
  */
-import { figureSVG } from './figures.js';
+import { portraitHTML } from './figures.js';
 import { esc } from './api.js';
 
 const SIDE_LABEL = { greek: 'Greek side', trojan: 'Trojan side', neutral: 'Above the sides' };
@@ -62,8 +62,14 @@ function relationMarkup(relation) {
       `<span><strong>${esc(name)}</strong> · <span>${esc(relation.label)}</span></span></span></li>`;
   }
   return `<li><button type="button" class="relation" data-action="open" data-id="${esc(target.id)}">` +
-    `<span class="relation__avatar">${figureSVG(target.id)}</span>` +
+    `<span class="relation__avatar">${portraitHTML(target)}</span>` +
     `<span><strong>${esc(name)}</strong> · <span>${esc(relation.label)}</span></span></button></li>`;
+}
+
+/** Source line for a profile's artwork */
+function creditMarkup(image) {
+  if (!image || !image.title) return '';
+  return `<p class="modal__credit">Portrait: <cite>${esc(image.title)}</cite>, ${esc(image.artist)}${image.date ? `, ${esc(image.date)}` : ''}. ${esc(image.license)}, via <a href="${esc(image.source)}" target="_blank" rel="noopener">Wikimedia Commons ↗</a></p>`;
 }
 
 function render(profile, index) {
@@ -74,7 +80,7 @@ function render(profile, index) {
 
   dialog.innerHTML = `
     <header class="modal__header">
-      <div class="modal__figure">${figureSVG(profile.id)}</div>
+      <div class="modal__figure">${portraitHTML(profile)}</div>
       <div>
         <p class="modal__epithet">${esc(profile.epithet)}</p>
         <h2 id="modal-title">${esc(profile.name)}</h2>
@@ -104,6 +110,7 @@ function render(profile, index) {
       </section>
       <div class="callout"><strong>Fate</strong>${esc(profile.fate)}</div>
       <div class="callout callout--olive"><strong>Did you know?</strong>${esc(profile.fact)}</div>
+      ${creditMarkup(profile.image)}
     </div>
     ${hasNav ? `
     <footer class="modal__footer">
@@ -172,7 +179,7 @@ export function renderProfileCards(grid, profiles) {
     .map(
       (p, i) => `
       <button type="button" class="profile-card reveal" style="--i:${i % 6}" data-id="${esc(p.id)}" data-side="${esc(p.side)}" aria-haspopup="dialog">
-        <span class="figure-slot">${figureSVG(p.id, { still: true })}</span>
+        <span class="figure-slot">${portraitHTML(p, { still: true })}</span>
         <span>
           <span class="profile-card__name">${esc(p.name)}</span>
           <span class="profile-card__role" style="display:block">${esc(p.role)}</span>

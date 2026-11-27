@@ -1,67 +1,53 @@
 /**
- * Timeline page: events in order, grouped by phase.
- *  • 24-book rail: jump to the events of any Book
- *  • phase filter chips
- *  • accessible disclosure cards (aria-expanded / aria-controls)
- *  • scroll progress bar
+ * Timeline page: the events in order as a carousel.
+ *  • scroll-snap track: swipe, drag the scrollbar, use the arrows or ←/→
+ *  • phase chips jump to the first event of a phase and follow the carousel
  */
 import { observeReveal } from '../core/site.js';
 import { load, loadProfiles, esc, errorState } from '../core/api.js';
-import { figureSVG } from '../core/figures.js';
+import { portraitHTML } from '../core/figures.js';
 
-const list = document.getElementById('timeline');
-const rail = document.querySelector('[data-books]');
+const track = document.querySelector('[data-track]');
 const chipBox = document.querySelector('[data-phases]');
-const progress = document.querySelector('.timeline-progress');
+const countNow = document.querySelector('[data-current]');
+const countAll = document.querySelector('[data-total]');
+const progress = document.querySelector('[data-progress]');
+const prevBtn = document.querySelector('[data-prev]');
+const nextBtn = document.querySelector('[data-next]');
 
-const chevron =
-  '<svg class="event__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function bookLabel(books) {
   if (!books.length) return '';
   return books.length === 1 ? `Book ${books[0]}` : `Books ${books[0]}–${books[books.length - 1]}`;
 }
 
-function eventMarkup(ev, profiles, i) {
+function slideMarkup(ev, i, total, phaseName, profiles) {
   const cast = ev.figures
     .map((id) => profiles.get(id))
     .filter(Boolean)
     .map((p) => {
       const page = p.kind === 'god' ? '/gods' : '/characters';
-      return `<a class="relation" href="${page}#${esc(p.id)}"><span class="relation__avatar">${figureSVG(p.id)}</span><span><strong>${esc(p.name)}</strong></span></a>`;
+      return `<a class="relation" href="${page}#${esc(p.id)}"><span class="relation__avatar">${portraitHTML(p)}</span><span><strong>${esc(p.name)}</strong></span></a>`;
     })
     .join('');
-
+  const num = String(i + 1).padStart(2, '0');
   return `
-  <li class="event reveal${ev.inPoem ? '' : ' event--outside'}" id="event-${esc(ev.id)}" data-phase="${esc(ev.phase)}" data-books="${ev.books.join(' ')}" style="--i:${i % 4}">
-    <div class="event__card">
-      <button type="button" class="event__toggle" aria-expanded="false" aria-controls="panel-${esc(ev.id)}">
-        <span>
-          <span class="event__meta">
-            ${ev.books.length ? `<span class="badge badge--book">${bookLabel(ev.books)}</span>` : ''}
-            ${ev.inPoem ? '' : '<span class="badge badge--outside">Not in the Iliad</span>'}
-          </span>
-          <span class="event__title">${esc(ev.title)}</span>
-          <span class="event__summary">${esc(ev.summary)}</span>
-        </span>
-        ${chevron}
-      </button>
-      <div class="event__panel" id="panel-${esc(ev.id)}" role="region" aria-label="${esc(ev.title)}">
-        <div><div class="event__body">
-          <p>${esc(ev.details)}</p>
-          ${cast ? `<div class="event__cast">${cast}</div>` : ''}
-        </div></div>
-      </div>
+  <article class="tl-slide${ev.inPoem ? '' : ' tl-slide--outside'}" id="event-${esc(ev.id)}" data-index="${i}"
+    role="group" aria-roledescription="slide" aria-label="${i + 1} of ${total}: ${esc(ev.title)}">
+    <header class="tl-slide__head">
+      <span class="tl-slide__num" aria-hidden="true">${num}</span>
+      <span class="tl-slide__phase">${esc(phaseName)}</span>
+    </header>
+    <div class="tl-slide__meta">
+      ${ev.books.length ? `<span class="badge badge--book">${bookLabel(ev.books)}</span>` : ''}
+      ${ev.inPoem ? '' : '<span class="badge badge--outside">Not in the Iliad</span>'}
     </div>
-  </li>`;
-}
-
-function setOpen(item, open) {
-  item.classList.toggle('is-open', open);
-  const toggle = item.querySelector('.event__toggle');
-  toggle.setAttribute('aria-expanded', String(open));
-  // Keep links in collapsed panels out of the tab order.
-  item.querySelector('.event__panel').inert = !open;
+    <h3 class="tl-slide__title">${esc(ev.title)}</h3>
+    <p class="tl-slide__summary">${esc(ev.summary)}</p>
+    <p class="tl-slide__details">${esc(ev.details)}</p>
+    ${cast ? `<div class="tl-slide__cast">${cast}</div>` : ''}
+  </article>`;
 }
 
 async function init() {
@@ -70,95 +56,108 @@ async function init() {
   try {
     [data, profiles] = await Promise.all([load('timeline'), loadProfiles()]);
   } catch {
-    list.innerHTML = errorState();
+    track.innerHTML = errorState();
     return;
   }
 
   const { phases, events } = data;
+  const phaseName = new Map(phases.map((p) => [p.id, p.label]));
+  // Events in phase order (the data is already in story order within a phase)
+  const ordered = phases.flatMap((p) => events.filter((e) => e.phase === p.id));
+  const total = ordered.length;
 
-  /* ---- Render events grouped by phase ------------------------------------ */
-  let i = 0;
-  list.innerHTML = phases
-    .map((phase) => {
-      const items = events.filter((e) => e.phase === phase.id);
-      if (!items.length) return '';
-      return `<li class="phase-label" data-phase-label="${esc(phase.id)}" role="presentation">${esc(phase.label)}</li>` +
-        items.map((ev) => eventMarkup(ev, profiles, i++)).join('');
-    })
-    .join('');
+  track.innerHTML = ordered.map((ev, i) => slideMarkup(ev, i, total, phaseName.get(ev.phase), profiles)).join('');
+  const slides = Array.from(track.querySelectorAll('.tl-slide'));
+  countAll.textContent = total;
 
-  const items = Array.from(list.querySelectorAll('.event'));
-  items.forEach((item) => setOpen(item, false));
+  /* ---- Moving the carousel ------------------------------------------------- */
+  let active = -1;
 
-  list.addEventListener('click', (event) => {
-    const toggle = event.target.closest('.event__toggle');
-    if (!toggle) return;
-    const item = toggle.closest('.event');
-    setOpen(item, !item.classList.contains('is-open'));
-  });
+  const goTo = (index, { smooth = true } = {}) => {
+    const i = Math.min(Math.max(index, 0), total - 1);
+    const slide = slides[i];
+    const left = slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2;
+    // Glide to nearby events; jump straight to far ones
+    const near = active < 0 || Math.abs(i - active) <= 3;
+    track.scrollTo({ left, behavior: smooth && near && !reduceMotion() ? 'smooth' : 'auto' });
+    setActive(i);
+  };
 
   /* ---- Phase chips ---------------------------------------------------------- */
-  chipBox.innerHTML =
-    '<button type="button" class="chip" data-phase="all" aria-pressed="true">All</button>' +
-    phases.map((p) => `<button type="button" class="chip" data-phase="${esc(p.id)}" aria-pressed="false">${esc(p.label)}</button>`).join('');
-
-  const filterBy = (phase) => {
-    items.forEach((item) => {
-      item.hidden = phase !== 'all' && item.dataset.phase !== phase;
-    });
-    list.querySelectorAll('[data-phase-label]').forEach((label) => {
-      label.hidden = phase !== 'all' && label.dataset.phaseLabel !== phase;
-    });
-    chipBox.querySelectorAll('.chip').forEach((chip) => chip.setAttribute('aria-pressed', String(chip.dataset.phase === phase)));
-    // Revealed-on-scroll items that were hidden need to show immediately.
-    items.forEach((item) => item.classList.add('is-visible'));
-  };
+  chipBox.innerHTML = phases
+    .filter((p) => ordered.some((e) => e.phase === p.id))
+    .map((p) => `<button type="button" class="chip" data-phase="${esc(p.id)}" aria-pressed="false">${esc(p.label)}</button>`)
+    .join('');
   chipBox.addEventListener('click', (event) => {
     const chip = event.target.closest('.chip');
-    if (chip) filterBy(chip.dataset.phase);
+    if (!chip) return;
+    goTo(ordered.findIndex((e) => e.phase === chip.dataset.phase));
   });
 
-  /* ---- Book rail ---------------------------------------------------------------- */
-  const covered = new Set(events.flatMap((e) => e.books));
-  rail.innerHTML = Array.from({ length: 24 }, (_, n) => {
-    const book = n + 1;
-    const has = covered.has(book);
-    return `<button type="button" class="book" data-book="${book}" ${has ? '' : 'disabled'} aria-label="Book ${book}${has ? '' : ' (no featured event)'}">${book}</button>`;
-  }).join('');
-
-  rail.addEventListener('click', (event) => {
-    const button = event.target.closest('.book');
-    if (!button || button.disabled) return;
-    const book = button.dataset.book;
-    filterBy('all');
-    rail.querySelectorAll('.book').forEach((b) => b.classList.toggle('is-active', b === button));
-
-    const matches = items.filter((item) => item.dataset.books.split(' ').includes(book));
-    matches.forEach((item) => {
-      setOpen(item, true);
-      item.classList.remove('is-flash');
-      void item.offsetWidth;
-      item.classList.add('is-flash');
-      setTimeout(() => item.classList.remove('is-flash'), 1600);
-    });
-    if (matches[0]) {
-      matches[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
-      matches[0].querySelector('.event__toggle').focus({ preventScroll: true });
+  /* ---- Keeping everything in step with the carousel ------------------------------- */
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    const ev = ordered[i];
+    slides.forEach((slide, n) => slide.classList.toggle('is-active', n === i));
+    countNow.textContent = i + 1;
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === total - 1;
+    chipBox.querySelectorAll('.chip').forEach((chip) => chip.setAttribute('aria-pressed', String(chip.dataset.phase === ev.phase)));
+    // Keep the active chip visible when the chips scroll sideways on phones
+    const chip = chipBox.querySelector('[aria-pressed="true"]');
+    if (chip && chipBox.scrollWidth > chipBox.clientWidth) {
+      chipBox.scrollTo({ left: chip.offsetLeft - chipBox.clientWidth / 2 + chip.offsetWidth / 2, behavior: reduceMotion() ? 'auto' : 'smooth' });
     }
+  }
+
+  let frame = 0;
+  const onScroll = () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const mid = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      slides.forEach((slide, n) => {
+        const dist = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - mid);
+        if (dist < bestDist) { bestDist = dist; best = n; }
+      });
+      setActive(best);
+      const max = track.scrollWidth - track.clientWidth;
+      progress.style.transform = `scaleX(${max > 0 ? Math.min(track.scrollLeft / max, 1) : 1})`;
+    });
+  };
+  track.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    // Re-centre the active slide at the new width
+    const i = active;
+    active = -1;
+    goTo(i, { smooth: false });
   });
 
-  observeReveal(list);
+  prevBtn.addEventListener('click', () => goTo(active - 1));
+  nextBtn.addEventListener('click', () => goTo(active + 1));
+  track.addEventListener('keydown', (event) => {
+    if (event.target !== track) return;
+    if (event.key === 'ArrowRight') { event.preventDefault(); goTo(active + 1); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); goTo(active - 1); }
+    if (event.key === 'Home') { event.preventDefault(); goTo(0); }
+    if (event.key === 'End') { event.preventDefault(); goTo(total - 1); }
+  });
+  // Clicking a side slide brings it to the centre
+  track.addEventListener('click', (event) => {
+    if (event.target.closest('a')) return;
+    const slide = event.target.closest('.tl-slide');
+    if (slide && !slide.classList.contains('is-active')) goTo(Number(slide.dataset.index));
+  });
+
+  // Start on the first event inside the poem, or the one named in the URL
+  const fromHash = decodeURIComponent(window.location.hash.slice(1)).replace(/^event-/, '');
+  const hashed = ordered.findIndex((e) => e.id === fromHash);
+  const firstInPoem = ordered.findIndex((e) => e.inPoem);
+  goTo(hashed > -1 ? hashed : Math.max(firstInPoem, 0), { smooth: false });
+  onScroll();
+  observeReveal(track);
 }
 
-/* ---- Scroll progress through the timeline -------------------------------------- */
-function updateProgress() {
-  if (!progress || !list) return;
-  const rect = list.getBoundingClientRect();
-  const total = rect.height - window.innerHeight * 0.5;
-  const ratio = Math.min(Math.max((window.innerHeight * 0.5 - rect.top) / Math.max(total, 1), 0), 1);
-  progress.style.transform = `scaleX(${ratio})`;
-}
-window.addEventListener('scroll', updateProgress, { passive: true });
-window.addEventListener('resize', updateProgress);
-
-init().then(updateProgress);
+init();

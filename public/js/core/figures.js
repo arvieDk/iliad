@@ -299,6 +299,18 @@ const PRESETS = {
 /* ------------------------------------------------------------------------ */
 
 /**
+ * A profile's round portrait: the artwork when the profile has one (characters),
+ * framed like the black-figure medallions; otherwise the black-figure drawing.
+ */
+export function portraitHTML(profile, options = {}) {
+  const image = profile && profile.image;
+  if (!image || !image.src) return figureSVG(profile ? profile.id : '', options);
+  const attr = (value) => String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
+  const focus = image.focus ? ` style="object-position:${attr(image.focus)}"` : '';
+  return `<span class="portrait"><img src="${attr(image.src)}" alt="" loading="lazy" decoding="async"${focus}></span>`;
+}
+
+/**
  * Return the SVG markup for a figure.
  * @param {string} id        character or god id (falls back to a plain bust)
  * @param {object} [opts]

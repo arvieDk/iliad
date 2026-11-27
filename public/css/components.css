@@ -91,6 +91,40 @@
 
 /* ---- Figures (black-figure vase style SVG busts) ---------------------------- */
 .figure { width: 100%; height: auto; overflow: visible; }
+
+/* Artwork portraits, framed like the black-figure medallions: a terracotta
+   disc, a fine ink ring, and the painting toned to the site's warm palette */
+.portrait {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 6%;
+  border-radius: 50%;
+  background: var(--clay);
+  overflow: hidden;
+}
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: sepia(0.28) saturate(0.88) contrast(1.04);
+}
+.portrait::after {
+  content: '';
+  position: absolute;
+  inset: 6%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px rgba(27, 23, 20, 0.35), inset 0 0 0 4px rgba(184, 92, 56, 0.25);
+  background: radial-gradient(circle at 50% 35%, transparent 55%, rgba(46, 26, 38, 0.18) 100%);
+  pointer-events: none;
+}
+.relation__avatar .portrait { padding: 2px; }
+.relation__avatar .portrait::after { inset: 2px; box-shadow: inset 0 0 0 1px rgba(27, 23, 20, 0.3); }
+.profile-card .portrait img { transition: transform var(--dur-slow) var(--ease); }
+.profile-card:hover .portrait img { transform: scale(1.06); }
 .figure .fig-disc { fill: var(--clay); }
 .figure .fig-ring { fill: none; stroke: var(--ink); stroke-width: 1.5; opacity: 0.35; }
 .figure .fig-ink { fill: var(--ink); }
@@ -278,6 +312,9 @@
 .modal__close:focus-visible { outline-color: var(--saffron); }
 
 .modal__body { padding: var(--space-5); overflow-y: auto; display: grid; gap: var(--space-5); }
+.modal__credit { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+.modal__credit cite { font-style: italic; }
+.modal__credit a { color: var(--clay-deep); }
 .modal__body h3 {
   font-family: var(--font-body);
   font-size: 0.78rem;

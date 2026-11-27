@@ -18,14 +18,13 @@ const escape = (value) =>
 const photoUrl = (photo) =>
   (/^(https?:)?\/\//.test(photo) || photo.startsWith('/') ? photo : FOLDER + photo.split('/').map(encodeURIComponent).join('/'));
 
-const initials = (name) =>
-  String(name || '?')
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase();
+/** First-name and surname initials, skipping middle initials: "Arvie G. Rivera" → "AR" */
+const initials = (name) => {
+  const words = String(name || '?').trim().split(/\s+/).filter((w) => !/^[A-Z]\.$/i.test(w));
+  const first = words[0] || '?';
+  const last = words.length > 1 ? words[words.length - 1] : '';
+  return (first[0] + (last ? last[0] : '')).toUpperCase();
+};
 
 function cardHtml(member, index) {
   const name = escape(member.name || 'Developer');
