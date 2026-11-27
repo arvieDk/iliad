@@ -487,28 +487,31 @@
 .dev-page h1, .dev-page .lead { text-shadow: 0 0 18px var(--ivory), 0 0 8px var(--ivory), 0 0 3px var(--ivory); }
 
 .dev-wide { max-width: 82rem; }
-.dev-temple {
-  --pillar: clamp(16px, 2.4vw, 34px);
-  --card-min: 150px;
-  --card-max: 210px;
-  --gap: clamp(6px, 1vw, 12px);
+
+/* The stage: a temple drawn behind, framed portraits hung in front of it */
+.dev-stage {
   --ped-h: clamp(70px, 11vw, 160px);
   --overhang: clamp(6px, 1.6vw, 22px);
   --stone: rgba(250, 246, 239, 0.5);
-  --edge: rgba(168, 123, 69, 0.75);
+  --edge: rgba(168, 123, 69, 0.7);
   position: relative;
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
   /* Lift the pediment up behind the title and subtitle */
   margin-top: calc(-1 * var(--ped-h));
-}
-@media (max-width: 559px) {
-  .dev-temple { --card-min: 118px; }
+  padding: calc(var(--ped-h) + clamp(28px, 3.6vw, 44px) + var(--space-6)) clamp(var(--space-3), 4vw, var(--space-8)) calc(var(--space-7) + 42px);
 }
 
+/* ---- The temple, purely decorative ---- */
+.dev-temple {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
 .dev-pediment {
   display: block;
+  flex: none;
   width: calc(100% + 2 * var(--overhang));
   height: var(--ped-h);
   margin-inline: calc(-1 * var(--overhang));
@@ -516,46 +519,34 @@
 }
 .dev-pediment path { fill: var(--stone); stroke: var(--edge); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .dev-pediment .dev-pediment__inner { fill: none; stroke-opacity: 0.55; }
-
 /* Entablature: a frieze of triglyphs over a plain architrave */
 .dev-beam {
+  flex: none;
   height: clamp(28px, 3.6vw, 44px);
   margin-inline: calc(-1 * var(--overhang) / 2);
   border: 1.5px solid var(--edge);
+  border-top-width: 3px;
   background:
     linear-gradient(var(--edge), var(--edge)) 0 55% / 100% 1px no-repeat,
     repeating-linear-gradient(90deg, transparent 0 18px, rgba(168, 123, 69, 0.4) 18px 20px, transparent 20px 24px, rgba(168, 123, 69, 0.4) 24px 26px, transparent 26px 30px, rgba(168, 123, 69, 0.4) 30px 32px, transparent 32px 50px) 0 0 / 100% 55% no-repeat,
     var(--stone);
 }
-.dev-beam--top { border-top-width: 3px; }
-.dev-colonnade > .dev-beam { margin-block: 0; }
-
-.dev-colonnade { display: grid; }
-.dev-colonnade > .state { padding: var(--space-7) var(--space-4); text-align: center; }
-
-/* One row: pillar, card, pillar, card, ..., pillar */
-.dev-row {
+.dev-colonnade {
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: var(--gap);
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  justify-content: space-between;
+  padding-inline: clamp(6px, 2vw, 28px);
 }
-
 .dev-pillar {
   --cap: clamp(14px, 1.8vw, 22px);
   position: relative;
-  flex: 0 0 var(--pillar);
-  /* Two outlines, fluting and a pale fill, all starting under the capital */
+  flex: 0 0 clamp(16px, 2.6vw, 38px);
   background:
     linear-gradient(var(--edge), var(--edge)) left var(--cap) / 1.5px calc(100% - var(--cap)) no-repeat,
     linear-gradient(var(--edge), var(--edge)) right var(--cap) / 1.5px calc(100% - var(--cap)) no-repeat,
     repeating-linear-gradient(90deg, transparent 0 5px, rgba(168, 123, 69, 0.3) 5px 6px) center var(--cap) / calc(100% - 8px) calc(100% - var(--cap)) no-repeat,
     linear-gradient(var(--stone), var(--stone)) center var(--cap) / 100% calc(100% - var(--cap)) no-repeat;
 }
-/* Abacus */
 .dev-pillar::before {
   content: '';
   position: absolute;
@@ -566,7 +557,6 @@
   border: 1.5px solid var(--edge);
   background: var(--stone);
 }
-/* Echinus */
 .dev-pillar::after {
   content: '';
   position: absolute;
@@ -578,79 +568,82 @@
   opacity: 0.55;
   clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
 }
-
-.dev-card {
-  position: relative;
-  flex: 0 0 var(--card-w, 12.5rem);
-  min-width: 0;
-  display: grid;
-  align-content: start;
-  gap: var(--space-2);
-  margin-block: var(--space-4);
-  padding: var(--space-4);
-  border-radius: var(--radius);
-  background: rgba(229, 230, 216, 0.9);
-  border: 1px solid rgba(255, 253, 249, 0.7);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-}
-/* Numbered like the How to play steps */
-.dev-card__num {
-  position: absolute;
-  z-index: 1;
-  left: calc(var(--space-4) + var(--space-2));
-  top: calc(var(--space-4) + var(--space-2));
-  display: grid;
-  place-items: center;
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--ivory);
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-.dev-card__photo {
-  position: relative;
-  margin: 0 0 var(--space-2);
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: var(--dawn);
-  box-shadow: inset 0 0 0 1px rgba(27, 23, 20, 0.08);
-}
-.dev-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-/* No photo yet: initials on a terracotta ground */
-.dev-card__photo.is-empty {
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 50% 40%, var(--clay) 0%, var(--clay-deep) 100%);
-}
-.dev-card__photo.is-empty::after {
-  content: attr(data-initials);
-  font-family: var(--font-display);
-  font-size: 2.6rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--ivory);
-}
-.dev-card__name { font-size: clamp(1.05rem, 0.85rem + 0.5vw, 1.3rem); line-height: 1.15; overflow-wrap: anywhere; }
-
-/* Three steps (the stylobate) */
-.dev-steps { display: grid; }
-.dev-steps span {
-  height: clamp(9px, 1.1vw, 14px);
-  border: 1.5px solid var(--edge);
-  border-top-width: 0;
-  background: var(--stone);
-}
+@media (max-width: 767px) { .dev-pillar:nth-child(n + 6) { display: none; } }
+.dev-steps { flex: none; display: grid; }
+.dev-steps span { height: clamp(9px, 1.1vw, 14px); border: 1.5px solid var(--edge); border-top-width: 0; background: var(--stone); }
 .dev-steps span:first-child { margin-inline: calc(-0.5 * var(--overhang)); border-top-width: 1.5px; }
 .dev-steps span:nth-child(2) { margin-inline: calc(-1 * var(--overhang)); }
 .dev-steps span:nth-child(3) { margin-inline: calc(-1.5 * var(--overhang)); }
 
+/* ---- The portraits: picture frames with a museum plaque ---- */
+.dev-gallery {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-7) clamp(var(--space-4), 2.4vw, var(--space-6));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dev-gallery > .state { flex: 1 1 100%; text-align: center; }
+.dev-frame {
+  flex: 0 1 12.5rem;
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+}
+/* Gilded moulding: light from the top left, a darker inner lip */
+.dev-frame__art {
+  width: 100%;
+  margin: 0;
+  padding: clamp(8px, 0.9vw, 12px);
+  border-radius: 3px;
+  background: linear-gradient(135deg, #e6c98f 0%, #b88a4e 22%, #f1dcaa 45%, #9b6a36 70%, #d7b27a 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 244, 214, 0.55),
+    inset 0 0 0 3px rgba(122, 85, 40, 0.35),
+    0 1px 2px rgba(46, 26, 38, 0.2),
+    0 14px 28px -10px rgba(46, 26, 38, 0.45);
+}
+.dev-frame__mat {
+  padding: clamp(6px, 0.8vw, 10px);
+  background: var(--ivory);
+  box-shadow: inset 0 0 0 1px rgba(122, 85, 40, 0.45), inset 0 2px 6px rgba(46, 26, 38, 0.18);
+}
+.dev-frame__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--dawn);
+  box-shadow: inset 0 0 0 1px rgba(27, 23, 20, 0.12);
+}
+.dev-frame__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; }
+/* No photo yet: initials on a terracotta ground */
+.dev-frame__photo.is-empty { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, var(--clay) 0%, var(--clay-deep) 100%); }
+.dev-frame__photo.is-empty::after { content: attr(data-initials); font-family: var(--font-display); font-size: 2.6rem; font-weight: 600; letter-spacing: 0.06em; color: var(--ivory); }
+
+/* The plaque under each frame */
+.dev-frame__plaque {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid rgba(168, 123, 69, 0.55);
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.95), rgba(243, 234, 216, 0.95));
+  box-shadow: 0 1px 2px rgba(46, 26, 38, 0.12);
+  text-align: center;
+}
+.dev-frame__num { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; color: var(--bronze-text); }
+.dev-frame__name { font-size: clamp(1rem, 0.85rem + 0.45vw, 1.2rem); line-height: 1.2; overflow-wrap: anywhere; }
+
 @media (max-width: 559px) {
-  .dev-card { padding: var(--space-3); margin-block: var(--space-3); }
-  .dev-card__num { left: calc(var(--space-3) + var(--space-2)); top: calc(var(--space-3) + var(--space-2)); width: 1.5rem; height: 1.5rem; font-size: 0.78rem; }
-  .dev-card__photo.is-empty::after { font-size: 2rem; }
-  .dev-card__name { font-size: 1.1rem; }
+  .dev-gallery { gap: var(--space-5) var(--space-3); }
+  .dev-frame { flex-basis: calc(50% - var(--space-3) / 2); gap: var(--space-3); }
+  .dev-frame__photo.is-empty::after { font-size: 2rem; }
 }

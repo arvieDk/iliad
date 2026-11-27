@@ -38,11 +38,11 @@ No settings are needed:
 | `/` | Four bands over a fixed, faded painting: title, summary with an "at a glance" facts card and links to Britannica and the full text, a live 3-question mini quiz, and the board game teaser with its credit |
 | `/story` | Eight chapters. Read short beats, choose as the character, then see what Homer wrote (Book cited). Progress is saved in the browser |
 | `/characters` | Eleven mortals with Greek/Trojan filters and profile modals (key moments, connections, fate, a "did you know"). Each is shown with a public-domain or openly licensed artwork, framed as a terracotta medallion |
-| `/gods` | Eleven gods with the same modals, plus an alliance board based on the sides listed in Book 20 |
+| `/gods` | Eleven gods with the same modals and artwork portraits, plus an alliance board based on the sides listed in Book 20 |
 | `/timeline` | Twenty-one events as a carousel (swipe, arrows, ←/→ keys) with phase chips that follow along. Each event cites its Book, and events that are *not* in the Iliad are flagged |
 | `/quiz` | Two modes in tabs. **Classic quiz:** ten random questions from a pool of eighteen, with instant feedback, sources, streaks and a saved best score. **Battle of Troy** (`/quiz#battle`): a visual novel, described below |
 | `/game` | **Iliad: Greeks vs Trojans**, the board game (below) |
-| `/developers` | The team inside a temple front: one card per developer (photo and name) standing between two pillars, under a pediment that rises behind the title. Edited in `public/content/developers/` (see below) |
+| `/developers` | The team as framed portraits with name plaques, in front of a temple drawn as the background. Edited in `public/content/developers/` (see below) |
 
 ### Greeks vs Trojans (board game)
 
@@ -72,8 +72,8 @@ What the redesign adds:
   - line and token choices you can click directly on the board
   - Escape puts back a picked tile
 - **Animations:** a coin toss, a turn coin that flips, tiles dropping in and flipping face down, lines flashing when scored, and an end-of-game tally followed by a full score breakdown.
-- **Saving:** the game is saved after every move, so a reload offers "Continue game".
-- **Layout:** the play area fits on one screen. The board is sized from the window height, so there's no scrolling on laptops, desktops, tablets or most phones. The start menu is laid out flat over the board, with no card. The Sound button opens a small panel with on/off, music and effects volume.
+- **Saving:** the game is saved after every move. Every visit opens on the menu with **New game** as the main choice; if a game was interrupted, "Continue game" is offered beside it.
+- **Layout:** the play area fits on one screen. On laptops and desktops the board takes whatever room is left after the title, status and market (a CSS container query), so short windows, such as Brave with a bookmarks bar, never scroll. The start menu is laid out flat over the board, with no card. The Sound button opens a small panel with on/off, music and effects volume.
 - **Other:** a chronicle (game log), soft synthesized lyre-like sound with volume settings, a phone layout that keeps the active hand under the board, and a pieces legend on the page.
 
 Code: `public/js/game/engine.js` (rules, no DOM), `ai.js` (computer opponent), `art.js` (all artwork), `audio.js` (sound), `public/js/pages/game.js` (interface), `public/css/game.css`.
@@ -136,6 +136,7 @@ public/
   img/favicon.svg
   img/iliad-background.jpg  Home page background painting
   img/characters/           Character portraits (credits in data/characters.json)
+  img/gods/                 God portraits (credits in data/gods.json)
   img/banners/              Page banners for Story, Characters, Gods, Timeline, Quiz
   content/developers/       Developers page content and photos (editable)
 ```
@@ -181,7 +182,7 @@ The characters are drawn in black-figure style: ink silhouettes on terracotta, w
 
 Character portraits and page banners are artworks from Wikimedia Commons, either in the public domain or under Creative Commons licences:
 
-- Each character's artwork, artist, date, licence and source link are in `public/data/characters.json` (`image`), and are shown at the bottom of their profile.
+- Each character's and god's artwork, artist, date, licence and source link are in `public/data/characters.json` and `public/data/gods.json` (`image`), and are shown at the bottom of their profile. The Story chapters and the alliance board use the same portraits.
 - Each banner's credit is printed in the corner of its page header.
 - The cropped photos of the Sosias cup (Patroclus) and the Giaquinto painting (Odysseus) are shared under CC BY-SA 4.0, like the originals. The Characters and Timeline banners are CC BY 2.0 and CC BY 3.0.
 

@@ -104,7 +104,7 @@ async function init() {
 
     // Cast: the characters of this chapter, the chooser first.
     const cast = article.querySelector('[data-cast]');
-    ch.figures.forEach((id) => cast.appendChild(createActor(id, profiles.get(id)?.name || '', { enter: false })));
+    ch.figures.forEach((id) => cast.appendChild(createActor(id, profiles.get(id)?.name || '', { enter: false, profile: profiles.get(id) })));
 
     article.querySelectorAll('[data-option]').forEach((button) => {
       button.addEventListener('click', () => {

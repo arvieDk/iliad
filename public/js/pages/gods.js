@@ -4,7 +4,7 @@
  */
 import { observeReveal } from '../core/site.js';
 import { load, loadProfiles, esc, errorState } from '../core/api.js';
-import { figureSVG } from '../core/figures.js';
+import { portraitHTML } from '../core/figures.js';
 import { openProfile, renderProfileCards } from '../core/modal.js';
 
 const grid = document.getElementById('god-grid');
@@ -15,7 +15,7 @@ const focusButtons = document.querySelectorAll('[data-focus-side]');
 /** A small clickable chip with a figure, used on the alliance board. */
 const personChip = (p) =>
   `<button type="button" class="relation" data-open="${esc(p.id)}" aria-haspopup="dialog">` +
-  `<span class="relation__avatar">${figureSVG(p.id)}</span><span><strong>${esc(p.name)}</strong></span></button>`;
+  `<span class="relation__avatar">${portraitHTML(p)}</span><span><strong>${esc(p.name)}</strong></span></button>`;
 
 async function init() {
   let gods;
@@ -59,7 +59,7 @@ async function init() {
   fill('[data-list="trojan-heroes"]', characters.filter((c) => c.side === 'trojan'));
 
   const zeusSlot = board.querySelector('[data-zeus]');
-  if (zeusSlot) zeusSlot.innerHTML = figureSVG('zeus');
+  if (zeusSlot) zeusSlot.innerHTML = portraitHTML(gods.find((g) => g.id === 'zeus') || { id: 'zeus' });
 
   board.addEventListener('click', (event) => {
     const trigger = event.target.closest('[data-open]');

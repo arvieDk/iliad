@@ -341,11 +341,13 @@ export function figureSVG(id, { still = false, label = '', omit = [] } = {}) {
  * Build an "actor": a figure that can walk in and react to answers.
  * Returns the element; call react(el, 'correct' | 'wrong') to animate it.
  */
-export function createActor(id, name = '', { enter = true, mirror = false } = {}) {
+export function createActor(id, name = '', { enter = true, mirror = false, profile = null } = {}) {
   const el = document.createElement('div');
-  el.className = `actor${mirror ? ' actor--mirror' : ''}`;
+  // With a profile that has artwork, show its portrait instead of the drawing
+  const portrait = profile && profile.image && profile.image.src;
+  el.className = `actor${mirror ? ' actor--mirror' : ''}${portrait ? ' actor--portrait' : ''}`;
   el.innerHTML =
-    `<div class="actor__inner">${figureSVG(id)}</div>` +
+    `<div class="actor__inner">${portrait ? portraitHTML(profile) : figureSVG(id)}</div>` +
     (name ? `<p class="actor__name">${name}</p>` : '');
 
   if (enter) {

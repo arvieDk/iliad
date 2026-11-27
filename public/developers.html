@@ -58,18 +58,24 @@
           <p class="lead reveal" style="--i:2" data-dev-intro>The people who built The Iliad Interactive.</p>
         </div>
       </div>
-      <!-- The temple: pediment and beam above, a colonnade of cards, steps below -->
+      <!-- Framed portraits in front of a temple drawn as a background -->
       <div class="container dev-wide">
-        <div class="dev-temple" id="dev-temple">
-          <svg class="dev-pediment" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 150 L500 4 L1000 150 Z" />
-            <path d="M70 140 L500 22 L930 140 Z" class="dev-pediment__inner" />
-          </svg>
-          <div class="dev-beam dev-beam--top" aria-hidden="true"></div>
-          <div class="dev-colonnade" data-colonnade>
-            <p class="state">Gathering the team…</p>
+        <div class="dev-stage">
+          <div class="dev-temple" aria-hidden="true">
+            <svg class="dev-pediment" viewBox="0 0 1000 150" preserveAspectRatio="none">
+              <path d="M0 150 L500 4 L1000 150 Z" />
+              <path d="M70 140 L500 22 L930 140 Z" class="dev-pediment__inner" />
+            </svg>
+            <div class="dev-beam"></div>
+            <div class="dev-colonnade">
+              <span class="dev-pillar"></span><span class="dev-pillar"></span><span class="dev-pillar"></span><span class="dev-pillar"></span>
+              <span class="dev-pillar"></span><span class="dev-pillar"></span><span class="dev-pillar"></span><span class="dev-pillar"></span>
+            </div>
+            <div class="dev-steps"><span></span><span></span><span></span></div>
           </div>
-          <div class="dev-steps" aria-hidden="true"><span></span><span></span><span></span></div>
+          <ol class="dev-gallery" id="dev-gallery" role="list">
+            <li class="state">Gathering the team…</li>
+          </ol>
         </div>
       </div>
     </section>

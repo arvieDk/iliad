@@ -565,7 +565,8 @@ function openStart() {
   $$('[name="g-mode"]').forEach((input) => { input.checked = input.value === ui.mode; });
   el.start.hidden = false;
   el.winDialog.open && el.winDialog.close();
-  (canContinue ? $('[data-continue]') : $('[data-new-game]')).focus({ preventScroll: true });
+  // New game is always the main choice; Continue only offers an interrupted game
+  $('[data-new-game]').focus({ preventScroll: true });
 }
 
 function closeStart() {
@@ -881,10 +882,9 @@ $('[data-open-log]').innerHTML = `${art.icon('log')}<span>Chronicle</span>`;
 $$('[data-open-start]').forEach((b) => { if (b.classList.contains('tool')) b.innerHTML = `${art.icon('menu')}<span>Menu</span>`; });
 $('[data-restart]').innerHTML = `${art.icon('restart')}<span>Restart</span>`;
 
-const restored = restore();
+// Every visit starts at the menu. A game that was interrupted (reload, closed
+// tab) is restored behind it and offered as "Continue game"; a finished one is
+// not, so the only choice is a new game.
+restore();
 render();
-if (restored && game.state.mode === 'over') {
-  el.start.hidden = true;
-} else {
-  openStart();
-}
+openStart();

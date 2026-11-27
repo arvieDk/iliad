@@ -20,7 +20,8 @@
       { "id": "thetis", "label": "Owes a favour to" }
     ],
     "fate": "Above the sides — he lets the gods take part in the fighting from Book 20.",
-    "fact": "In Book 14 Hera lulls him to sleep so Poseidon can help the Greeks behind his back."
+    "fact": "In Book 14 Hera lulls him to sleep so Poseidon can help the Greeks behind his back.",
+    "image": { "src": "/img/gods/zeus.jpg", "focus": "50% 50%", "title": "Jupiter and Thetis (detail)", "artist": "Jean-Auguste-Dominique Ingres", "date": "1811", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Jupiter_and_Thetis_(Ingres).jpg" }
   },
   {
     "id": "hera",
@@ -41,7 +42,8 @@
       { "id": "aphrodite", "label": "Rival" }
     ],
     "fate": "Sides with the Greeks throughout.",
-    "fact": "Book 24 hints at the Judgment of Paris — the insult behind her hatred of Troy."
+    "fact": "Book 24 hints at the Judgment of Paris — the insult behind her hatred of Troy.",
+    "image": { "src": "/img/gods/hera.jpg", "focus": "50% 50%", "title": "Juno", "artist": "Rembrandt", "date": "c. 1662–65", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Rembrandt_-_Juno_-_WGA19191.jpg" }
   },
   {
     "id": "athena",
@@ -64,7 +66,8 @@
       { "id": "ares", "label": "Opposes" }
     ],
     "fate": "Sides with the Greeks throughout.",
-    "fact": "Only Achilles can see her when she stops him in Book 1."
+    "fact": "Only Achilles can see her when she stops him in Book 1.",
+    "image": { "src": "/img/gods/athena.jpg", "focus": "50% 50%", "title": "Pallas Athene", "artist": "Franz von Stuck", "date": "1898", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Pallas_Athene_by_Franz_von_Stuck,_1898.jpg" }
   },
   {
     "id": "apollo",
@@ -85,7 +88,8 @@
       { "id": "poseidon", "label": "Refuses to fight" }
     ],
     "fate": "Sides with Troy. Hector, dying, says Apollo will help Paris kill Achilles.",
-    "fact": "In Book 21 he refuses to duel his uncle Poseidon, saying mortals are not worth gods fighting over."
+    "fact": "In Book 21 he refuses to duel his uncle Poseidon, saying mortals are not worth gods fighting over.",
+    "image": { "src": "/img/gods/apollo.jpg", "focus": "50% 50%", "title": "Apollo pouring a libation, white-ground cup (detail)", "artist": "photo by Zde", "date": "c. 480–470 BCE", "license": "CC BY-SA 4.0", "source": "https://commons.wikimedia.org/wiki/File:Kylix_with_Apollo,_AM_of_Delphi_8140,_201390.jpg" }
   },
   {
     "id": "poseidon",
@@ -105,7 +109,8 @@
       { "id": "apollo", "label": "Challenges" }
     ],
     "fate": "Sides with the Greeks.",
-    "fact": "He says he built Troy's walls for Laomedon, who then refused to pay."
+    "fact": "He says he built Troy's walls for Laomedon, who then refused to pay.",
+    "image": { "src": "/img/gods/poseidon.jpg", "focus": "50% 50%", "title": "Poseidon of Melos (detail)", "artist": "photo by George E. Koronaios", "date": "c. 125–100 BCE", "license": "CC0", "source": "https://commons.wikimedia.org/wiki/File:Marble_statue_of_Poseidon_from_Melos._125-100_B.C.jpg" }
   },
   {
     "id": "aphrodite",
@@ -125,7 +130,8 @@
       { "id": "ares", "label": "Ally" }
     ],
     "fate": "Sides with Troy.",
-    "fact": "After Diomedes wounds her she flees to Olympus, where Zeus tells her to stick to love, not war."
+    "fact": "After Diomedes wounds her she flees to Olympus, where Zeus tells her to stick to love, not war.",
+    "image": { "src": "/img/gods/aphrodite.jpg", "focus": "50% 50%", "title": "Aphrodite riding a goose, white-ground cup (detail)", "artist": "Pistoxenos Painter", "date": "c. 460 BCE", "license": "CC BY 2.5", "source": "https://commons.wikimedia.org/wiki/File:Aphrodite_swan_BM_D2.jpg" }
   },
   {
     "id": "ares",
@@ -145,7 +151,8 @@
       { "id": "zeus", "label": "Father" }
     ],
     "fate": "Sides with Troy.",
-    "fact": "When wounded he bellows as loudly as nine or ten thousand men in battle."
+    "fact": "When wounded he bellows as loudly as nine or ten thousand men in battle.",
+    "image": { "src": "/img/gods/ares.jpg", "focus": "50% 50%", "title": "Head of the Ares Borghese", "artist": "Roman copy of a Greek original; photo by Yair Haklai", "license": "CC BY-SA 4.0", "source": "https://commons.wikimedia.org/wiki/File:Ares_Borghese_head_(Munich).jpg" }
   },
   {
     "id": "hephaestus",
@@ -165,7 +172,8 @@
       { "id": "achilles", "label": "Arms" }
     ],
     "fate": "Sides with the Greeks.",
-    "fact": "The shield he makes shows a whole world: cities at peace and war, farms, vineyards and dancing."
+    "fact": "The shield he makes shows a whole world: cities at peace and war, farms, vineyards and dancing.",
+    "image": { "src": "/img/gods/hephaestus.jpg", "focus": "50% 50%", "title": "Apollo in the Forge of Vulcan (detail)", "artist": "Diego Velázquez", "date": "1630", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Diego_Vel%C3%A1zquez_-_The_Forge_of_Vulcan_-_WGA24376.jpg" }
   },
   {
     "id": "hermes",
@@ -184,7 +192,8 @@
       { "id": "priam", "label": "Guides" }
     ],
     "fate": "Sides with the Greeks, yet serves Zeus's will in helping Priam.",
-    "fact": "He casts sleep on the Greek sentries so Priam's wagon can pass unseen."
+    "fact": "He casts sleep on the Greek sentries so Priam's wagon can pass unseen.",
+    "image": { "src": "/img/gods/hermes.jpg", "focus": "50% 50%", "title": "Hermes and Herse, red-figure lekythos (detail)", "artist": "Athenian vase painter", "date": "5th century BCE", "license": "CC BY 2.5", "source": "https://commons.wikimedia.org/wiki/File:Lekythos_Hermes_Herse_MAN.jpg" }
   },
   {
     "id": "artemis",
@@ -203,7 +212,8 @@
       { "id": "hera", "label": "Humiliated by" }
     ],
     "fate": "Sides with Troy.",
-    "fact": "She and Apollo are children of Leto, who also sides with Troy."
+    "fact": "She and Apollo are children of Leto, who also sides with Troy.",
+    "image": { "src": "/img/gods/artemis.jpg", "focus": "50% 50%", "title": "Diana of Versailles (detail)", "artist": "Roman copy after Leochares", "date": "1st–2nd century CE", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Detail_Diana_Versailles_Louvre_Ma589.jpg" }
   },
   {
     "id": "thetis",
@@ -224,6 +234,7 @@
       { "id": "hephaestus", "label": "Old friend" }
     ],
     "fate": "Supports Achilles above all.",
-    "fact": "She is not an Olympian but a Nereid — one of the daughters of the old sea god."
+    "fact": "She is not an Olympian but a Nereid — one of the daughters of the old sea god.",
+    "image": { "src": "/img/gods/thetis.jpg", "focus": "50% 50%", "title": "Jupiter and Thetis (detail)", "artist": "Jean-Auguste-Dominique Ingres", "date": "1811", "license": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Jupiter_and_Thetis_(Ingres).jpg" }
   }
 ]

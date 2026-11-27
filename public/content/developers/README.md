@@ -20,8 +20,8 @@ edit `developers.json` and drop photos in here. No code changes are needed.
 
 3. Add more people by copying a line, or remove the lines you don't need.
    The cards keep the order of the list, and the number on each card follows it.
-   Each card stands between two pillars of the temple; the rows rearrange
-   themselves to fit the screen, so any number of people works.
+   Each photo is shown in a gilded picture frame with a name plaque, in front
+   of the temple; the frames wrap onto more rows when there are more people.
    Keep a comma between entries, but not after the last one.
 
 You can also change `eyebrow` (the small label), `title` and `intro` at the top.
